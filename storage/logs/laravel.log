@@ -1,0 +1,315 @@
+[2019-08-19 23:01:09] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#5 E:\phpStudy\WWW\manhua\manga2\index.php(31): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#6 {main}  
+[2019-08-19 23:06:21] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2019-08-19 23:06:27] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2019-08-19 23:06:38] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2019-08-19 23:06:43] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2019-08-19 23:08:10] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Illuminate\Validation\Rules\In::__set_state() in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\bootstrap\cache\config.php:492
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadConfiguration.php(28): require()
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap(Object(Illuminate\Foundation\Application))
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2019-08-19 23:48:53] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(31): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:51:49] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(31): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:37] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:38] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:38] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:38] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:39] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:39] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:40] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:53:40] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:15] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:16] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:17] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:18] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:18] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:55:20] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:56:42] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:56:43] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
+[2019-08-19 23:56:45] production.ERROR: Dotenv\Exception\InvalidFileException: Dotenv values containing spaces must be surrounded by quotes. in E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php:228
+Stack trace:
+#0 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(97): Dotenv\Loader->sanitiseVariableValue('APP_NAME', 'My Manga Reader...')
+#1 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(330): Dotenv\Loader->normaliseEnvironmentVariable('APP_NAME', 'My Manga Reader...')
+#2 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Loader.php(58): Dotenv\Loader->setEnvironmentVariable('APP_NAME=My Man...')
+#3 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(91): Dotenv\Loader->load()
+#4 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\vlucas\phpdotenv\src\Dotenv.php(48): Dotenv\Dotenv->loadData()
+#5 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables.php(27): Dotenv\Dotenv->load()
+#6 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables->bootstrap(Object(Illuminate\Foundation\Application))
+#7 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(162): Illuminate\Foundation\Application->bootstrapWith(Array)
+#8 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(146): Illuminate\Foundation\Http\Kernel->bootstrap()
+#9 E:\phpStudy\WWW\manhua\manga2\mymangacms_base\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#10 E:\phpStudy\WWW\manhua\manga2\index.php(32): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#11 {main}  
