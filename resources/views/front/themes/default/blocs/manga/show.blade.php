@@ -27,19 +27,28 @@
 @include('front.themes.'.$theme.'.blocs.menu')
 
 @section('header')
-{!!Jraty::js()!!}
-
-{!!Jraty::js_init(array(
-'score' => 'function() { return $(this).attr(\'data-score\'); }',
-'number' => 5,
-'click' => 'function(score, evt) {
-$.post("'.URL::to('/').'/save/item_rating",{
-item_id: $(\'[data-item]\').attr(\'data-item\'),
-score: score
+<?php
+//include base_path().'/vendor/escapeboy/jraty/src/Escapeboy/Jraty/Jraty.php';
+?>
+<script src="packages/escapeboy/jraty/raty/lib/jquery.raty.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#item-rating').raty({
+        'score': function () {
+            return $(this).attr('data-score');
+        },
+        'number': 5,
+        'click': function (score, evt) {
+            $.post('save/item_rating', {
+                item_id: $('[data-item]').attr('data-item'),
+                score: score
+            });
+        },
+        'path': 'packages/escapeboy/jraty/raty/lib/img'
+    });
 });
-}',
-'path' => "'".asset('/packages/escapeboy/jraty/raty/lib/img')."'"
-)) !!}
+</script>
+
 @stop
 
 @section('allpage')

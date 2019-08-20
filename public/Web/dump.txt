@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 192.168.4.13
-Source Server Version : 50717
-Source Host           : 192.168.4.13:3306
-Source Database       : manga2
+Source Server         : 127.0.0.1
+Source Server Version : 50547
+Source Host           : localhost:3306
+Source Database       : manga
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2019-08-20 18:06:30
+Date: 2019-08-21 07:42:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,12 +28,13 @@ CREATE TABLE `activations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of activations
 -- ----------------------------
 INSERT INTO `activations` VALUES ('1', '1', 'xreOuWRGvXZJmCAtb3fgqc0az9xwbU3Y', '1', '2019-08-20 06:56:00', '2019-08-20 06:56:00', null);
+INSERT INTO `activations` VALUES ('2', '2', 'jp0pXL4QO1pTEwq15icOvStC5VavqDOC', '1', '2019-08-21 07:27:52', '2019-08-21 07:27:52', '2019-08-21 07:27:52');
 
 -- ----------------------------
 -- Table structure for ad
@@ -219,11 +220,12 @@ CREATE TABLE `chapter` (
   KEY `chapter_user_id_foreign` (`user_id`),
   CONSTRAINT `chapter_manga_id_foreign` FOREIGN KEY (`manga_id`) REFERENCES `manga` (`id`),
   CONSTRAINT `chapter_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of chapter
 -- ----------------------------
+INSERT INTO `chapter` VALUES ('1', '1', '第0回', '1', '0', '1', '1', '2019-08-20 22:16:00', '2019-08-20 22:16:00');
 
 -- ----------------------------
 -- Table structure for comictype
@@ -355,8 +357,8 @@ CREATE TABLE `manga` (
 -- ----------------------------
 -- Records of manga
 -- ----------------------------
-INSERT INTO `manga` VALUES ('1', '动作', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', null, null, '0', '0', '0', null, null, '1', '1', '2019-08-20 10:00:29', '2019-08-20 10:00:29');
-INSERT INTO `manga` VALUES ('2', 'bingdunvyou', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', null, null, '0', '0', '0', null, null, '1', '1', '2019-08-20 10:01:33', '2019-08-20 10:01:33');
+INSERT INTO `manga` VALUES ('1', 'wodebingdunvyou', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', '1', null, '0', '1', '0', null, null, '1', '1', '2019-08-20 10:00:29', '2019-08-20 22:50:38');
+INSERT INTO `manga` VALUES ('2', 'bingdunvyou', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', '1', null, '0', '0', '0', null, null, '1', '1', '2019-08-20 10:01:33', '2019-08-20 21:42:48');
 INSERT INTO `manga` VALUES ('3', '连载漫画', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', null, null, '0', '0', '0', null, null, '1', '1', '2019-08-20 10:03:59', '2019-08-20 10:03:59');
 INSERT INTO `manga` VALUES ('4', 'okbang', '我的病毒女友', '我的女友是丧尸', '2019-08-20', '', null, null, '0', '0', '0', null, null, '1', '1', '2019-08-20 10:04:55', '2019-08-20 10:04:55');
 
@@ -518,7 +520,7 @@ CREATE TABLE `options` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `options_key_unique` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of options
@@ -563,11 +565,15 @@ CREATE TABLE `page` (
   PRIMARY KEY (`id`),
   KEY `page_chapter_id_foreign` (`chapter_id`),
   CONSTRAINT `page_chapter_id_foreign` FOREIGN KEY (`chapter_id`) REFERENCES `chapter` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of page
 -- ----------------------------
+INSERT INTO `page` VALUES ('1', '1', 'http://47.99.120.184/a5158e8d61adcbb0a0194ef89562fd73', '1', '1', '2019-08-20 22:17:59', '2019-08-20 22:17:59');
+INSERT INTO `page` VALUES ('2', '2', 'http://47.99.120.184/cf8bb1d156aa44645e1242df60247de1', '1', '1', '2019-08-20 22:17:59', '2019-08-20 22:17:59');
+INSERT INTO `page` VALUES ('3', '3', 'http://47.99.120.184/3652389b769897725d77815e517e8df4', '1', '1', '2019-08-20 22:17:59', '2019-08-20 22:17:59');
+INSERT INTO `page` VALUES ('4', '4', '04.jpg', '0', '1', '2019-08-20 22:26:54', '2019-08-20 22:26:54');
 
 -- ----------------------------
 -- Table structure for page_cms
@@ -605,13 +611,15 @@ CREATE TABLE `persistences` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `persistences_code_unique` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of persistences
 -- ----------------------------
 INSERT INTO `persistences` VALUES ('1', '1', 'qReDBvaIJIiDY7jvlECMEQW7PZbI3lXl', '2019-08-20 06:57:33', '2019-08-20 06:57:33');
 INSERT INTO `persistences` VALUES ('2', '1', 'HsTpYpUYUBFMEBsxUW8tXYGb47qv8Y4b', '2019-08-20 08:36:25', '2019-08-20 08:36:25');
+INSERT INTO `persistences` VALUES ('3', '1', '2Vqcvi733HqGX7qNCjKMbLvrVCsQum4s', '2019-08-20 12:30:27', '2019-08-20 12:30:27');
+INSERT INTO `persistences` VALUES ('5', '2', 'yqgmoEzBqtmClRMNavCbA0TszWlf3494', '2019-08-21 07:28:00', '2019-08-21 07:28:00');
 
 -- ----------------------------
 -- Table structure for placement
@@ -711,6 +719,7 @@ CREATE TABLE `role_users` (
 -- Records of role_users
 -- ----------------------------
 INSERT INTO `role_users` VALUES ('1', '1', '2019-08-20 06:56:00', null);
+INSERT INTO `role_users` VALUES ('2', '3', '2019-08-21 07:27:52', '2019-08-21 07:27:52');
 
 -- ----------------------------
 -- Table structure for status
@@ -760,13 +769,16 @@ CREATE TABLE `throttle` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `throttle_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of throttle
 -- ----------------------------
 INSERT INTO `throttle` VALUES ('1', null, 'global', null, '2019-08-20 06:55:08', '2019-08-20 06:55:08');
 INSERT INTO `throttle` VALUES ('2', null, 'ip', '127.0.0.1', '2019-08-20 06:55:08', '2019-08-20 06:55:08');
+INSERT INTO `throttle` VALUES ('3', null, 'global', null, '2019-08-20 12:30:24', '2019-08-20 12:30:24');
+INSERT INTO `throttle` VALUES ('4', null, 'ip', '127.0.0.1', '2019-08-20 12:30:24', '2019-08-20 12:30:24');
+INSERT INTO `throttle` VALUES ('5', '1', 'user', null, '2019-08-20 12:30:24', '2019-08-20 12:30:24');
 
 -- ----------------------------
 -- Table structure for users
@@ -787,9 +799,10 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_username_unique` (`username`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Administrator', 'admin', 'admin@yourdomain.com', '$2y$10$68L/jA405KNKD5Au7PIqiuNfssuwEfG1hlpfaRqG7p5ZwNgGIZ1NS', '0', '0', null, '2019-08-20 08:36:25', '2019-08-20 06:56:00', '2019-08-20 08:36:25');
+INSERT INTO `users` VALUES ('1', 'Administrator', 'admin', 'admin@yourdomain.com', '$2y$10$68L/jA405KNKD5Au7PIqiuNfssuwEfG1hlpfaRqG7p5ZwNgGIZ1NS', '0', '0', null, '2019-08-20 19:53:21', '2019-08-20 06:56:00', '2019-08-20 19:53:21');
+INSERT INTO `users` VALUES ('2', 'daiwy', 'daiwy1016', '408366645@qq.com', '$2y$10$6RsxkV2pW/ac01sY7i4ajeitYjerfYvcMowwgMlMx7CemNfXE6MKu', '0', '0', null, '2019-08-21 07:28:00', '2019-08-21 07:27:52', '2019-08-21 07:28:00');

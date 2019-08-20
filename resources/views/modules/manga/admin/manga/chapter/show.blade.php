@@ -326,7 +326,7 @@
             alert('Please enter a valid image URL!');
             return;
         }
-
+        //判断图片类型
         urls = $.trim($('#imagesUrl').val()).split('\n');
         var patt = new RegExp(/\.(jpeg|jpg|gif|png|bmp)$/);
         for (i = 0; i < urls.length; i++) {
