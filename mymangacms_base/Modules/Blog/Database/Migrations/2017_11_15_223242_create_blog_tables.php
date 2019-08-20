@@ -27,7 +27,7 @@ class CreateBlogTables extends Migration
             $table->engine = 'InnoDB';
             $table->foreign('user_id')->references('id')->on('users');
         });
-        
+
         Schema::create('page_cms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');

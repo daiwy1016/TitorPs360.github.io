@@ -28,7 +28,7 @@ class CreateMySpaceTables extends Migration
             $table->foreign('page_id')->references('id')->on('page')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-        
+
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('comment')->nullable();

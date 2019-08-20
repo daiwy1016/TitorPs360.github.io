@@ -5,9 +5,9 @@
 /*$app = require_once __DIR__.'/mymangacms_base/bootstrap/app.php';
 
 /* mymangacms_base in the parent folder */
-require __DIR__.'/../mymangacms_base/bootstrap/autoload.php';
-$app = require_once __DIR__.'/../mymangacms_base/bootstrap/app.php';
-
+require __DIR__.'/mymangacms_base/bootstrap/autoload.php';
+$app = require_once __DIR__.'/mymangacms_base/bootstrap/app.php';
+//(new \Illuminate\Foundation\Bootstrap\LoadConfiguration)->bootstrap($app);
 /*
 |--------------------------------------------------------------------------
 | Run The Application

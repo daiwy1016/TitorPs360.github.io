@@ -13,7 +13,27 @@
 @stop
 
 @section('header')
+<script src="packages/escapeboy/jraty/raty/lib/jquery.raty.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#item-rating').raty({
+        'score': function () {
+            return $(this).attr('data-score');
+        },
+        'number': 5,
+        'click': function (score, evt) {
+            $.post('save/item_rating', {
+                item_id: $('[data-item]').attr('data-item'),
+                score: score
+            });
+        },
+        'path': 'packages/escapeboy/jraty/raty/lib/img'
+    });
+});
+</script>
 <?php
+/*include __DIR__.'/../../../vendor/escapeboy/jraty/src/Escapeboy/Jraty/Jraty.php';
+
 echo Jraty::js();
 
 echo Jraty::js_init(array(
@@ -26,7 +46,7 @@ echo Jraty::js_init(array(
                 });
               }',
     'path' => '\'packages/escapeboy/jraty/raty/lib/img\''
-));
+));*/
 ?>
 @stop
 

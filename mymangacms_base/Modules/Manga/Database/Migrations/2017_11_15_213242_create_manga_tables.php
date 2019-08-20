@@ -12,7 +12,7 @@ class CreateMangaTables extends Migration
      * @return void
      */
     public function up()
-    {        
+    {
         Schema::create('status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label')->nullable();
@@ -20,7 +20,7 @@ class CreateMangaTables extends Migration
 
             $table->engine = 'InnoDB';
         });
-        
+
         Schema::create('comictype', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label')->nullable();
@@ -28,7 +28,7 @@ class CreateMangaTables extends Migration
 
             $table->engine = 'InnoDB';
         });
-        
+
         Schema::create('manga', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->nullable();
@@ -53,7 +53,7 @@ class CreateMangaTables extends Migration
             $table->foreign('status_id')->references('id')->on('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
-        
+
         Schema::create('chapter', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->nullable();
@@ -68,7 +68,7 @@ class CreateMangaTables extends Migration
             $table->foreign('manga_id')->references('id')->on('manga');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
-        
+
         Schema::create('page', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('slug');
@@ -80,7 +80,7 @@ class CreateMangaTables extends Migration
             $table->engine = 'InnoDB';
             $table->foreign('chapter_id')->references('id')->on('chapter');
         });
-        
+
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
@@ -100,7 +100,7 @@ class CreateMangaTables extends Migration
             $table->foreign('manga_id')->references('id')->on('manga')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
         });
-        
+
         Schema::create('tag', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -119,7 +119,7 @@ class CreateMangaTables extends Migration
             $table->foreign('manga_id')->references('id')->on('manga')->onDelete('cascade');
             $table->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade');
         });
-        
+
         Schema::create('author', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -138,7 +138,7 @@ class CreateMangaTables extends Migration
             $table->foreign('manga_id')->references('id')->on('manga')->onDelete('cascade');
             $table->foreign('author_id')->references('id')->on('author')->onDelete('cascade');
         });
-        
+
         Schema::create('item_ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('item_id');

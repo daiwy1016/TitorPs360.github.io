@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,12 +176,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        
+
         /*
          * Tiers Providers...
          */
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Escapeboy\Jraty\JratyServiceProvider::class
     ],
 
     /*

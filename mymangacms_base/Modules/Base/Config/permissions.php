@@ -2,10 +2,10 @@
 
 return [
     'dashboard' => [
-        'index' => 'View Dashboard',
+        'index' => '仪表板',
     ],
     'settings' => [
-        'edit_general' => 'Edit All Settings',
-        'edit_themes' => 'Edit Themes Options',
+        'edit_general' => '编辑设置',
+        'edit_themes' => '编辑主题设置',
     ],
 ];

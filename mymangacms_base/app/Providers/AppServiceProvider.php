@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //escapeboy/jraty 包
+        // "escapeboy/jraty": "dev-master",
+        //include __DIR__.'/../../vendor/escapeboy/jraty/src/Escapeboy/Jraty/Jraty.php';
+        //use Escapeboy\Jraty;
+        // $this->app->singleton('Jraty', function () {
+        //       return new Jraty();
+        // });
+
+
     }
 
     /**

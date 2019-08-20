@@ -9,7 +9,6 @@
         "anhskohbo/no-captcha": "^3.0",
         "cartalyst/sentinel": "~2.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "escapeboy/jraty": "dev-master",
         "fabpot/goutte": "^3.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
