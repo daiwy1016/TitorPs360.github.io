@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * File upload Controller Class
- * 
+ *
  * PHP version 5.4
  *
  * @category PHP
@@ -30,10 +30,10 @@ class FileUploadController extends Controller
     static $MANGA_DIR = 'manga/';
     static $POST_DIR = 'posts/';
     static $USERS_DIR = 'users/';
-    
+
     /**
      * Upload cover
-     * 
+     *
      * @return type
      */
     public function uploadMangaCover()
@@ -73,7 +73,7 @@ class FileUploadController extends Controller
 
     /**
      * Delete cover
-     * 
+     *
      * @return type
      */
     public function deleteCover()
@@ -91,7 +91,7 @@ class FileUploadController extends Controller
 
     /**
      * Upload avatar
-     * 
+     *
      * @return type
      */
     public function uploadAvatar()
@@ -99,7 +99,7 @@ class FileUploadController extends Controller
         if(!Storage::exists(static::$TMP_AVATAR_DIR)) {
             Storage::makeDirectory(static::$TMP_AVATAR_DIR);
         }
-        
+
         $file = Input::file('file');
         if ($file) {
             $avatar = 'avatar' . time() . '.jpg';
@@ -128,10 +128,10 @@ class FileUploadController extends Controller
             return Response::json('error', 400);
         }
     }
-    
+
     /**
      * Delete avatar
-     * 
+     *
      * @return type
      */
     public function deleteAvatar()
@@ -145,23 +145,23 @@ class FileUploadController extends Controller
             return Response::json('error', 400);
         }
     }
-    
+
     public static function createAvatar($cover, $id)
     {
         if(!Storage::exists(static::$USERS_DIR . $id)) {
             Storage::makeDirectory(static::$USERS_DIR . $id);
         }
-        
+
         if(Storage::exists(static::$USERS_DIR . $id . '/avatar.jpg')) {
             Storage::delete(static::$USERS_DIR . $id . '/avatar.jpg');
         }
-       
+
         $cover_name = substr(strrchr($cover, "/"), count($cover));
         $coverCreated = Storage::move(static::$TMP_AVATAR_DIR . $cover_name, static::$USERS_DIR . $id . '/avatar.jpg');
 
         return $coverCreated;
     }
-    
+
     public function uploadLogo()
     {
         $file = Input::file('file');
@@ -181,7 +181,7 @@ class FileUploadController extends Controller
 
             $fileExtension = strrchr($file->getClientOriginalName(), '.');
             $logo = 'logo' . $fileExtension;
-            $file->move(Storage::getAdapter()->getPathPrefix(), $logo);      
+            $file->move(Storage::getAdapter()->getPathPrefix(), $logo);
 
             return Response::json(
                 ['result' => Storage::url($logo)]
@@ -190,7 +190,7 @@ class FileUploadController extends Controller
             return Response::json('error', 400);
         }
     }
-    
+
     public function uploadIcon()
     {
         $file = Input::file('file');
@@ -211,8 +211,8 @@ class FileUploadController extends Controller
 
             $fileExtension = strrchr($file->getClientOriginalName(), '.');
             $favicon = 'favicon' . $fileExtension;
-            $file->move(Storage::getAdapter()->getPathPrefix(), $favicon);      
-            
+            $file->move(Storage::getAdapter()->getPathPrefix(), $favicon);
+
             return Response::json(
                 ['result' => Storage::url($favicon)]
             );
@@ -220,7 +220,7 @@ class FileUploadController extends Controller
             return Response::json('error', 400);
         }
     }
-        
+
     public function deleteImg()
     {
         $filename = filter_input(INPUT_POST, 'filename');
@@ -232,13 +232,13 @@ class FileUploadController extends Controller
             return Response::json('error', 400);
         }
     }
-    
+
     /**
      * Extract Zip file
-     * 
+     *
      * @param type $file        zip file
      * @param type $extractPath path
-     * 
+     *
      * @return array
      */
     public static function zipExtract($file, $extractPath)
@@ -261,7 +261,7 @@ class FileUploadController extends Controller
         sort($files);
         return $files;
     }
-    
+
     /**
      * download zip file
      */
@@ -271,13 +271,13 @@ class FileUploadController extends Controller
         if (!File::isDirectory($sourcePath)) {
             return Redirect::back()->with('downloadError', 'no pages');
         }
-        
+
         if(!Storage::exists(static::$TMP_DOWNLOADS_DIR)) {
             Storage::makeDirectory(static::$TMP_DOWNLOADS_DIR);
         }
-        
+
         // Choose a name for the archive.
-        $zipFileName = $mangaSlug.'-c'.$chapterSlug.'.zip';	
+        $zipFileName = $mangaSlug.'-c'.$chapterSlug.'.zip';
         $downloadFile = Storage::getAdapter()->getPathPrefix() . static::$TMP_DOWNLOADS_DIR. $zipFileName;
 
         // Create "MyCoolName.zip" file in public directory of project.
@@ -286,21 +286,21 @@ class FileUploadController extends Controller
 
             // Copy all the files from the folder and place them in the archive.
             foreach (glob($sourcePath . '/*') as $fileName) {
-                $file = basename($fileName);                
+                $file = basename($fileName);
                 $zip->addFile($fileName, $file);
             }
-			                   
+
             $zip->close();
 
             $headers = array(
                 'Content-Type' => 'application/octet-stream',
             );
-	
-            // Download .zip file.	    
-            return Response::download($downloadFile, $zipFileName, $headers);            
+
+            // Download .zip file.
+            return Response::download($downloadFile, $zipFileName, $headers);
         }
     }
-    
+
     public static function deleteDownloadsDir()
     {
         if(Storage::exists(static::$TMP_DOWNLOADS_DIR)) {
@@ -308,13 +308,13 @@ class FileUploadController extends Controller
         }
         return false;
     }
-    
+
     /**
      * Create cover
-     * 
+     *
      * @param type $cover the image
      * @param type $slug  manga slug
-     * 
+     *
      * @return type
      */
     public static function createCover($cover, $slug) {
@@ -322,7 +322,13 @@ class FileUploadController extends Controller
         $coverNewPath = static::getCoverPath($slug);
 
         static::cleanCoverDir($slug);
-        $cover_name = substr(strrchr($cover, "/"), count($cover));
+        //修复count() 函数仅支持参数为数组，在非数组的情况下将报错问题
+        if(is_array($cover)|| is_object($cover)){
+            $cover_name = substr(strrchr($cover, "/"),count($cover));
+        }else{
+            $cover_name = substr(strrchr($cover, "/"),1);
+        }
+
         $coverCreated = Storage::move(static::$TMP_COVER_DIR . $cover_name, $coverNewRelativePath . 'cover_250x350.jpg');
 
         // GD API
@@ -335,7 +341,7 @@ class FileUploadController extends Controller
     public static function cleanCoverDir($slug) {
         Storage::deleteDirectory(static::$MANGA_DIR . $slug . '/cover/');
     }
-    
+
     public static function getCoverPath($slug) {
         return Storage::getAdapter()->getPathPrefix() . static::$MANGA_DIR . $slug . '/cover/';
     }
@@ -347,11 +353,11 @@ class FileUploadController extends Controller
     public static function getAvatarTmpPath() {
         return Storage::getAdapter()->getPathPrefix() . static::$TMP_AVATAR_DIR;
     }
-    
+
     public static function getChapterTmpPath() {
         return Storage::getAdapter()->getPathPrefix() . static::$TMP_CHAPTER_DIR;
     }
-    
+
     public static function createChapterDirectory($mangaSlug, $chapterSlug) {
         if (!Storage::exists(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug)) {
             return Storage::makeDirectory(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug);
@@ -362,7 +368,7 @@ class FileUploadController extends Controller
     public static function cleanMangaDirectory($slug) {
         Storage::deleteDirectory(static::$MANGA_DIR . $slug);
     }
-    
+
     public static function cleanChapterDirectory($mangaSlug, $chapterSlug) {
         Storage::deleteDirectory(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug);
     }
@@ -370,29 +376,29 @@ class FileUploadController extends Controller
     public static function moveMangaDirectory($old, $new) {
         return Storage::move(static::$MANGA_DIR . $old, static::$MANGA_DIR . $new);
     }
-    
+
     public static function moveChapterDirectory($mangaSlug, $old, $new) {
         return Storage::move(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $old, static::$MANGA_DIR . $mangaSlug . '/chapters/' . $new);
     }
-    
+
     public static function avatarUrl($user) {
         if(is_null($user)) {
             return Storage::url(static::$USERS_DIR);
         }
         return Storage::url(static::$USERS_DIR . $user . '/avatar.jpg');
     }
-    
+
     public static function coverUrl($path) {
         return Storage::url(static::$MANGA_DIR . $path);
     }
-    
+
     public static function pageImageUrl($mangaSlug, $chapterSlug, $pageImage) {
         if(is_null($pageImage)) {
             return Storage::url(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug . '/');
         }
         return Storage::url(static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug . '/' . $pageImage);
     }
-    
+
     public static function getChapterPath($mangaSlug, $chapterSlug) {
         return Storage::getAdapter()->getPathPrefix() . static::$MANGA_DIR . $mangaSlug . '/chapters/' . $chapterSlug . '/';
     }
@@ -408,7 +414,7 @@ class FileUploadController extends Controller
         $path = Storage::getAdapter()->getPathPrefix();
         return substr($path, strrpos($path, '/')+1) .'/'. static::$POST_DIR . $user;
     }
-    
+
     public static function cleanAvatarDirectory($user) {
         Storage::deleteDirectory(static::$USERS_DIR . $user);
     }

@@ -29,7 +29,7 @@
         <meta name="keywords" content="<?php echo $keywords ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        @if(!is_null($settings['seo.google.webmaster']) || "" !== $settings['seo.google.webmaster'])        
+        @if(!is_null($settings['seo.google.webmaster']) || "" !== $settings['seo.google.webmaster'])
         <meta name="google-site-verification" content="{{$settings['seo.google.webmaster']}}" />
         @endif
 
@@ -39,7 +39,7 @@
         <link rel="shortcut icon" href="{{$themeOpts->icon}}">
         @endif
         @endif
-        
+
         <link rel="stylesheet" href="{{asset('css/bootswatch/'.$readerTheme.'/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/reader.css')}}">
         <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
@@ -389,7 +389,7 @@
                         @endif
                     </div>
                 </div>
-                        
+
                 <div class="row" style="<?php if ($settings['reader.type'] != 'ppp') { ?> display: none; <?php } ?>">
                     <div class="col-xs-12">
                         <div class="alert alert-warning tips-rtl">
@@ -397,7 +397,7 @@
                                 <h1><b>{{$current->manga_name}} {{' #'.$current->chapter_number.': '. $current->chapter_name}}</b></h1>@if(!is_null($page))<span class="pager-cnt" style="<?php if ($settings['reader.type'] != 'ppp') { ?> display: none; <?php } ?>"><small> - {{Lang::get('messages.front.reader.page')}} <span class="pagenumber">{{$page->page_slug}}</span></small></span>@endif
                             </div>
                             <div>
-                                <strong>{{Lang::get('messages.front.reader.tips')}}</strong> 
+                                <strong>{{Lang::get('messages.front.reader.tips')}}</strong>
                                 <p>
                                     {!!Lang::get('messages.front.reader.tips-message', array('manga' => $current->manga_name, 'chapter' => $current->chapter_number))!!}
                                 </p>
@@ -477,7 +477,7 @@
                 var base_url = "{{route('front.manga.reader', array($current->manga_slug,$current->chapter_slug))}}";
 
                 var initialized = false;
-                
+
                 jQuery(document).ready(function () {
                     $('.selectpicker').selectpicker();
                     if ($("div#all").is(":visible"))
@@ -583,7 +583,7 @@
                     location.href = tab.join("");
                 }
                 @endif
-                
+
                 function nextPage() {
                     // refresh test
                     @if($settings['reader.mode'] == 'noreload')
@@ -633,11 +633,11 @@
                 function nextChap(){
                     window.location = next_chapter;
                 }
-                
+
                 function prevChap(){
                     window.location = @if(isset($prevChapter)) "{{route('front.manga.reader', array($current->manga_slug,$prevChapter->chapter_slug))}}" @else "" @endif;
                 }
-                
+
                 function preload(id) {
                     var array = [];
                     var arraydata = [];
@@ -710,7 +710,7 @@
                             break;
                     }
                 }
-                
+
                 @if (is_module_enabled('MySpace'))
                     $('a.bookmark').click(function (e) {
                         e.preventDefault();

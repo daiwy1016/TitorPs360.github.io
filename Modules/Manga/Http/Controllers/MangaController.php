@@ -20,7 +20,7 @@ use Modules\Manga\Entities\Author;
 
 /**
  * Manga Controller Class
- * 
+ *
  * PHP version 5.4
  *
  * @category PHP
@@ -36,7 +36,7 @@ class MangaController extends Controller
 
     /**
      * Constructor
-     * 
+     *
      * @param Manga $manga current manga
      */
     public function __construct(Manga $manga, Authentication $auth)
@@ -54,7 +54,7 @@ class MangaController extends Controller
 
     /**
      * Mangas page
-     * 
+     *
      * @return view
      */
     public function index(MangaDataTable $dataTable)
@@ -64,7 +64,7 @@ class MangaController extends Controller
 
     /**
      * Create manga page
-     * 
+     *
      * @return view
      */
     public function create()
@@ -76,9 +76,9 @@ class MangaController extends Controller
         $authors = implode(',', Author::pluck('name', 'id')->all());
 
         return view(
-            'manga::admin.manga.create', 
+            'manga::admin.manga.create',
             [
-                'status' => $status, 
+                'status' => $status,
                 'comicTypes' => $comicTypes,
                 'categories' => $categories,
                 'tags' => $tags,
@@ -89,7 +89,7 @@ class MangaController extends Controller
 
     /**
      * Create the page
-     * 
+     *
      * @return view
      */
     public function store()
@@ -105,22 +105,22 @@ class MangaController extends Controller
         $this->createOrUpdate($input, $this->manga);
 
         event(new MangaWasCreated($this->manga));
-        
+
         return redirect()->route('admin.manga.index');
     }
 
     /**
      * Show manga info
-     * 
+     *
      * @param type $id manga identifier
-     * 
+     *
      * @return view
      */
     public function show($id)
     {
         $mangaInfo = Manga::find($id);
-        
-        if(($this->auth->id()==$mangaInfo->user_id && $this->auth->hasAccess('manage_my_manga')) 
+
+        if(($this->auth->id()==$mangaInfo->user_id && $this->auth->hasAccess('manage_my_manga'))
                 || $this->auth->hasAccess('manga.manga.index')) {
             return view('manga::admin.manga.show', ['manga' => $mangaInfo]);
         } else {
@@ -130,16 +130,16 @@ class MangaController extends Controller
 
     /**
      * Edit page
-     * 
+     *
      * @param type $id manga identifier
-     * 
+     *
      * @return view
      */
     public function edit($id)
     {
         $mangaInfo = Manga::find($id);
-	
-        if(($this->auth->id()==$mangaInfo->user_id && $this->auth->hasAccess('manage_my_manga')) 
+
+        if(($this->auth->id()==$mangaInfo->user_id && $this->auth->hasAccess('manage_my_manga'))
                 || $this->auth->hasAccess('manga.manga.edit')) {
             $status = array('' => trans('messages.admin.manga.create.choose-status')) + Status::pluck('label', 'id')->all();
             $comicTypes = array('' => 'Choose the comic type') + ComicType::pluck('label', 'id')->all();
@@ -197,15 +197,15 @@ class MangaController extends Controller
 
     /**
      * Edit the manga
-     * 
+     *
      * @param type $id manga identifier
-     * 
+     *
      * @return view
      */
     public function update($id)
     {
         $this->manga = Manga::find($id);
-        if(($this->auth->id()==$this->manga->user_id && $this->auth->hasAccess('manage_my_manga')) 
+        if(($this->auth->id()==$this->manga->user_id && $this->auth->hasAccess('manage_my_manga'))
                 || $this->auth->hasAccess('manga.manga.edit')) {
             $input = clean(request()->all());
             $slugDiff = false;
@@ -231,15 +231,15 @@ class MangaController extends Controller
 
     /**
      * Delete manga
-     * 
+     *
      * @param type $mangaId manga identifier
-     * 
+     *
      * @return view
      */
     public function destroy($mangaId)
     {
         $manga = Manga::find($mangaId);
-        if(($this->auth->id()==$manga->user_id && $this->auth->hasAccess('manage_my_manga')) 
+        if(($this->auth->id()==$manga->user_id && $this->auth->hasAccess('manage_my_manga'))
                 || $this->auth->hasAccess('manga.manga.destroy')) {
             $manga->deleteMe();
             FileUploadController::cleanMangaDirectory($manga->slug);
@@ -251,7 +251,7 @@ class MangaController extends Controller
 
     /**
      * Hot manga list
-     * 
+     *
      * @return view
      */
     public function hotManga()
@@ -267,7 +267,7 @@ class MangaController extends Controller
 
     /**
      * Save the hot list
-     * 
+     *
      * @return view
      */
     public function updateHotManga()
@@ -275,7 +275,7 @@ class MangaController extends Controller
         $input = request()->get('hotlist');
         $hotlist = explode(",", $input);
 
-        if (count($hotlist > 0)) {
+        if (count($hotlist) > 0) {
             Manga::where('hot', '<>', 'null')->update(array('hot' => null));
 
             foreach ($hotlist as $id) {
@@ -289,17 +289,17 @@ class MangaController extends Controller
 
     /**
      * Create/update manga
-     * 
+     *
      * @param type $input inputs
      * @param type $manga manga id
-     * 
+     *
      * @return void
      */
     private function createOrUpdate($input, $manga, $slugDiff=false, $oldSlug='', $newSlug='')
     {
         $cover = $input['cover'];
         $manga->cover = "1";
-        
+
         if (str_contains($cover, FileUploadController::$TMP_COVER_DIR)) {
             $coverCreated = FileUploadController::createCover($cover, $manga->slug);
             if (!$coverCreated) {
@@ -307,7 +307,7 @@ class MangaController extends Controller
             }
         } else if (is_null($cover) || $cover == "") {
             $manga->cover = null;
-            
+
             // clear cover directory
             FileUploadController::cleanCoverDir($manga->slug );
         }
@@ -315,11 +315,11 @@ class MangaController extends Controller
         if($input['status_id'] == '') {
             $manga->status_id = null;
         }
-        
+
         if($input['type_id'] == '') {
             $manga->type_id = null;
         }
-        
+
         $manga->user_id = $this->auth->id();
         $manga->save();
 
@@ -329,13 +329,13 @@ class MangaController extends Controller
         } else {
             $manga->categories()->detach();
         }
-        
+
         // tags
         if (count(request()->get('tags')) > 0) {
             $manga->tags()->detach();
             $tags = explode(",", request()->get('tags'));
             $tags_tosave = array();
-            
+
             foreach ($tags as $index=>$entry) {
                 if(strlen(trim($entry))>0) {
                     $tag = Tag::where('name',$entry)->first();
@@ -354,13 +354,13 @@ class MangaController extends Controller
         } else {
             $manga->tags()->detach();
         }
-        
+
         // authors
         if (count(request()->get('author')) > 0) {
             $manga->authors()->detach();
             $authors = explode(",", request()->get('author'));
             $authors_tosave = array();
-            
+
             foreach ($authors as $index=>$entry) {
                 if(strlen(trim($entry))>0) {
                     $author = Author::where('name',$entry)->first();
@@ -378,13 +378,13 @@ class MangaController extends Controller
         } else {
             $manga->authors()->detach();
         }
-        
+
         // artist
         if (count(request()->get('artist')) > 0) {
             $manga->artists()->detach();
             $artists = explode(",", request()->get('artist'));
             $artists_tosave = array();
-            
+
             foreach ($artists as $index=>$entry) {
                 if(strlen(trim($entry))>0) {
                     $artist = Author::where('name',$entry)->first();
@@ -402,17 +402,17 @@ class MangaController extends Controller
         } else {
             $manga->artists()->detach();
         }
-        
+
         // rename directory
         if ($slugDiff) {
             FileUploadController::moveMangaDirectory($oldSlug, $newSlug);
         }
     }
 
-    public function autoMangaInfo() 
+    public function autoMangaInfo()
     {
         $url = filter_input(INPUT_POST, 'url-data');
-        
+
         $client = new Client();
         $client->setHeader('timeout', '60');
         $crawler = $client->request('GET', $url);
@@ -424,7 +424,7 @@ class MangaController extends Controller
                         return $node->text();
                     }
                 );
-            
+
             array_push($contents, $crawler->filter('#readmangasum p')->text());
         } else if(strpos($url, 'pecintakomik.com')) {
             $contents = $crawler->filterXPath('(//div[@class="post-cnt"])[1]//li')
@@ -433,7 +433,7 @@ class MangaController extends Controller
                         return $node->text();
                     }
                 );
-            
+
             array_push($contents, $crawler->filter('h2')->text());
         } else if(strpos($url, 'tumangaonline.com')) {
             $contents = $crawler->filterXPath('//table[@class="tbl table-hover"]//td')
@@ -442,7 +442,7 @@ class MangaController extends Controller
                         return $node->text();
                     }
                 );
-            
+
             array_push($contents, $crawler->filter('h1')->text());
             array_push($contents, $crawler->filter('#descripcion')->text());
         } else if(strpos($url, 'lecture-en-ligne.com')) {
@@ -452,7 +452,7 @@ class MangaController extends Controller
                         return $node->text();
                     }
                 );
-            
+
             array_push($contents, $crawler->filter('h2')->text());
             array_push($contents, $crawler->filterXPath('(//div[@id="resume"]//p)[2]')->text());
         } else if(strpos($url, 'comicvn.net')) {
@@ -467,28 +467,28 @@ class MangaController extends Controller
             ]
         );
     }
-	
+
     /**
      * manga options
-     * 
+     *
      * @return view
      */
     public function mangaOptions()
     {
         $options = Option::where('key', 'manga.options')->first();
         $mangaOptions = json_decode($options->value);
-        
+
         return view(
             'manga::admin.manga.options',
             [
-                'mangaOptions' => $mangaOptions, 
+                'mangaOptions' => $mangaOptions,
             ]
         );
     }
-	
+
     /**
      * save manga options
-     * 
+     *
      * @return view
      */
     public function saveMangaOptions()
@@ -505,8 +505,8 @@ class MangaController extends Controller
 
         // clean cache
         Cache::forget('options');
-        
+
         return redirect()->back()
             ->withSuccess(trans('messages.admin.settings.update.success'));
-    }	
+    }
 }

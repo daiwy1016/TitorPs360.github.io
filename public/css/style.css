@@ -17,6 +17,11 @@
 .navbar-brand-logo .navbar-brand {
     padding: 0 10px;
 }
+/*限制LOGO 大小*/
+.navbar-brand-logo .navbar-brand>img{
+    max-height: 50px;
+}
+
 .navbar-toggle {
     margin: 8px 15px;
 }
@@ -36,7 +41,6 @@
     padding-bottom: 15px;
     line-height: 20px;
 }
-
 h2  {
     font-size: 20px;
 }
@@ -47,8 +51,8 @@ hr {
 }
 
 ul {
-    list-style: none; 
-    padding: 0px; 
+    list-style: none;
+    padding: 0px;
     margin: 0px;
 }
 
@@ -61,7 +65,7 @@ ul {
     margin-bottom: 0;
 }
 .about h6 {
-    margin-top: 0px; 
+    margin-top: 0px;
     margin-bottom: 20px;
 }
 
@@ -179,8 +183,8 @@ h3.manga-heading {
     line-height: 1;
 }
 .manga-list li {
-    float: left; 
-    width: 50%; 
+    float: left;
+    width: 50%;
     padding-right: 20px;
 }
 .manga-list .separator{
@@ -189,7 +193,7 @@ h3.manga-heading {
 
 .manga-list li:nth-child(even) .separator{
     display: none;
-} 
+}
 
 /*-----------------------------------*/
 /* Widget Social Buttons */
@@ -327,14 +331,14 @@ span.alphabetic:hover {
 }
 
 .chapters > li h5 {
-    width: 50%; 
+    width: 50%;
     display: inline-block;
     margin: 0;
 }
 
 .chapters > li .action {
     display: inline-block;
-    float: right; 
+    float: right;
     width: 50%;
 }
 
@@ -509,7 +513,7 @@ section.comments .actions::after {
 /** responsive **/
 @media only screen and (max-width: 500px) {
     .chapters > li h5 {
-        width: 100%; 
+        width: 100%;
         display: inline-block;
     }
 
@@ -885,4 +889,9 @@ section.comments .actions::after {
 }
 .text-green {
   color: #00a65a !important;
+}
+
+/*修改首页排行榜 图片列表hover*/
+a.thumbnail:hover{
+  box-shadow: #dd4814 0px 0px 8px;
 }
