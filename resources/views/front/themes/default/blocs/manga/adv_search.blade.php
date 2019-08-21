@@ -62,7 +62,7 @@
     }
 </script>
 
-{!! Jraty::js() !!}
+{!! (new \Escapeboy\Jraty\Jraty)->js() !!}
 @stop
 
 @include('front.themes.'.$theme.'.blocs.menu')
@@ -107,7 +107,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label>{{ Lang::get('messages.front.adv-search.filtre-year') }}</label>
-            <input type="text" name="release" class="form-control" 
+            <input type="text" name="release" class="form-control"
                    placeholder="{{ Lang::get('messages.front.adv-search.filtre-year.ph') }}" />
         </div>
     </div>
@@ -115,7 +115,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label>{{ Lang::get('messages.front.adv-search.filtre-author') }}</label>
-            <input type="text" name="author" class="form-control" 
+            <input type="text" name="author" class="form-control"
                    placeholder="{{ Lang::get('messages.front.adv-search.filtre-author.ph') }}" />
         </div>
     </div>

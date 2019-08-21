@@ -7,7 +7,7 @@
 <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('vendor/datatables/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('vendor/datatables/buttons.server-side.js')}}"></script>
-<script src="/packages/escapeboy/jraty/raty/lib/jquery.raty.min.js"></script>
+{{!! (new \Escapeboy\Jraty\Jraty)->js() !!}}
 @endsection
 
 @section('breadcrumbs')

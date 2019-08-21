@@ -27,7 +27,7 @@ use Modules\Manga\Entities\Author;
 
 /**
  * Frontpage Controller Class
- * 
+ *
  * PHP version 5.4
  *
  * @category PHP
@@ -51,15 +51,15 @@ class FrontController extends Controller
                 }
             }
         }
-        return view('front.themes.' . $theme . '.blocs.manga.rating', 
+        return view('front.themes.' . $theme . '.blocs.manga.rating',
             ["topManga" => $topManga])->render();
     }
 
     /**
      * Show Manga info page
-     * 
+     *
      * @param type $slug slug page
-     * 
+     *
      * @return view
      */
     public function show($slug)
@@ -68,14 +68,14 @@ class FrontController extends Controller
         if(is_null($mangaInfo)) {
             abort (404);
         }
-        
+
         $settings = Cache::get('options');
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
 
         $mangaOptions = json_decode($settings['manga.options']);
         $advancedSEO = json_decode($settings['seo.advanced']);
-        
+
         // +1 hit
         event(new MangaViewed($mangaInfo));
 
@@ -86,20 +86,20 @@ class FrontController extends Controller
         foreach ($info->ads()->get() as $key => $ad) {
             $ads[$ad->pivot->placement] = $ad->code;
         }
-		
+
         // posts
         $posts = Post::where('manga_id', $mangaInfo->id)
                 ->where('posts.status', '1')
                 ->orderBy('created_at','desc')
                 ->with('user')
                 ->get();
-        
+
         // sorted chapters
         $sortedChapters = array();
         $chapters = Chapter::where('manga_id', $mangaInfo->id)
                 ->with('user')
                 ->get();
-        
+
         foreach ($chapters as $chapter) {
             $sortedChapters[$chapter->number] = $chapter;
         }
@@ -107,7 +107,7 @@ class FrontController extends Controller
         array_multisort(array_keys($sortedChapters), SORT_DESC, SORT_NATURAL, $sortedChapters);
 
         return View::make(
-            'front.themes.' . $theme . '.blocs.manga.show', 
+            'front.themes.' . $theme . '.blocs.manga.show',
             [
                 "theme" => $theme,
                 "variation" => $variation,
@@ -121,10 +121,10 @@ class FrontController extends Controller
             ]
         );
     }
-    
+
     /**
      * Show Manga list page
-     * 
+     *
      * @return view
      */
     public function mangalist($type="", $archive="")
@@ -133,11 +133,11 @@ class FrontController extends Controller
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
         $limit = json_decode($settings['site.pagination'])->mangalist;
-        
+
         $advancedSEO = json_decode($settings['seo.advanced']);
         $categories = Category::pluck('name', 'id')->all();
         $tags = Tag::join('manga_tag','id','=','tag_id')->groupBy('tag_id')->pluck('name', 'slug')->all();
-                
+
         if ($type == "category") {
             $mangaList = Category::where('slug',$archive)->first()
                     ->manga()->orderBy('name', 'asc')->with('categories')->paginate($limit);
@@ -153,9 +153,9 @@ class FrontController extends Controller
         } else {
             $mangaList = Manga::orderBy('name', 'asc')->with('categories')->paginate($limit);
         }
-        
+
         return View::make(
-            'front.themes.' . $theme . '.blocs.manga.list', 
+            'front.themes.' . $theme . '.blocs.manga.list',
             [
                 "theme" => $theme,
                 "variation" => $variation,
@@ -201,7 +201,7 @@ class FrontController extends Controller
             }
 
             return View::make(
-                'front.themes.' . $theme . '.blocs.manga.list.text', 
+                'front.themes.' . $theme . '.blocs.manga.list.text',
                 [
                     "theme" => $theme,
                     "variation" => $variation,
@@ -222,14 +222,14 @@ class FrontController extends Controller
             )->render();
         }
     }
-    
+
     public function filterList()
     {
         $settings = Cache::get('options');
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
         $limit = json_decode($settings['site.pagination'])->mangalist;
-        
+
         $cat = filter_input(INPUT_GET, 'cat');
         $alpha = filter_input(INPUT_GET, 'alpha');
         $sortBy = filter_input(INPUT_GET, 'sortBy');
@@ -237,12 +237,12 @@ class FrontController extends Controller
         $author = str_replace('+', ' ', filter_input(INPUT_GET, 'author'));
         $artist = str_replace('+', ' ', filter_input(INPUT_GET, 'artist'));
         $tag = filter_input(INPUT_GET, 'tag');
-        
+
         $direction = 'asc';
         if($asc == 'false') {
             $direction = 'desc';
         }
-        
+
         if ($cat != "") {
             if(is_numeric($cat)) {
                     $mangaList = Manga::where('category_manga.category_id', $cat)
@@ -304,13 +304,13 @@ class FrontController extends Controller
 
     /**
      * Show Random Manga
-     * 
+     *
      * @return view
      */
     public function randomManga()
     {
     	$mangas = Manga::select("slug")->get();
-        
+
         if (!is_null($mangas) && count($mangas) > 0) {
             $i = rand(0, count($mangas) - 1);
 
@@ -324,17 +324,17 @@ class FrontController extends Controller
 
     /**
      * Search Manga
-     * 
+     *
      * @return view
-     */   
+     */
     public function search()
     {
     	$mangas = Manga::searchManga(filter_input(INPUT_GET, 'query'));
-		
+
         $suggestions = array();
         foreach ($mangas as $manga) {
             array_push(
-                $suggestions, 
+                $suggestions,
                 ['value'=>$manga->name, 'data'=>$manga->slug]
             );
         }
@@ -343,7 +343,7 @@ class FrontController extends Controller
             ['suggestions' => $suggestions]
         );
     }
-	
+
     /**
      * download zip file
      */
@@ -363,10 +363,10 @@ class FrontController extends Controller
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
         $limit = json_decode($settings['site.pagination'])->latest_release;
-        
+
         $advancedSEO = json_decode($settings['seo.advanced']);
-        
-        $page = Input::get('page', 1);        
+
+        $page = Input::get('page', 1);
         $latestMangaUpdates = array();
         $data = Manga::allLatestRelease($page, $limit);
         foreach ($data['items'] as $manga) {
@@ -384,22 +384,22 @@ class FrontController extends Controller
             }
 
             if(array_key_exists($manga->manga_id, $latestMangaUpdates[$key])) {
-                array_push($latestMangaUpdates[$key][$manga->manga_id]['chapters'],  
+                array_push($latestMangaUpdates[$key][$manga->manga_id]['chapters'],
                     [
-                        'chapter_number' => $manga->chapter_number, 
+                        'chapter_number' => $manga->chapter_number,
                         'chapter_name' => $manga->chapter_name,
                         'chapter_slug' => $manga->chapter_slug
-                    ]); 
+                    ]);
             } else {
                 $latestMangaUpdates[$key][$manga->manga_id] = [
-                    'manga_id' => $manga->manga_id, 
-                    'manga_name' => $manga->manga_name, 
+                    'manga_id' => $manga->manga_id,
+                    'manga_name' => $manga->manga_name,
                     'manga_slug' => $manga->manga_slug,
 					'manga_status' => $manga->manga_status,
                     'hot' => $manga->hot,
                     'chapters' => [
                     	[
-                            'chapter_number' => $manga->chapter_number, 
+                            'chapter_number' => $manga->chapter_number,
                             'chapter_name' => $manga->chapter_name,
                             'chapter_slug' => $manga->chapter_slug
                         ]
@@ -409,9 +409,9 @@ class FrontController extends Controller
         }
         $mangaList = new LengthAwarePaginator($latestMangaUpdates, $data['totalItems'], $limit, $page,
                  ['path' => Request::url(), 'query' => Request::query()]);
-        
+
         return View::make(
-            'front.themes.' . $theme . '.blocs.manga.latest_release', 
+            'front.themes.' . $theme . '.blocs.manga.latest_release',
             [
                 "theme" => $theme,
                 "variation" => $variation,
@@ -421,13 +421,13 @@ class FrontController extends Controller
             ]
         );
     }
-    
+
     public function advSearch()
     {
         $settings = Cache::get('options');
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
-        
+
         $nodes = MenuNode::where('url', 'front.advSearch')->get();
         $found = false;
         if(count($nodes)>0) {
@@ -440,11 +440,11 @@ class FrontController extends Controller
         } else {
             abort(404);
         }
-        
+
         if(!$found) {
             abort(404);
         }
-        
+
         $categories = Category::pluck('name', 'id')->all();
         $types = ComicType::pluck('label', 'id')->all();
         $status = Status::pluck('label', 'id')->all();
@@ -461,14 +461,14 @@ class FrontController extends Controller
             ]
         );
     }
-    
+
     public function advSearchFilter()
     {
         $settings = Cache::get('options');
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
         $limit = json_decode($settings['site.pagination'])->mangalist;
-        
+
         parse_str(filter_input(INPUT_POST, 'params'), $params);
         $categories = isset($params['categories']) ? $params['categories'] : null;
         $status = isset($params['status']) ? $params['status'] : null;

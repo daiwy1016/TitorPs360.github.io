@@ -57,7 +57,7 @@
             $('.filter-text').text('Tag: ' + tag);
         }
     });
-    
+
     // change filter type
     $(document).on('click', '#filter-types .btn-group', function(e) {
         newType = $(this).find('input').attr('id');
@@ -172,7 +172,7 @@
     }
 </script>
 
-{!! Jraty::js() !!}
+{!! (new \Escapeboy\Jraty\Jraty)->js() !!}
 @stop
 
 @include('front.themes.'.$theme.'.blocs.menu')

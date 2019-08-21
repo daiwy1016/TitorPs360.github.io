@@ -21,7 +21,8 @@ h1 {
 
 .viewer-cnt img {
     margin: 0px auto;
-    padding: 20px 0;
+    /*去除间隙*/
+    /*padding: 20px 0;*/
 }
 
 .page-nav {
@@ -159,11 +160,11 @@ section.comments .actions::after {
     .ads-sqre1 {
         margin-bottom: 10px;
     }
-    
+
     .ads-sqre2 {
         float: none !important;
     }
-    
+
     .ads-large {
         display: block!important;
     }

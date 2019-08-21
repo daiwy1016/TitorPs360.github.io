@@ -27,9 +27,9 @@
 @include('front.themes.'.$theme.'.blocs.menu')
 
 @section('header')
-{!! Jraty::js() !!}
+{!! (new \Escapeboy\Jraty\Jraty)->js() !!}
 
-{!! Jraty::js_init(array(
+{!! (new \Escapeboy\Jraty\Jraty)->js_init(array(
 'score' => 'function() { return $(this).attr(\'data-score\'); }',
 'number' => 5,
 'click' => 'function(score, evt) {
@@ -103,7 +103,7 @@ score: score
                     <span class="label label-success">{{ $manga->status->label }}</span>
                     @else
                     <span class="label label-danger">{{ $manga->status->label }}</span>
-                    @endif          
+                    @endif
                 </dd>
                 @endif
 
@@ -170,8 +170,8 @@ score: score
                 <dt>{{ Lang::get('messages.front.manga.rating') }}</dt>
                 <dd>
                     <div class="rating clearfix">
-                        <?php echo Jraty::html($manga->id, $manga->name, HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg"), $seo = true); ?>
-                        <?php $rating = Jraty::get($manga->id) ?>
+                        <?php echo (new \Escapeboy\Jraty\Jraty)->html($manga->id, $manga->name, HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg"), $seo = true); ?>
+                        <?php $rating = (new \Escapeboy\Jraty\Jraty)->get($manga->id) ?>
                         {{ Lang::get('messages.front.manga.note', array('avg' => $rating->avg, 'votes' => $rating->votes)) }}
                     </div>
                 </dd>
@@ -189,7 +189,7 @@ score: score
 <div class="row">
     <div class="col-lg-12">
         <div class="widget-container boxed" style="padding:20px">
-            <h5>{{ Lang::get('messages.front.manga.summary') }}</h5> 
+            <h5>{{ Lang::get('messages.front.manga.summary') }}</h5>
             <p>{{ $manga->summary }}</p>
         </div>
     </div>
@@ -199,7 +199,7 @@ score: score
 @if (count($posts)>0)
 <div class="row" style="margin-bottom: 20px">
     <div class="col-lg-12">
-        <h2 class="widget-title">{{ Lang::get('messages.front.home.news') }}</h2> 
+        <h2 class="widget-title">{{ Lang::get('messages.front.home.news') }}</h2>
         <ul class="chapters">
             @foreach ($posts as $post)
             <li>
@@ -241,7 +241,7 @@ score: score
 
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2> 
+        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2>
 
         <ul class="chapters">
             @if (count($chapters)>0)
@@ -259,7 +259,7 @@ score: score
             <li class="volume-{{$chapter->volume}}">
                 <div class="action">
                     <?php if (isset($mangaOptions->allow_download_chapter) && $mangaOptions->allow_download_chapter == '1') { ?>
-                        <a href="{{route('front.manga.download', array('mangaSlug' => $manga->slug, 'chapterId' => $chapter->id))}}" 
+                        <a href="{{route('front.manga.download', array('mangaSlug' => $manga->slug, 'chapterId' => $chapter->id))}}"
                            title="download" class="pull-right" style="margin-left: 10%">
                             <i class="glyphicon glyphicon-download-alt"></i>
                         </a>
@@ -277,7 +277,7 @@ score: score
                 </div>
 
                 <h3 class="chapter-title-rtl">
-                    {{ link_to_route('front.manga.reader', $manga->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} : 
+                    {{ link_to_route('front.manga.reader', $manga->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} :
                     <em>{{ $chapter->name }}</em>
                 </h3>
             </li>

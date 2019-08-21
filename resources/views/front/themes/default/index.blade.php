@@ -13,30 +13,24 @@
 @stop
 
 @section('header')
-<script src="packages/escapeboy/jraty/raty/lib/jquery.raty.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#item-rating').raty({
-        'score': function () {
-            return $(this).attr('data-score');
-        },
-        'number': 5,
-        'click': function (score, evt) {
-            $.post('save/item_rating', {
-                item_id: $('[data-item]').attr('data-item'),
-                score: score
-            });
-        },
-        'path': 'packages/escapeboy/jraty/raty/lib/img'
-    });
+{!!(new \Escapeboy\Jraty\Jraty)->js()!!}
+
+{!!(new \Escapeboy\Jraty\Jraty)->js_init(array(
+'score' => 'function() { return $(this).attr(\'data-score\'); }',
+'number' => 5,
+'click' => 'function(score, evt) {
+$.post("'.URL::to('/').'/save/item_rating",{
+item_id: $(\'[data-item]\').attr(\'data-item\'),
+score: score
 });
-</script>
+}',
+'path' => "'".asset('/packages/escapeboy/jraty/raty/lib/img')."'"
+)) !!}
 <?php
-/*include __DIR__.'/../../../vendor/escapeboy/jraty/src/Escapeboy/Jraty/Jraty.php';
+/*
+echo (new \Escapeboy\Jraty\Jraty)->js();
 
-echo Jraty::js();
-
-echo Jraty::js_init(array(
+echo (new \Escapeboy\Jraty\Jraty)->js_init(array(
     'score' => 'function() { return $(this).attr(\'data-score\'); }',
     'number' => 5,
     'click' => 'function(score, evt) {

@@ -27,27 +27,19 @@
 @include('front.themes.'.$theme.'.blocs.menu')
 
 @section('header')
-<?php
-//include base_path().'/vendor/escapeboy/jraty/src/Escapeboy/Jraty/Jraty.php';
-?>
-<script src="packages/escapeboy/jraty/raty/lib/jquery.raty.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#item-rating').raty({
-        'score': function () {
-            return $(this).attr('data-score');
-        },
-        'number': 5,
-        'click': function (score, evt) {
-            $.post('save/item_rating', {
-                item_id: $('[data-item]').attr('data-item'),
-                score: score
-            });
-        },
-        'path': 'packages/escapeboy/jraty/raty/lib/img'
-    });
+{!!(new \Escapeboy\Jraty\Jraty)->js()!!}
+
+{!!(new \Escapeboy\Jraty\Jraty)->js_init(array(
+'score' => 'function() { return $(this).attr(\'data-score\'); }',
+'number' => 5,
+'click' => 'function(score, evt) {
+$.post("'.URL::to('/').'/save/item_rating",{
+item_id: $(\'[data-item]\').attr(\'data-item\'),
+score: score
 });
-</script>
+}',
+'path' => "'".asset('/packages/escapeboy/jraty/raty/lib/img')."'"
+)) !!}
 
 @stop
 
@@ -105,7 +97,7 @@ $(document).ready(function () {
                 {{ $manga->type->label }}
             </dd>
             @endif
-            
+
             @if(!is_null($manga->status))
             <dt>{{ Lang::get('messages.front.manga.status') }}</dt>
             <dd>
@@ -113,7 +105,7 @@ $(document).ready(function () {
                 <span class="label label-success">{{ $manga->status->label }}</span>
                 @else
                 <span class="label label-danger">{{ $manga->status->label }}</span>
-                @endif          
+                @endif
             </dd>
             @endif
 
@@ -171,7 +163,7 @@ $(document).ready(function () {
                 @endforeach
             </dd>
             @endif
-            
+
             <br/>
 
             <dt>{{ Lang::get('messages.front.directory.views') }}</dt>
@@ -180,8 +172,8 @@ $(document).ready(function () {
             <dt>{{ Lang::get('messages.front.manga.rating') }}</dt>
             <dd>
                 <div class="rating clearfix">
-                    <?php echo Jraty::html($manga->id, $manga->name, HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg"), $seo = true); ?>
-                    <?php $rating = Jraty::get($manga->id) ?>
+                    <?php echo (new \Escapeboy\Jraty\Jraty)->html($manga->id, $manga->name, HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg"), $seo = true); ?>
+                    <?php $rating = (new \Escapeboy\Jraty\Jraty)->get($manga->id) ?>
                     {{ Lang::get('messages.front.manga.note', array('avg' => $rating->avg, 'votes' => $rating->votes)) }}
                 </div>
             </dd>
@@ -199,7 +191,7 @@ $(document).ready(function () {
 <div class="row">
     <div class="col-lg-12">
         <div class="well">
-            <h5><strong>{{ Lang::get('messages.front.manga.summary') }}</strong></h5> 
+            <h5><strong>{{ Lang::get('messages.front.manga.summary') }}</strong></h5>
             <p>{{ $manga->summary }}</p>
         </div>
     </div>
@@ -209,7 +201,7 @@ $(document).ready(function () {
 @if (count($posts)>0)
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="widget-title">{{ Lang::get('messages.front.home.news') }}</h2> 
+        <h2 class="widget-title">{{ Lang::get('messages.front.home.news') }}</h2>
         <hr/>
         @foreach ($posts as $post)
         <div class="news-item pull-right" style="display: inline-block; width: 100%;">
@@ -249,7 +241,7 @@ $(document).ready(function () {
 
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2> 
+        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2>
         <hr/>
 
         <ul class="chapters">
@@ -267,7 +259,7 @@ $(document).ready(function () {
 
             <li style="padding: 3px 0;" class="volume-{{$chapter->volume}}">
                 <h5 class="chapter-title-rtl">
-                    {{ link_to_route('front.manga.reader', $manga->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} : 
+                    {{ link_to_route('front.manga.reader', $manga->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} :
                     <em>{{ $chapter->name }}</em>
                 </h5>
                 <div class="action @if(config('settings.orientation') === 'rtl') pull-left @endif">
@@ -415,7 +407,7 @@ $(document).ready(function () {
             $(this).find('i').toggleClass('fa-minus-square-o')
                     .toggleClass('fa-plus-square-o');
         });
-        
+
         $(".download").click(function () {
             //$(this).attr('disabled', 'disabled');
         });

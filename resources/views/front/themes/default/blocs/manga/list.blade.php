@@ -70,7 +70,7 @@
     // sort
     $(document).on('click', '#sort-types .btn-group', function(e) {
         $('#sort-types').find('i').remove();
-        
+
         newSortBy = $(this).find('input').attr('id');
         if (sortBy == newSortBy) {
             asc = !asc;
@@ -113,7 +113,7 @@
         alpha = $(this).attr('href').split('alpha=')[1];
         getMangaList(1);
     });
-    
+
     // paginate
     $(document).on('click', '.pagination a', function(e) {
         e.preventDefault();
@@ -124,14 +124,14 @@
 
     function getMangaList(page) {
         $('#waiting').show();
-        
+
         $.ajax({
             url: "{{route('front.filterList')}}",
             data: {'page': page, 'cat': cat, 'alpha': alpha, 'sortBy': sortBy, 'asc': asc, 'author': author, 'artist': artist, 'tag': tag}
         }).done(function(data) {
             $('#waiting').hide();
             $('.content').html(data);
-            
+
             $('.filter-text').text('');
             if(catName != "") {
                 $('.filter-text').text(catName + ' Manga');
@@ -143,14 +143,14 @@
 
     function changeMangaList(type) {
         $('#waiting').show();
-        
+
         $.ajax({
             url: '{{route("front.changeMangaList")}}',
             data: {'type': type}
         }).done(function(data) {
             $('#waiting').hide();
             $('.type-content').html(data);
-            
+
             if (type == 'text') {
                 $('.image-version-sidebar').hide();
                 $('.text-version-sidebar').show();
@@ -172,7 +172,7 @@
     }
 </script>
 
-{!!Jraty::js()!!}
+{!!(new \Escapeboy\Jraty\Jraty)->js()!!}
 @stop
 
 @include('front.themes.'.$theme.'.blocs.menu')

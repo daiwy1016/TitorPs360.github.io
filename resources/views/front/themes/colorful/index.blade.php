@@ -14,9 +14,9 @@
 
 @section('header')
 <?php
-echo Jraty::js();
+echo (new \Escapeboy\Jraty\Jraty)->js();
 
-echo Jraty::js_init(array(
+echo (new \Escapeboy\Jraty\Jraty)->js_init(array(
     'score' => 'function() { return $(this).attr(\'data-score\'); }',
     'number' => 5,
     'click' => 'function(score, evt) {
