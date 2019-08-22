@@ -323,11 +323,13 @@ class FileUploadController extends Controller
 
         static::cleanCoverDir($slug);
         //修复count() 函数仅支持参数为数组，在非数组的情况下将报错问题
-        if(is_array($cover)|| is_object($cover)){
+       /* if(is_array($cover)|| is_object($cover)){
             $cover_name = substr(strrchr($cover, "/"),count($cover));
         }else{
             $cover_name = substr(strrchr($cover, "/"),1);
-        }
+        }*/
+        /*php7.1.31 count 不会报错 7.2以后会报错*/
+        $cover_name = substr(strrchr($cover, "/"),count($cover));
 
         $coverCreated = Storage::move(static::$TMP_COVER_DIR . $cover_name, $coverNewRelativePath . 'cover_250x350.jpg');
 

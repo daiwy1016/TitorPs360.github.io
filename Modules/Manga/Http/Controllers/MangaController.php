@@ -297,9 +297,12 @@ class MangaController extends Controller
      */
     private function createOrUpdate($input, $manga, $slugDiff=false, $oldSlug='', $newSlug='')
     {
+        // rename directory
+        if ($slugDiff) {
+            FileUploadController::moveMangaDirectory($oldSlug, $newSlug);
+        }
         $cover = $input['cover'];
         $manga->cover = "1";
-
         if (str_contains($cover, FileUploadController::$TMP_COVER_DIR)) {
             $coverCreated = FileUploadController::createCover($cover, $manga->slug);
             if (!$coverCreated) {
@@ -403,10 +406,7 @@ class MangaController extends Controller
             $manga->artists()->detach();
         }
 
-        // rename directory
-        if ($slugDiff) {
-            FileUploadController::moveMangaDirectory($oldSlug, $newSlug);
-        }
+        
     }
 
     public function autoMangaInfo()
