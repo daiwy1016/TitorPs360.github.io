@@ -357,7 +357,7 @@ return [
     'front.reader.all-pages'                    => 'All in one page',
 
     /** Bookmark **/
-    'front.bookmarks.title'                     => 'My Bookmarks',
+    'front.bookmarks.title'                     => '我的收藏',
     'front.bookmarks.currently-reading'         => 'Currently Reading',
     'front.bookmarks.completed'                 => 'Completed',
     'front.bookmarks.on-hold'                   => 'On Hold',
@@ -508,12 +508,13 @@ return [
     'front.adv-search.filtre-author.ph'         => 'enter the author name',
     'front.adv-search.search'                   => 'search',
     'front.adv-search.search-result'            => 'Search Result',
-    'front.myprofil.my-profil'              	=> 'My Profile',
-    'front.myprofil.edit-my-profil'             => 'edit my profile',
-    'front.myprofil.edit'                       => 'edit',
+    'front.myprofil.my-profil'              	=> '个人资料',
+    'front.myprofil.edit-my-profil'             => '编辑个人资料',
+    'front.myprofil.edit'                       => '编辑',
     'front.myprofil.member-since'              	=> 'Member since',
-    'front.myprofil.upload-avatar'              => 'upload avatar',
-    'front.myprofil.delete-avatar'              => 'delete avatar',
+    'front.myprofil.upload-avatar'              => '头像上传',
+    'front.myprofil.delete-avatar'              => '头像删除',
+    'front.myprofil.my-notifications'           => '消息',
 
     'front.home.top-manga-views'                => 'Top by views',
 

@@ -101,7 +101,7 @@
                     <h2 class="@if(!is_null($themeOpts) && !is_null($themeOpts->logo))navbar-brand-logo @endif" style="margin:0;">
                         <a class="navbar-brand" href="{{route('front.index')}}">
                             @if(!is_null($themeOpts) && !is_null($themeOpts->logo))
-                            <img alt="{{$settings['site.name']}}" src="{{$themeOpts->logo}}"/>
+                            <img alt="{{$settings['site.name']}}" src="{{$themeOpts->logo}}" style="max-height: 50px"/>
                             <span style="display: none">{{$settings['site.name']}}</span>
                             @else
                             {{$settings['site.name']}}
@@ -145,7 +145,7 @@
                                 <?php if (is_module_enabled('Notification')): ?>
                                     <li>
                                         <a href="{{route('front.notification.index')}}">
-                                            <i class="fa fa-bell"></i> My Notifications
+                                            <i class="fa fa-bell"></i> {{Lang::get('messages.front.myprofil.my-notifications')}}
                                         </a>
                                     </li>
                                 <?php endif; ?>

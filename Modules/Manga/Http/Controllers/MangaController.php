@@ -297,8 +297,9 @@ class MangaController extends Controller
      */
     private function createOrUpdate($input, $manga, $slugDiff=false, $oldSlug='', $newSlug='')
     {
-        // rename directory
+         // rename directory
         if ($slugDiff) {
+            //判断目是否存在 TODO::
             FileUploadController::moveMangaDirectory($oldSlug, $newSlug);
         }
         $cover = $input['cover'];
@@ -406,7 +407,7 @@ class MangaController extends Controller
             $manga->artists()->detach();
         }
 
-        
+
     }
 
     public function autoMangaInfo()
