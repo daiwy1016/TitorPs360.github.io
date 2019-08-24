@@ -47,7 +47,8 @@ class HelperController
     public static function formateCreationDate($created_at) 
     {
         $date = new \DateTime($created_at);
-        return $date->format('d M. Y');
+        //return $date->format('d M. Y');
+        return $date->format('Y-m-d');
     }
 
     /**

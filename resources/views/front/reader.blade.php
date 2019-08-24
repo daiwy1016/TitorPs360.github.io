@@ -212,7 +212,7 @@
                 </div>
                 <div id="navbar-collapse-1" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{route('front.manga.show', array($current->manga_slug))}}">{{$current->manga_name.' Manga'}}</a></li>
+                        <li><a href="{{route('front.manga.show', array($current->manga_slug))}}">{{$current->manga_name}}{{Lang::get('messages.front.reader.manga')}}</a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Lang::get('messages.front.reader.reading-mode')}}<span class="caret"></span></a>
@@ -390,7 +390,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="<?php if ($settings['reader.type'] != 'ppp') { ?> display: none; <?php } ?>">
+                <div class="row" id="tips-footer" style="<?php if ($settings['reader.type'] != 'ppp') { ?> display: none; <?php } ?>">
                     <div class="col-xs-12">
                         <div class="alert alert-warning tips-rtl">
                             <div class="page-header" style="margin: 0">
@@ -670,6 +670,7 @@
                     $('.pager-cnt .page-nav').show();
                     $('div#ppp').show();
                     $('div#all').hide();
+                    $('div#tips-footer').show();
                     $(document).on('keyup', function (e) {
                         KeyCheck(e);
                     });
@@ -680,6 +681,7 @@
                     $('.pager-cnt .page-nav').hide();
                     $('div#ppp').hide();
                     $('div#all').show();
+                    $('div#tips-footer').hide();
                     $(document).off('keyup');
                     $("div#all img").unveil(300);
                 });

@@ -1,5 +1,6 @@
 <?php
 $mangaSlug = env('MANGA_SLUG', 'manga');
+$manganame = env('MANGA_NAME', '漫画');
 
 // can be edited
 $mangaSingular = ucfirst($mangaSlug);
@@ -342,6 +343,7 @@ return [
     'front.manga.download'            		=> 'download',
     
     /** Reader **/
+    'front.reader.manga'                         => 'Manga',
     'front.reader.page'                         => 'Page',
     'front.reader.chaptre'                      => 'Chapter',
     'front.reader.prev'                         => '←prev',
@@ -514,6 +516,7 @@ return [
     'front.myprofil.member-since'              	=> 'Member since',
     'front.myprofil.upload-avatar'              => 'upload avatar',
     'front.myprofil.delete-avatar'              => 'delete avatar',
+    'front.myprofil.my-notifications'           => 'My Notifications',
     
     'front.home.top-manga-views'                => 'Top by views',
     
