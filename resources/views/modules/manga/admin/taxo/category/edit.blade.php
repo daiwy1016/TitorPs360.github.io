@@ -7,6 +7,7 @@
 <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('vendor/datatables/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('vendor/datatables/buttons.server-side.js')}}"></script>
+
 @endsection
 
 @section('breadcrumbs')
@@ -34,6 +35,12 @@
                     {{Form::label('slug', Lang::get('messages.admin.category.slug'))}}
                     {{Form::text('slug', $category->slug, array('class' => 'form-control', 'placeholder' => Lang::get('messages.admin.category.slug-placeholder')))}}
                     {!! $errors->first('slug', '<label class="error" for="slug">:message</label>') !!}
+                </div>
+
+                <div class="form-group">
+                    {{Form::label('remark', Lang::get('messages.admin.category.remark'))}}
+                    {{Form::text('remark', $category->remark, array('class' => 'form-control'))}}
+                    {!! $errors->first('remark', '<label class="error" for="remark">:message</label>') !!}
                 </div>
             </div>
             <div class="box-footer">

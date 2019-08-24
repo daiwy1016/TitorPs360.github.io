@@ -42,6 +42,7 @@ return [
     'admin.category.categories'            	=> 'Categories',
     'admin.category.name'                  	=> 'Category name',
     'admin.category.slug'                  	=> 'Slug',
+    'admin.category.remark'                 => 'Remark',
     'admin.category.slug-placeholder'      	=> 'must be unique, without spaces',
     'admin.category.back'                  	=> 'Back',
     'admin.category.create-category'       	=> 'Create category',

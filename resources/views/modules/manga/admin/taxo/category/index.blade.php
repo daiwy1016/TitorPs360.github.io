@@ -35,6 +35,12 @@
                     {{Form::text('slug','', array('class' => 'form-control', 'placeholder' => Lang::get('messages.admin.category.slug-placeholder')))}}
                     {!! $errors->first('slug', '<label class="error" for="slug">:message</label>') !!}
                 </div>
+
+                <div class="form-group">
+                    {{Form::label('remark', Lang::get('messages.admin.category.remark'))}}
+                    {{Form::text('remark','', array('class' => 'form-control'))}}
+                    {!! $errors->first('name', '<label class="error" for="remark">:message</label>') !!}
+                </div>
             </div>
             <div class="box-footer">
                 <div class="pull-right">

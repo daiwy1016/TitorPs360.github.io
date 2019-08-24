@@ -42,6 +42,7 @@ return [
     'admin.category.categories'            	=> '类别',
     'admin.category.name'                  	=> '类别名称',
     'admin.category.slug'                  	=> 'Slug',
+    'admin.category.remark'                 => '备注',
     'admin.category.slug-placeholder'      	=> 'must be unique, without spaces',
     'admin.category.back'                  	=> '返回',
     'admin.category.create-category'       	=> '增加类别',
@@ -81,7 +82,7 @@ return [
     'admin.manga.create.slug-placeholder'  	=> 'must be unique, without spaces',
     'admin.manga.create.comma-separated'   	=> '用逗号分开',
     'admin.manga.create.status'            	=> '状态',
-    'admin.manga.create.other-names'       	=> '其他名字',
+    'admin.manga.create.other-names'       	=> '别名',
     'admin.manga.create.author'            	=> '作者(s)',
     'admin.manga.create.released'          	=> '更新时间',
     'admin.manga.create.categories'        	=> '类别',
@@ -300,13 +301,13 @@ return [
 
     /** Home **/
     'front.home.title' 				=> ':sitename | Home',
-    'front.home.latest-manga' 			=> "Latest $mangaPluralFUC Updates",
+    'front.home.latest-manga' 			=> $manga_Name."最新更新",
     'front.home.hot' 				=> 'hot',
     'front.home.no-chapter'          		=> 'There is no chapter !',
-    'front.home.hot-updates'          		=> "Hot $mangaPluralFUC Updates",
+    'front.home.hot-updates'          		=> "热门".$manga_Name."最新更新",
     'front.home.about-manga'          		=> "About $mangaSingularFUC",
     'front.home.read-chapter'          		=> 'Read chapter',
-    'front.home.top-manga'          		=> 'Top $mangaPluralFUC',
+    'front.home.top-manga'          		=> $manga_Name.'排行榜',
     'front.home.top10'          		=> 'Top10',
     'front.home.subscribe'          		=> '注册',
     'front.home.login'          		=> '登录',
@@ -317,14 +318,14 @@ return [
 
     /** Manga Directory **/
     'front.directory.title' 			=> ":sitename | $mangaPluralFUC Directory",
-    'front.directory.sort-by'                   => 'Sort by:',
+    'front.directory.sort-by'                   => '排序:',
     'front.directory.az'                        => 'AZ',
-    'front.directory.views'                     => '人气',
+    'front.directory.views'                     => '点击',
     'front.directory.text-version'              => 'Text version',
     'front.directory.image-version'             => 'Image version',
-    'front.directory.browse-category'           => "Browse $mangaPluralFUC by Category",
-    'front.directory.browse-alphabetic' 	=> "Browse $mangaPluralFUC by Initial Alphabetic",
-    'front.directory.manga-directory' 		=> "$mangaPluralFUC Directory",
+    'front.directory.browse-category'           => "按类别浏览".$manga_Name,
+    'front.directory.browse-alphabetic' 	=> "按字母浏览".$manga_Name,
+    'front.directory.manga-directory' 		=> $manga_Name."大全",
     'front.directory.no-manga'                  => "There is no $mangaSingular!",
 
     /** Manga Info **/

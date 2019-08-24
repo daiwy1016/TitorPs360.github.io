@@ -69,6 +69,7 @@ class CategoryDataTable extends DataTable
         return [
             'name',
             'slug',
+            'remark',
             ['data' => 'nitems', 'title' => 'N° items'],
             'created_at',
         ];

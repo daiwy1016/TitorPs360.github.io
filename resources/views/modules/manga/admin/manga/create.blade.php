@@ -6,6 +6,8 @@
 <script src="{{asset('js/vendor/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('js/vendor/selectize.js')}}"></script>
 <script src="{{asset('js/dropzone.js')}}"></script>
+<!-- 汉字转拼音 -->
+<script src="{{asset('js/vendor/Convert-Pinyin.js')}}"></script>
 @endsection
 
 @section('breadcrumbs')
@@ -164,7 +166,12 @@
     $(document).ready(function () {
         // generate slug
         $('#name').keyup(function () {
-            generateSlug($(this).val());
+            //判断是否全中文
+            var temp=$(this).val();
+            var re=/[^\u4e00-\u9fa5]/;  
+            if(re.test(temp)) return generateSlug(temp);  
+            return generatePinyin(temp); 
+            //nerateSlug($(this).val());
         });
 
         // tags
@@ -224,6 +231,13 @@
 
     function generateSlug(name) {
         slug = name.toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+        $('#slug').val(slug);
+    }
+    function generatePinyin(name) {
+        var full = pinyin.getFullChars(name); //获取全写拼音
+        slug = full.toLowerCase()
                 .replace(/[^\w ]+/g, '')
                 .replace(/ +/g, '-');
         $('#slug').val(slug);

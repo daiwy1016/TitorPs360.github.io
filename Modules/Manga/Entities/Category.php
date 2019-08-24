@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Validator;
 class Category extends Model
 {
 
-    public $fillable = ['name', 'slug'];
+    public $fillable = ['name', 'slug','remark'];
     public static $rules = [
         'name' => 'required', 
         'slug' => 'required|unique:category,slug,:id'
