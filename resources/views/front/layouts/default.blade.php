@@ -126,9 +126,8 @@
                     $(document).ready(function () {
                         var url = window.location.href;
                         var element = $('ul.nav a').filter(function () {
-                            if (url.charAt(url.length - 1) == '/') {
-                                //不过滤 home 首页
-                                //url = url.substring(0, url.length - 1);
+                            if (url.charAt(url.length - 1) == '/') {                                
+                                url = url.substring(0, url.length - 1);
                             }
 
                             return this.href == url;
@@ -136,9 +135,29 @@
                         if (element.is('li')) {
                             element.addClass('active');
                         }
+                        /*返回顶部js功能*/
+                        if ($(".back-top").length) {
+                        var N = 50, 
+                        _ = function() {
+                            var t = $(window).scrollTop();
+                            t > N ? $(".back-top").addClass("show") : $(".back-top").removeClass("show")
+                        };
+                        _(),
+                        $(window).on("scroll", function() {
+                            _()
+                        }),
+                        $(".back-top").on("click", function(t) {
+                            t.preventDefault(),
+                            $("html,body").animate({
+                                scrollTop: 0
+                            }, 700)
+                        })
+                        }
                     });
                 </script>
             </div>
         </footer>
+        <!-- 返回顶部 -->
+        <div class="back-to-top back-top show" title="Back to top"><i class="fa fa-chevron-up"></i></div>
 </body>
 </html>

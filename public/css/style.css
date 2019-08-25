@@ -1,6 +1,5 @@
 .layout-boxed {
-    /*background: url(../images/boxed-bg.jpg) repeat fixed;*/
-    background: url(../images/background.jpg) top center fixed #3c3939;
+    background: url(../images/boxed-bg.jpg) repeat fixed;
 }
 .layout-boxed .container {
     max-width: 970px;
@@ -895,4 +894,30 @@ section.comments .actions::after {
 /*修改首页排行榜 图片列表hover*/
 a.thumbnail:hover{
   box-shadow: #dd4814 0px 0px 8px;
+}
+
+
+/*返回的顶部css*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    color: #fff;
+    transition: opacity .2s ease-out;
+    opacity: 0;
+    background: #f5bb00;
+}
+
+.back-to-top:hover {
+    background: #50514f;
+    color: #fff
+}
+
+.back-to-top.show {
+    opacity: 1
 }

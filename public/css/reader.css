@@ -521,3 +521,77 @@ section.comments .actions::after {
 .navbar-brand-logo .navbar-brand {
     padding: 0 10px;
 }
+/*底部样式*/
+
+.manga-footer {
+    background-color: #000;
+    margin-top: 100px;
+    padding: 30px 30px 30px
+}
+
+.manga-footer li{
+    float: left;
+}
+
+.manga-footer li::after {
+    content: "|";
+    padding: 0 10px;
+}
+
+.manga-footer li:last-child:after {
+  content: '';
+  padding: 0;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/*返回的顶部css*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    color: #fff;
+    transition: opacity .2s ease-out;
+    opacity: 0;
+    background: #f5bb00;
+}
+
+.back-to-top:hover {
+    background: #50514f;
+    color: #fff
+}
+
+.back-to-top.show {
+    opacity: 1
+}
+
+.footer-back-top {
+    position: absolute;
+    z-index: 1;
+    width: 80px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-right: 1px solid rgba(255,255,255,.3);
+    border-left: 1px solid rgba(255,255,255,.3)
+}
+
+.footer-back-top .fa {
+    display: block;
+    margin-bottom: 10px
+}
+

@@ -3869,14 +3869,14 @@ tbody.collapse.in {
 .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus {
     text-decoration: none;
     color: #ffffff;
-    background-color: #dd4814
+    background-color: #f5bb00
 }
 
 .dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus {
     color: #ffffff;
     text-decoration: none;
     outline: 0;
-    background-color: #dd4814
+    background-color: #f5bb00
 }
 
 .dropdown-menu>.disabled>a,.dropdown-menu>.disabled>a:hover,.dropdown-menu>.disabled>a:focus {
@@ -4905,23 +4905,25 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #97310e
+    border-color: #f5bb00
 }
 
 .navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus {
-    background-color: #97310e
+    background-color: #f5bb00;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff
+    background-color: #50514f
 }
+
+
 
 .navbar-default .navbar-collapse,.navbar-default .navbar-form {
     border-color: #f5bb00
 }
 
 .navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus {
-    background-color: #ae3910;
+    background-color: #f5bb00;
     color: #ffffff
 }
 
@@ -4932,7 +4934,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
         color: #ffffff;
-        background-color: #97310e
+        background-color: #f5bb00
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a,.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
@@ -4990,7 +4992,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
 .navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>li>a:focus {
     color: #ffffff;
-    background-color: #3e152b
+    background-color: #f5bb00
 }
 
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.active>a:focus {
@@ -7229,7 +7231,9 @@ button.close {
 /*style.css 重写*/
 .manga-footer {
     background-color: #f5bb00 !important;
-     color: #ffffff
+     color: #ffffff;
+    position: relative;
+    z-index: 6;
 }
 .manga-footer a{
     color: #ffffff
@@ -7243,6 +7247,39 @@ button.close {
      max-width: 1170px !important; 
 }
 
-.layout-boxed .wrapper{
+/*.layout-boxed .wrapper{
     background: transparent !important;
+}*/
+.layout-boxed {
+    /*background: url(../images/boxed-bg.jpg) repeat fixed;*/
+    background: url(./../../../images/background.jpg) top center fixed #3c3939 !important;
+}
+
+hr{
+    border-top:none;
+    margin: 0
+}
+
+.hotmanga-header,.listmanga-header{
+    position: relative;
+        color: #50514f;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 0 15px;
+    margin-bottom: 20px;
+}
+.listmanga-header:before,.listmanga-header:after,.hotmanga-header:before ,.hotmanga-header:after{
+    position: absolute;
+    height: 1px;
+    background: #f4f4f4;
+    content: "";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.hotmanga-header:after,.listmanga-header:after {
+    background: #f5bb00;
+        width: 100px;
+    z-index: 2;
 }

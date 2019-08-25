@@ -61,7 +61,7 @@
         <script src="{{asset('js/vendor/respond.min.js')}}"></script>
         <![endif]-->
     </head>
-    <body>
+    <body class="@if(isset($themeOpts->boxed) && $themeOpts->boxed == 1) layout-boxed @endif">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -88,155 +88,165 @@
         @include('front.analyticstracking')
         @endif
 
-        <!-- Website Menu -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+         <header>
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <h2 class="@if(!is_null($themeOpts) && !is_null($themeOpts->logo))navbar-brand-logo @endif" style="margin:0;">
-                        <a class="navbar-brand" href="{{route('front.index')}}">
-                            @if(!is_null($themeOpts) && !is_null($themeOpts->logo))
-                            <img alt="{{$settings['site.name']}}" src="{{$themeOpts->logo}}" style="max-height: 50px"/>
-                            <span style="display: none">{{$settings['site.name']}}</span>
-                            @else
-                            {{$settings['site.name']}}
-                            @endif
-                        </a>
-                    </h2>
-                </div>
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav @if(config('settings.orientation') === 'rtl') navbar-left @else navbar-right @endif">
-                        @if(env('ALLOW_SUBSCRIBE', false))
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
-                            <ul class="dropdown-menu profil-menu">
-                                @if(!Sentinel::check())
-                                <li>
-                                    <a href="{{ route('register') }}">
-                                        <i class="fa fa-pencil-square-o"></i> {{Lang::get('messages.front.home.subscribe')}}
+                <div class="row">
+                    <!-- Website Menu -->
+                    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h2 class="@if(!is_null($themeOpts) && !is_null($themeOpts->logo))navbar-brand-logo @endif" style="margin:0;">
+                                    <a class="navbar-brand" href="{{route('front.index')}}">
+                                        @if(!is_null($themeOpts) && !is_null($themeOpts->logo))
+                                        <img alt="{{$settings['site.name']}}" src="{{$themeOpts->logo}}" style="max-height: 50px"/>
+                                        <span style="display: none">{{$settings['site.name']}}</span>
+                                        @else
+                                        {{$settings['site.name']}}
+                                        @endif
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('login') }}">
-                                        <i class="fa fa-sign-in"></i> {{Lang::get('messages.front.home.login')}}
-                                    </a>
-                                </li>
-                                @else
-                                <li class="text-center" style="padding: 5px 0">
-                                    Hi, {{$userCmp->username}}!
-                                </li>
-                                <?php if (is_module_enabled('MySpace')): ?>
-                                <li>
-                                    <a href="{{route('user.show', $userCmp->username)}}">
-                                        <i class="fa fa-user"></i> {{Lang::get('messages.front.myprofil.my-profil')}}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('bookmark.index')}}">
-                                        <i class="fa fa-heart"></i> {{Lang::get('messages.front.bookmarks.title')}}
-                                    </a>
-                                </li>
-                                <?php endif; ?>
-                                <?php if (is_module_enabled('Notification')): ?>
-                                    <li>
-                                        <a href="{{route('front.notification.index')}}">
-                                            <i class="fa fa-bell"></i> {{Lang::get('messages.front.myprofil.my-notifications')}}
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                                <?php if (is_module_enabled('Notification') || is_module_enabled('MySpace')): ?>
-                                    <li role="separator" class="divider"></li>
-                                <?php endif; ?>
-                                <?php if (is_module_enabled('Manga')): ?>
-                                    @if(Sentinel::hasAnyAccess(['manga.manga.create','manga.chapter.create']))
-                                    <li>
-                                        <a href="{{route('admin.manga.index')}}">
-                                            <i class="fa fa-plus"></i> {{Lang::get('messages.front.myprofil.add-manga-chapter')}}
-                                        </a>
+                                </h2>
+                            </div>
+                            <div class="navbar-custom-menu">
+                                <ul class="nav navbar-nav @if(config('settings.orientation') === 'rtl') navbar-left @else navbar-right @endif">
+                                    @if(env('ALLOW_SUBSCRIBE', false))
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
+                                        <ul class="dropdown-menu profil-menu">
+                                            @if(!Sentinel::check())
+                                            <li>
+                                                <a href="{{ route('register') }}">
+                                                    <i class="fa fa-pencil-square-o"></i> {{Lang::get('messages.front.home.subscribe')}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('login') }}">
+                                                    <i class="fa fa-sign-in"></i> {{Lang::get('messages.front.home.login')}}
+                                                </a>
+                                            </li>
+                                            @else
+                                            <li class="text-center" style="padding: 5px 0">
+                                                Hi, {{$userCmp->username}}!
+                                            </li>
+                                            <?php if (is_module_enabled('MySpace')): ?>
+                                            <li>
+                                                <a href="{{route('user.show', $userCmp->username)}}">
+                                                    <i class="fa fa-user"></i> {{Lang::get('messages.front.myprofil.my-profil')}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('bookmark.index')}}">
+                                                    <i class="fa fa-heart"></i> {{Lang::get('messages.front.bookmarks.title')}}
+                                                </a>
+                                            </li>
+                                            <?php endif; ?>
+                                            <?php if (is_module_enabled('Notification')): ?>
+                                                <li>
+                                                    <a href="{{route('front.notification.index')}}">
+                                                        <i class="fa fa-bell"></i> {{Lang::get('messages.front.myprofil.my-notifications')}}
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+                                            <?php if (is_module_enabled('Notification') || is_module_enabled('MySpace')): ?>
+                                                <li role="separator" class="divider"></li>
+                                            <?php endif; ?>
+                                            <?php if (is_module_enabled('Manga')): ?>
+                                                @if(Sentinel::hasAnyAccess(['manga.manga.create','manga.chapter.create']))
+                                                <li>
+                                                    <a href="{{route('admin.manga.index')}}">
+                                                        <i class="fa fa-plus"></i> {{Lang::get('messages.front.myprofil.add-manga-chapter')}}
+                                                    </a>
+                                                </li>
+                                                @endif
+                                            <?php endif; ?>
+                                            <?php if (is_module_enabled('Blog')): ?>
+                                                @if(Sentinel::hasAccess('blog.manage_posts'))
+                                                <li>
+                                                    <a href="{{route('admin.posts.index')}}">
+                                                        <i class="fa fa-plus"></i> {{Lang::get('messages.front.myprofil.add-post')}}
+                                                    </a>
+                                                </li>
+                                                @endif
+                                            <?php endif; ?>
+                                            @if(Sentinel::hasAccess('dashboard.index'))
+                                            <li>
+                                                <a href="{{route('admin.index')}}">
+                                                    <i class="fa fa-cogs"></i> {{Lang::get('messages.front.home.dashboard')}}
+                                                </a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            @endif
+                                            <li>
+                                                <a href="{{ route('logout') }}">
+                                                    <i class="fa fa-sign-out"></i> {{Lang::get('messages.front.home.logout')}}
+                                                </a>
+                                            </li>
+                                            @endif
+                                        </ul>
                                     </li>
                                     @endif
-                                <?php endif; ?>
-                                <?php if (is_module_enabled('Blog')): ?>
-                                    @if(Sentinel::hasAccess('blog.manage_posts'))
+                                    <?php if (is_module_enabled('MySpace')): ?>
+                                    @if(Sentinel::check())
                                     <li>
-                                        <a href="{{route('admin.posts.index')}}">
-                                            <i class="fa fa-plus"></i> {{Lang::get('messages.front.myprofil.add-post')}}
-                                        </a>
+                                        <a href="" class="bookmark" title="{{Lang::get('messages.front.bookmarks.bookmark')}}"><i class="fa fa-heart"></i></a>
                                     </li>
                                     @endif
-                                <?php endif; ?>
-                                @if(Sentinel::hasAccess('dashboard.index'))
-                                <li>
-                                    <a href="{{route('admin.index')}}">
-                                        <i class="fa fa-cogs"></i> {{Lang::get('messages.front.home.dashboard')}}
-                                    </a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                @endif
-                                <li>
-                                    <a href="{{ route('logout') }}">
-                                        <i class="fa fa-sign-out"></i> {{Lang::get('messages.front.home.logout')}}
-                                    </a>
-                                </li>
-                                @endif
-                            </ul>
-                        </li>
-                        @endif
-                        <?php if (is_module_enabled('MySpace')): ?>
-                        @if(Sentinel::check())
-                        <li>
-                            <a href="" class="bookmark" title="{{Lang::get('messages.front.bookmarks.bookmark')}}"><i class="fa fa-heart"></i></a>
-                        </li>
-                        @endif
-                        <?php endif; ?>
-                        <!-- Notifications Menu -->
-                        <?php if (is_module_enabled('Notification')): ?>
-                            @if(Sentinel::check())
-                                <?php if (is_module_enabled('Notification')): ?>
-                                    @include('notification::partials.notifications')
-                                <?php endif; ?>
-                            @endif
-                        <?php endif; ?>
-                        <li>
-                            <!-- Button report bug -->
-                            <a href="" class="btn-lg" data-toggle="modal" data-target="#myModal" title="{{Lang::get('messages.front.reader.report-broken-image')}}">
-                                <i class="fa fa-bug"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="navbar-collapse-1" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{route('front.manga.show', array($current->manga_slug))}}">{{$current->manga_name}}{{Lang::get('messages.front.reader.manga')}}</a></li>
+                                    <?php endif; ?>
+                                    <!-- Notifications Menu -->
+                                    <?php if (is_module_enabled('Notification')): ?>
+                                        @if(Sentinel::check())
+                                            <?php if (is_module_enabled('Notification')): ?>
+                                                @include('notification::partials.notifications')
+                                            <?php endif; ?>
+                                        @endif
+                                    <?php endif; ?>
+                                    <li>
+                                        <!-- Button report bug -->
+                                        <a href="" class="btn-lg" data-toggle="modal" data-target="#myModal" title="{{Lang::get('messages.front.reader.report-broken-image')}}">
+                                            <i class="fa fa-bug"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="navbar-collapse-1" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="{{route('front.manga.show', array($current->manga_slug))}}">{{$current->manga_name}}{{Lang::get('messages.front.reader.manga')}}</a></li>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Lang::get('messages.front.reader.reading-mode')}}<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a id="modePPP" href="#"><i class="fa fa-arrows-h" style="width: 30px"></i>{{Lang::get('messages.front.reader.page-per-page')}}</a></li>
-                                <li><a id="modeALL" href="#"><i class="fa fa-arrows-v" style="width: 30px"></i>{{Lang::get('messages.front.reader.all-pages')}}</a></li>
-                            </ul>
-                        </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Lang::get('messages.front.reader.reading-mode')}}<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="modePPP" href="#"><i class="fa fa-arrows-h" style="width: 30px"></i>{{Lang::get('messages.front.reader.page-per-page')}}</a></li>
+                                            <li><a id="modeALL" href="#"><i class="fa fa-arrows-v" style="width: 30px"></i>{{Lang::get('messages.front.reader.all-pages')}}</a></li>
+                                        </ul>
+                                    </li>
 
-                        <li id="chapter-list" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Lang::get('messages.front.reader.other-chapter')}}<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                @foreach ($chapters as $chapter)
-                                <li @if ($chapter->chapter_number == $current->chapter_number) class="active" @endif><a href="{{route('front.manga.reader', array($current->manga_slug, $chapter->chapter_slug))}}">{{Lang::get('messages.front.reader.chaptre').' '.$chapter->chapter_number.': '. $chapter->chapter_name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    </ul>
+                                    <li id="chapter-list" class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Lang::get('messages.front.reader.other-chapter')}}<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            @foreach ($chapters as $chapter)
+                                            <li @if ($chapter->chapter_number == $current->chapter_number) class="active" @endif><a href="{{route('front.manga.reader', array($current->manga_slug, $chapter->chapter_slug))}}">{{Lang::get('messages.front.reader.chaptre').' '.$chapter->chapter_number.': '. $chapter->chapter_name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--/ Website Menu -->
                 </div>
             </div>
-        </nav>
-        <!--/ Website Menu -->
+        </header>
+
+        
 
         <div class="container-fluid">
+            <div class="row">
+                <div class="container" style="background: #fff;padding-top:25px ">
             @if (!is_null($page))
             <div class="pager-cnt">
                 <div class="row">
@@ -745,7 +755,68 @@
             </div>
             @endif
         </div>
+                
+        </div>
+    </div>
 
+    <!-- 底部 -->
+    <footer>
+            <div class="container-fluid">
+                <div class="row"> 
+                    <div class="col-sm-12 manga-footer">
+                        <div class="container"> 
+                        <div class="row">
+                            
+                                <!-- menu -->
+                                <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif">
+                                    @if(!is_null($themeOpts) && !is_null($themeOpts->footer_menu))
+                                    {!! HelperController::renderMenu($themeOpts->footer_menu) !!}
+                                    @endif
+                                </ul>
+                                &copy;&nbsp;<?php echo date("Y") ?>&nbsp;
+                                <a href="{{route('front.index')}}">{{$settings['site.name']}}</a>
+                                &nbsp;
+                                <a href="{{route('front.manga.contactUs')}}" title="{{Lang::get('messages.front.home.contact-us')}}"><i class="fa fa-envelope-square"></i></a>
+                                &nbsp;
+                                <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
+                            
+                        </div>
+                        </div>
+                        <!-- 底部中间返回顶部 -->
+                        <div class="footer-back-top back-top show"><i class="fa fa-chevron-up"></i>top</div>
+                    </div>
+                </div>
+
+                @stack('js')
+
+                @yield('js')
+
+                <script>
+                    $(document).ready(function () {                       
+                        /*返回顶部js功能*/
+                        if ($(".back-top").length) {
+                        var N = 50, 
+                        _ = function() {
+                            var t = $(window).scrollTop();
+                            t > N ? $(".back-top").addClass("show") : $(".back-top").removeClass("show")
+                        };
+                        _(),
+                        $(window).on("scroll", function() {
+                            _()
+                        }),
+                        $(".back-top").on("click", function(t) {
+                            t.preventDefault(),
+                            $("html,body").animate({
+                                scrollTop: 0
+                            }, 700)
+                        })
+                        }
+                    });
+                </script>
+            </div>            
+        </footer>
+        <!-- 返回顶部 -->
+        <div class="back-to-top back-top show" title="Back to top"><i class="fa fa-chevron-up"></i></div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document" style="z-index: 9999">
