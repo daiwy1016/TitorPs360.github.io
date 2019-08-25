@@ -205,7 +205,8 @@ class SettingsController extends Controller
             'default.spacelab' => 'Spacelab',
             'default.superhero' => 'Superhero (Dark)',
             'default.united' => 'United',
-            'default.yeti' => 'Yeti'
+            'default.yeti' => 'Yeti',
+            'default.yellowbee' => 'YellowBee'
         ];
 
         $themes['default - color variation'] = $bootswatch;
@@ -227,7 +228,8 @@ class SettingsController extends Controller
             'spacelab' => 'Spacelab',
             'superhero' => 'Superhero (Dark)',
             'united' => 'United',
-            'yeti' => 'Yeti'
+            'yeti' => 'Yeti',
+            'yellowbee' => 'YellowBee'
         ];
         
         return view('base::admin.settings.theme', 

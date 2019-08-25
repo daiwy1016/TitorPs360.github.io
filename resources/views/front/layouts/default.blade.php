@@ -56,11 +56,17 @@
         @if(!is_null($settings['seo.google.analytics']) || "" !== $settings['seo.google.analytics'])
         @include('front.analyticstracking')
         @endif
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Website Menu -->
+                    @yield('menu')
+                    <!--/ Website Menu -->
+                </div>
+            </div>
+        </header>
 
-        <div class="wrapper">
-            <!-- Website Menu -->
-            @yield('menu')
-            <!--/ Website Menu -->
+        <div class="wrapper">            
 
             <div class="@if(isset($themeOpts->boxed) && $themeOpts->boxed == 1) container @else container-fluid @endif">
                 <!-- row -->
@@ -85,11 +91,15 @@
                     </div>
                 </div>
                 <!--/ row -->
-
+            </div>
+        </div>
+        <footer>
+            <div class="container-fluid">
                 <div class="row"> 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 manga-footer">
+                        <div class="container"> 
                         <div class="row">
-                            <div class="manga-footer">
+                            <div class="">
                                 <!-- menu -->
                                 <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif">
                                     @if(!is_null($themeOpts) && !is_null($themeOpts->footer_menu))
@@ -104,6 +114,7 @@
                                 <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
 
@@ -116,19 +127,18 @@
                         var url = window.location.href;
                         var element = $('ul.nav a').filter(function () {
                             if (url.charAt(url.length - 1) == '/') {
-                                url = url.substring(0, url.length - 1);
+                                //不过滤 home 首页
+                                //url = url.substring(0, url.length - 1);
                             }
 
                             return this.href == url;
                         }).parent();
-
                         if (element.is('li')) {
                             element.addClass('active');
                         }
                     });
                 </script>
             </div>
-        </div>
-    </div>
+        </footer>
 </body>
 </html>
