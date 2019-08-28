@@ -7283,3 +7283,7 @@ hr{
         width: 100px;
     z-index: 2;
 }
+
+ .footer-copyright,.footer-menu {
+     background: #f5bb00;
+ }

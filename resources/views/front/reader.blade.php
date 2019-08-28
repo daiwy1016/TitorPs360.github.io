@@ -766,19 +766,29 @@
                     <div class="col-sm-12 manga-footer">
                         <div class="container"> 
                         <div class="row">
-                            
-                                <!-- menu -->
-                                <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif">
+                             <!-- menu -->
+                            <div class="">
+                                <div class="col-lg-6">
+                                    <div class="footer-copyright">
+                                        &copy;&nbsp;<?php echo date("Y") ?>&nbsp;
+                                        <a href="{{route('front.index')}}">{{$settings['site.name']}}</a>
+                                        &nbsp;
+                                        <a href="{{route('front.manga.contactUs')}}" title="{{Lang::get('messages.front.home.contact-us')}}"><i class="fa fa-envelope-square"></i></a>
+                                        &nbsp;
+                                        <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                     <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif footer-menu">
                                     @if(!is_null($themeOpts) && !is_null($themeOpts->footer_menu))
                                     {!! HelperController::renderMenu($themeOpts->footer_menu) !!}
                                     @endif
                                 </ul>
-                                &copy;&nbsp;<?php echo date("Y") ?>&nbsp;
-                                <a href="{{route('front.index')}}">{{$settings['site.name']}}</a>
-                                &nbsp;
-                                <a href="{{route('front.manga.contactUs')}}" title="{{Lang::get('messages.front.home.contact-us')}}"><i class="fa fa-envelope-square"></i></a>
-                                &nbsp;
-                                <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
+                                </div>
+                            </div>
+                               
+                               
+                                
                             
                         </div>
                         </div>
