@@ -5268,7 +5268,7 @@ a.label:hover,a.label:focus {
 }
 
 .label-success {
-    background-color: #38b44a
+    background-color: #f5bb00
 }
 
 .label-success[href]:hover,.label-success[href]:focus {
@@ -7260,7 +7260,7 @@ hr{
     margin: 0
 }
 
-.hotmanga-header,.listmanga-header{
+.hotmanga-header,.panel-title{
     position: relative;
         color: #50514f;
     font-size: 16px;
@@ -7268,7 +7268,7 @@ hr{
     padding: 0 0 15px;
     margin-bottom: 20px;
 }
-.listmanga-header:before,.listmanga-header:after,.hotmanga-header:before ,.hotmanga-header:after{
+.panel-title:before,.panel-title:after,.hotmanga-header:before ,.hotmanga-header:after{
     position: absolute;
     height: 1px;
     background: #f4f4f4;
@@ -7278,7 +7278,7 @@ hr{
     left: 0;
     z-index: 1;
 }
-.hotmanga-header:after,.listmanga-header:after {
+.hotmanga-header:after,.panel-title:after {
     background: #f5bb00;
         width: 100px;
     z-index: 2;
@@ -7286,4 +7286,8 @@ hr{
 
  .footer-copyright,.footer-menu {
      background: #f5bb00;
+ }
+
+ .panel-success>.panel-heading{
+    
  }
