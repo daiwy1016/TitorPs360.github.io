@@ -277,8 +277,8 @@ td,th {
 
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url('../fonts/glyphicons-halflings-regular.eot');
-    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),url('../fonts/glyphicons-halflings-regular.woff') format('woff'),url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
+    src: url('../../../fonts/glyphicons-halflings-regular.eot');
+    src: url('../../../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('../../../fonts/glyphicons-halflings-regular.woff2') format('woff2'),url('../../../fonts/glyphicons-halflings-regular.woff') format('woff'),url('../../../fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('../../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
 }
 
 .glyphicon {
@@ -1573,7 +1573,7 @@ mark,.mark {
 }
 
 .text-primary {
-    color: #dd4814
+    color: #f5bb00
 }
 
 a.text-primary:hover,a.text-primary:focus {
@@ -5502,9 +5502,9 @@ a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active {
 }
 
 .alert-danger {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48
+    background-color: #f5bb00;
+    border-color: #f5bb00;
+    color: #ffffff
 }
 
 .alert-danger hr {
@@ -5873,7 +5873,7 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 }
 
 .panel-heading {
-    padding: 10px 15px;
+    padding:20px 10px 15px;
     border-bottom: 1px solid transparent;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px
@@ -6067,13 +6067,13 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 }
 
 .panel-primary {
-    border-color: #dd4814
+    border-color: #f5bb00
 }
 
 .panel-primary>.panel-heading {
     color: #ffffff;
-    background-color: #dd4814;
-    border-color: #dd4814
+    background-color: #f5bb00;
+    border-color: #f5bb00
 }
 
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
@@ -7260,15 +7260,15 @@ hr{
     margin: 0
 }
 
-.hotmanga-header,.panel-title{
+.hotmanga-header{
     position: relative;
         color: #50514f;
     font-size: 16px;
     text-transform: uppercase;
     padding: 0 0 15px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
 }
-.panel-title:before,.panel-title:after,.hotmanga-header:before ,.hotmanga-header:after{
+.hotmanga-header:before ,.hotmanga-header:after{
     position: absolute;
     height: 1px;
     background: #f4f4f4;
@@ -7278,7 +7278,7 @@ hr{
     left: 0;
     z-index: 1;
 }
-.hotmanga-header:after,.panel-title:after {
+.hotmanga-header:after{
     background: #f5bb00;
         width: 100px;
     z-index: 2;
@@ -7291,3 +7291,125 @@ hr{
  .panel-success>.panel-heading{
     
  }
+/*首页右侧 box css*/
+.panel{
+    -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0.05); 
+     box-shadow: 0 0px 0px rgba(0,0,0,0.05); 
+}
+.panel-title{
+    display: inline;
+    border-bottom:1px solid #F5BB00;
+    padding: 0 0 10px;
+ }
+
+ .panel-success>.panel-heading{
+        color: #50514f;
+    background-color: transparent;
+    border:0 
+    /*border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;*/
+ }
+.panel-success{
+         border-color: transparent; 
+}
+.list-group-item{
+     border: 0; 
+}
+
+span.alphabetic.disabled{
+    color: rgba(255,255,255,0.5) !important;
+}
+span.alphabetic:hover{
+    background-color: #ffffff !important;
+    color: #f5bb00 !important
+}
+/*轮播 幻灯片 css 修改*/
+.header-section-new{
+    margin-top: 20px;display: flex; justify-content: space-between; align-items: center;
+}
+.banner-new {
+    width: 100%;
+    height: 54vw;
+    display: block;
+}
+@media (min-width: 768px) {
+    .banner-new {
+    width: 38%;
+    height: 21vw;
+    display: flex;
+    align-items: center;
+}
+}
+
+.carousel-inner,.carousel-control.right,.carousel-control.left{
+        border-radius: 12px;
+}
+
+  div.item img{
+    width:100%;
+   }
+  div#carousel-generic{
+   
+  }
+
+.cate-new {
+    width: 100%;
+    height: 21vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.cate-item-new {
+    width: 36%;
+    height: 9.3vw;
+    /*width: 48%;
+    margin: 5px;*/
+    background-color: #F5BB00;
+    padding: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.cate-img-new{
+        width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*动画*/
+@keyframes myAnimIn
+{
+    from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
+ 
+@-webkit-keyframes myAnimIn /* Safari 与 Chrome */
+{
+   from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
+@keyframes myAnimOut
+{
+    from {transform: scale(1.2);}
+    to {transform: scale(1);}
+}
+ 
+@-webkit-keyframes myAnimOut 
+{
+   from {transform: scale(1.2);}
+    to {transform: scale(1);}
+}
+
+.book-cover-anim-in-new{
+     animation: myAnimIn 0.6s;
+    -webkit-animation: myAnimIn 0.6s;
+    animation-fill-mode: forwards;
+    z-index: 2000;
+}
+.book-cover-anim-out-new{
+     animation: myAnimOut 0.6s;
+    -webkit-animation: myAnimOut 0.6s;
+    animation-fill-mode: forwards;
+    z-index: 2000;
+}

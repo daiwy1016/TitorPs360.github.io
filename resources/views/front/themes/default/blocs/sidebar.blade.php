@@ -1,6 +1,7 @@
 @section('sidebar')
 
 <!-- ads -->
+@if(isset($ads['RIGHT_SQRE_1']))
 <div class="row">
     <div class="col-xs-12" style="padding: 0">
         <div style="display: table; margin: 10px auto;">
@@ -11,7 +12,7 @@
         </div>
     </div>
 </div>
-
+@endif
 @foreach($widgets as $index=>$widget)
 @if($widget->type == 'site_description')
 <!-- About Me -->

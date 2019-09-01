@@ -76,6 +76,19 @@
                     </div>
                 </div>
                 <!--/ row -->
+                <!-- 轮播图 -->
+                 <!-- row -->
+                <div class="row header-section-new">
+                    <div class="col-xs-12 col-sm-6 banner-new">
+                        @yield('mangaslides')
+                    </div>
+                     <div class="col-xs-12 col-sm-6">
+                         @yield('mangasads')
+                    </div>
+                </div>
+                <!--/ row -->
+
+
 
                 <!-- row -->
                 <div class="row"> 

@@ -14,3 +14,14 @@ function alphabetFilter() {
                     $('html, body').animate({scrollTop: $('div.' + letterSelector).offset().top});
             });
 }
+
+
+
+$(function(){
+    $('a.thumbnail>img').mouseenter(function(){
+        $(this).removeClass('book-cover-anim-out-new').addClass('book-cover-anim-in-new');
+    })
+    $('a.thumbnail>img').mouseleave(function(){
+        $(this).removeClass('book-cover-anim-in-new').addClass('book-cover-anim-out-new');
+    })
+})

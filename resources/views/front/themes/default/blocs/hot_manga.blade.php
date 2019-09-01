@@ -7,7 +7,7 @@
     <ul class="hot-thumbnails">
         @foreach ($hotMangaList as $manga)
         <li class="span3">
-            <div class="photo" style="position: relative;">
+            <div class="photo" style="position: relative;overflow: hidden;">
                 <div class="manga-name">
                     <a class="label label-warning" href="{{route('front.manga.show',$manga->manga_slug)}}">{{ $manga->manga_name }}</a>
                 </div>
