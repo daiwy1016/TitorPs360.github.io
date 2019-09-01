@@ -46,59 +46,26 @@ echo (new \Escapeboy\Jraty\Jraty)->js_init(array(
 
 @section('mangaslides')
 
-<div  id="carousel-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-generic" data-slide-to="2"></li>
-    <li data-target="#carousel-generic" data-slide-to="3"></li>
-  </ol> 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-        <a href="#">
-            <img src="http://how2j.cn/img/site/step/3491.png" >
-            <div class="carousel-caption">
-            LOL1
-            </div>
-        </a>
-    </div>
+<div  id="carousel-generic" class="owl-carousel owl-theme">
     <div class="item">
-        <a href="#">
-            <img src="http://how2j.cn/img/site/step/3492.png" >
-            <div class="carousel-caption">
-            LOL1
-            </div>
+        <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+         <img src="http://how2j.cn/img/site/step/3491.png" alt="Image">
         </a>
+        <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
     </div>
-    <div class="item">
-        <a href="#">
-            <img src="http://how2j.cn/img/site/step/3493.png" >
-            <div class="carousel-caption">
-            LOL1
-            </div>
+        <div class="item">
+        <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+         <img src="http://how2j.cn/img/site/step/3491.png" alt="Image">
         </a>
+        <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
     </div>
- 
-    <div class="item">
-        <a href="#">
-            <img src="http://how2j.cn/img/site/step/3494.png" >
-            <div class="carousel-caption">
-            LOL1
-            </div>
-        </a>
-    </div>
- 
-  </div>
- 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<!-- Controls -->
+  <a class="left carousel-control" >
+    <span class="glyphicon glyphicon-chevron-left"></span>
  
   </a>
-  <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <a class="right carousel-control" >
+    <span class="glyphicon glyphicon-chevron-right"></span>
  
   </a>
  
@@ -127,6 +94,64 @@ echo (new \Escapeboy\Jraty\Jraty)->js_init(array(
                 </a>
             </div>
         </div>
+@stop
+
+@section('mangaupdatesslides')
+<div class="col-xs-12">
+    <h2 class="hotmanga-header"><i class="fa fa-star"></i>热门漫画最新更新</h2>
+</div>
+<div class="col-xs-12">
+    <div class="owl-carousel owl-theme" id="manga-hot-updates">
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+        <div class="item">
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" alt="Star Martial God Technique - 276" title="Star Martial God Technique - 276">
+             <img src="http://manga.ma/uploads/manga/wodebingdunvyou/cover/cover_250x350.jpg" alt="Image">
+            </a>
+            <a href="https://www.funmanga.com/star-martial-god-technique/276" class="caption" title="Star Martial God Technique - 276">Star Martial God Technique - 276</a>
+        </div>
+    </div>
+</div>
 @stop
 
 

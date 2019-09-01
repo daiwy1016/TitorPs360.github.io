@@ -32,7 +32,13 @@
         <script src="{{ asset('js/vendor/jquery-1.11.0.min.js') }}"></script>
         <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/vendor/jquery.autocomplete.min.js') }}"></script>
+        <!-- 轮播幻灯 -->
+        <script src="{{ asset('js/vendor/owl.carousel.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('css/owlcarousel/owl.carousel.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/owlcarousel/owl.theme.default.css') }}"/>
+
         <script src="{{ asset('js/main.js') }}"></script>
+
 
         @if(config('settings.orientation') === 'rtl')
         <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
@@ -76,15 +82,21 @@
                     </div>
                 </div>
                 <!--/ row -->
-                <!-- 轮播图 -->
+                <!-- 轮播图1 -->
                  <!-- row -->
                 <div class="row header-section-new">
                     <div class="col-xs-12 col-sm-6 banner-new">
                         @yield('mangaslides')
                     </div>
-                     <div class="col-xs-12 col-sm-6">
+                     <div class="col-xs-12 col-sm-6 section-new">
                          @yield('mangasads')
                     </div>
+                </div>
+                <!--/ row -->
+
+                <!-- row -->
+                <div class="row updates-slider">
+                     @yield('mangaupdatesslides')
                 </div>
                 <!--/ row -->
 
