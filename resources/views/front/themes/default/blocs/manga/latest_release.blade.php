@@ -27,6 +27,8 @@
 @include('front.themes.'.$theme.'.blocs.menu')
 
 @section('allpage')
+ <div class="content">
+ <div class="content-inner-latest">
 <h2 class="listmanga-header">
     <i class="fa fa-calendar-o"></i>{{ Lang::get('messages.front.home.latest-manga') }}
 </h2>
@@ -75,4 +77,7 @@
     <p>{{ Lang::get('messages.front.home.no-chapter') }}</p>
 </div>
 @endif
+</div>
+</div>
 @stop
+@include('front.themes.'.$theme.'.blocs.show_sidebar')

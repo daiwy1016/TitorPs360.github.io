@@ -19,10 +19,10 @@ function alphabetFilter() {
 
 $(function(){
     /*鼠标悬浮上面时动画*/
-    $('a.thumbnail>img').mouseenter(function(){
+    $('a.books-list-item-cover img').mouseenter(function(){
         $(this).removeClass('book-cover-anim-out-new').addClass('book-cover-anim-in-new');
     });
-    $('a.thumbnail>img').mouseleave(function(){
+    $('a.books-list-item-cover img').mouseleave(function(){
         $(this).removeClass('book-cover-anim-in-new').addClass('book-cover-anim-out-new');
     });
     /*首页幻灯片轮播*/

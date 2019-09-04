@@ -6071,9 +6071,9 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 }
 
 .panel-primary>.panel-heading {
-    color: #ffffff;
+    /*color: #ffffff;
     background-color: #f5bb00;
-    border-color: #f5bb00
+    border-color: #f5bb00*/
 }
 
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
@@ -7268,7 +7268,11 @@ hr{
     padding: 0 0 15px;
     margin-bottom: 20px;
 }
-.hotmanga-header:before ,.hotmanga-header:after, .listmanga-header:before ,.listmanga-header:after,.widget-title:before,.widget-title:after{
+ .panel-heading{
+position: relative;
+ }
+.hotmanga-header:before ,.hotmanga-header:after, .listmanga-header:before ,.listmanga-header:after,.widget-title:before,.widget-title:after,
+.panel-heading:before,.panel-heading:after{
     position: absolute;
     height: 1px;
     background: #f4f4f4;
@@ -7278,7 +7282,7 @@ hr{
     left: 0;
     z-index: 1;
 }
-.hotmanga-header:after,.listmanga-header:after,.widget-title:after{
+.hotmanga-header:after,.listmanga-header:after,.widget-title:after,.panel-heading:after{
     background: #f5bb00;
         width: 100px;
     z-index: 2;
@@ -7288,18 +7292,20 @@ hr{
      background: #f5bb00;
  }
 
- .panel-success>.panel-heading{
 
- }
 /*首页右侧 box css*/
 .panel{
     -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0.05);
      box-shadow: 0 0px 0px rgba(0,0,0,0.05);
 }
 .panel-title{
-    display: inline;
+    /*display: inline;
     border-bottom:1px solid #F5BB00;
-    padding: 0 0 10px;
+    padding: 0 0 10px;*/
+ }
+ .panel-default>.panel-heading {
+        background-color: transparent;
+    border-color: #dddddd;
  }
 
  .panel-success>.panel-heading{
@@ -7311,7 +7317,8 @@ hr{
     border-top-color: transparent;
     border-bottom-color: transparent;*/
  }
-.panel-success{
+
+.panel-success,.panel-default {
          border-color: transparent;
 }
 .list-group-item{

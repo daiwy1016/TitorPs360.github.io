@@ -93,14 +93,22 @@ ul {
 }
 
 .hot-thumbnails .well {
-    margin-top: -5px;
+/*    margin-top: -5px;
     height: auto;
     padding: 0;
     width: 100%;
-    line-height: 25px;
+    line-height: 25px;*/
     overflow: hidden;
     text-overflow: ellipsis;
     height: 60px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding-left: 8px;
+    width: 100%;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-top: 70px;
 }
 
 .hot-thumbnails .well p {
@@ -1086,7 +1094,7 @@ a.thumbnail:hover{
         margin-left: 115px
     }
 }
-.content-inner,.inner-page{
+.content-inner,.inner-page,.content-inner-latest{
     padding: 25px;
  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -1099,7 +1107,9 @@ a.thumbnail:hover{
 .content-inner{
     background: #ececec;
 }
-
+.content-inner-latest{
+  background: #ffffff
+}
 
 .detail-book-info-bg{
   -webkit-filter: blur(9px);
@@ -1149,3 +1159,24 @@ ul.chapters {
 }
 }
 
+.books-list-item-cover {
+    display: block;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.books-list-item-info-new {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding-left: 8px;
+    width: 100%;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-top: 70px;
+}
+.grad-new {
+    background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+}

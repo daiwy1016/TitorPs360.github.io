@@ -251,7 +251,7 @@ score: score
 <div class="row">
     <div class="col-lg-12">
         <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2>
-        <div class="chapter-tip cf">敬告：《{{ $manga->name }}》漫画仅供试看，若喜欢，请支持购买正版。如作者不希望该漫画出现在本站，请联系我们删除。</div>
+        <div class="chapter-tip cf">{{ Lang::get('messages.front.manga.chapters-tip', array('manganame' => $manga->name)) }}</div>
         <hr/>
 
         <ul class="chapters">

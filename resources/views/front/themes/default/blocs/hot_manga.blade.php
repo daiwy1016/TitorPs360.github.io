@@ -11,14 +11,14 @@
                 <div class="manga-name">
                     <a class="label label-warning" href="{{route('front.manga.show',$manga->manga_slug)}}">{{ $manga->manga_name }}</a>
                 </div>
-                <a class="thumbnail" style="position: relative; z-index: 10; background: rgb(255, 255, 255) none repeat scroll 0% 0%;" href='{{ route("front.manga.reader", [$manga->manga_slug, $manga->chapter_slug]) }}'>
+                <a class="thumbnail books-list-item-cover" style="position: relative; z-index: 10; background: rgb(255, 255, 255) none repeat scroll 0% 0%;" href='{{ route("front.manga.reader", [$manga->manga_slug, $manga->chapter_slug]) }}'>
                     @if ($manga->manga_cover)
                     <img src='{{HelperController::coverUrl("$manga->manga_slug/cover/cover_250x350.jpg")}}' alt='{{ $manga->manga_name }}' />
                     @else
                     <img src='{{asset("images/no-image.png")}}' alt='{{ $manga->manga_name }}' />
                     @endif
                 </a>
-                <div class="well">
+                <div class="well books-list-item-info-new grad-new">
                     <p>
                         <i class="fa fa-book"></i>
                         {{ "#".$manga->chapter_number."  ".$manga->chapter_name }}

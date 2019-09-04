@@ -338,6 +338,7 @@ return [
     'front.manga.summary'           		=> '简介',
     'front.manga.rating'                	=> '漫画评分',
     'front.manga.chapters'             		=> ':manganame 章节',
+    'front.manga.chapters-tip'              => ' 敬告：《:manganame》漫画仅供试看，若喜欢，请支持购买正版。如作者不希望该漫画出现在本站，请联系我们删除。',
     'front.manga.no-chapter'            	=> 'There is no chapter !',
     'front.manga.note'                          => 'Average :avg/5 out of :votes total votes.',
     'front.manga.caution'            		=> "Caution: This $mangaSingular contain themes or scenes that may not be suitable for very young readers.",

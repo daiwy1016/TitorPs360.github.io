@@ -436,7 +436,31 @@ class FrontController extends Controller
         }
         $mangaList = new LengthAwarePaginator($latestMangaUpdates, $data['totalItems'], $limit, $page,
                  ['path' => Request::url(), 'query' => Request::query()]);
+         // widgets
+        $topViewsManga = array();
+        $tags = array();
+        $widgets = json_decode($settings['site.widgets']);
 
+        foreach ($widgets as $widget) {
+            if($theme=="colorful"){
+                if ($widget->type == 'top_rates' && count($topManga) == 0) {
+                    $topMangaResutlSet = Manga::topManga(strlen($widget->number)>0?$widget->number:10);
+                    foreach ($topMangaResutlSet as $manga) {
+                        array_push($topManga, $manga);
+                    }
+                }
+            }
+            if ($widget->type == 'top_views' && count($topViewsManga) == 0) {
+                if (is_module_enabled('Manga')) {
+                    $topViewsManga = Manga::topViewsManga(strlen($widget->number)>0?$widget->number:10);
+                }
+            }
+            if ($widget->type == 'tags') {
+                if (is_module_enabled('Manga')) {
+                    $tags = Tag::join('manga_tag','id','=','tag_id')->groupBy('tag_id')->pluck('name', 'slug')->all();
+                }
+            }
+        }
         return View::make(
             'front.themes.' . $theme . '.blocs.manga.latest_release',
             [
@@ -444,7 +468,10 @@ class FrontController extends Controller
                 "variation" => $variation,
                 "settings" => $settings,
                 "latestMangaUpdates" => $mangaList,
-                'seo' => $advancedSEO
+                'seo' => $advancedSEO,
+                "widgets" => $widgets,
+                "topViewsManga" => $topViewsManga,
+                "tags" => $tags
             ]
         );
     }

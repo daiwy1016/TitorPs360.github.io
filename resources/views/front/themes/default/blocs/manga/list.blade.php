@@ -178,7 +178,7 @@
 @include('front.themes.'.$theme.'.blocs.menu')
 
 @section('sidebar')
-<div id="filter-types" class="btn-group btn-group-justified" role="group" data-toggle="buttons" style="margin-top: 20px;margin-bottom: 10px">
+<div id="filter-types" class="btn-group btn-group-justified" role="group" data-toggle="buttons" style="margin-bottom: 10px">
     <div class="btn-group" role="group">
         <label class="btn btn-primary">
             <input type="radio" name="filter-type" id="text" />
