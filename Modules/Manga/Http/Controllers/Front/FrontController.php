@@ -106,6 +106,8 @@ class FrontController extends Controller
 
         array_multisort(array_keys($sortedChapters), SORT_DESC, SORT_NATURAL, $sortedChapters);
         // widgets
+        $topViewsManga = array();
+        $tags = array();
         $widgets = json_decode($settings['site.widgets']);
 
         foreach ($widgets as $widget) {
@@ -140,7 +142,9 @@ class FrontController extends Controller
                 'mangaOptions' => $mangaOptions,
                 'ads' => $ads,
                 'seo' => $advancedSEO,
-                "widgets" => $widgets
+                "widgets" => $widgets,
+                "topViewsManga" => $topViewsManga,
+                "tags" => $tags
             ]
         );
     }
