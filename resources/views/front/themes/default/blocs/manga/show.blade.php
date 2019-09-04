@@ -44,6 +44,9 @@ score: score
 @stop
 
 @section('allpage')
+ <div class="content">
+ <div class="content-inner">
+
 <h2 class="widget-title" style="display: inline-block;">{{$manga->name}}</h2>
 <?php if (is_module_enabled('MySpace')): ?>
 @if(Sentinel::check())
@@ -78,14 +81,14 @@ score: score
 @endif
 <?php endif; ?>
 <hr/>
-
+<div class="detail-book-info-new">
 <div class="row">
     <div class="col-sm-4">
-        <div class="boxed" style="width: 250px; height: 350px;">
+        <div class="boxed">
             @if ($manga->cover)
             <img class="img-responsive" src='{{HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg")}}' alt='{{ $manga->name }}'/>
             @else
-            <img width="250" height="350" src='{{asset("images/no-image.png")}}' alt='{{ $manga->name }}' />
+            <img class="img-responsive" src='{{asset("images/no-image.png")}}' alt='{{ $manga->name }}' />
             @endif
         </div>
     </div>
@@ -186,6 +189,7 @@ score: score
         @endif
     </div>
 </div>
+
 @if(!is_null($manga->summary) && $manga->summary != "")
 <br/>
 <div class="row">
@@ -197,6 +201,11 @@ score: score
     </div>
 </div>
 @endif
+@if ($manga->cover)
+    <div class="detail-book-info-bg" style="background-image: url({{HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg")}})"></div>
+@endif
+</div>
+</div>
 
 @if (count($posts)>0)
 <div class="row">
@@ -238,29 +247,31 @@ score: score
         </div>
     </div>
 </div>
-
+<div class="inner-page">
 <div class="row">
     <div class="col-lg-12">
         <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2>
+        <div class="chapter-tip cf">敬告：《{{ $manga->name }}》漫画仅供试看，若喜欢，请支持购买正版。如作者不希望该漫画出现在本站，请联系我们删除。</div>
         <hr/>
 
         <ul class="chapters">
             @if (count($chapters)>0)
             <?php $volume = 0; ?>
             @foreach ($chapters as $chapter)
+
+
+            <li style="padding: 3px 0;" class="volume-{{$chapter->volume}}">
             @if (isset($mangaOptions->show_chapters_volume) && $mangaOptions->show_chapters_volume == '1')
             @if ($volume!=$chapter->volume)
-            <li class="volume btn btn-default btn-xs" data-volume="volume-{{$chapter->volume}}">
-                <i class="fa fa-minus-square-o"></i> Volume {{$chapter->volume}}
-            </li>
+            <div class="volume btn btn-default btn-xs" data-volume="volume-{{$chapter->volume}}">
+                <i class="fa fa-minus-square-o"></i> 总{{$chapter->volume}}卷
+            </div>
             @endif
             <?php $volume = $chapter->volume; ?>
             @endif
-
-            <li style="padding: 3px 0;" class="volume-{{$chapter->volume}}">
                 <h5 class="chapter-title-rtl">
-                    {{ link_to_route('front.manga.reader', $manga->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} :
-                    <em>{{ $chapter->name }}</em>
+                    {{ link_to_route('front.manga.reader', $chapter->name.' '.$chapter->number, [$manga->slug, $chapter->slug]) }} :
+                  <!--   <em>{{ $chapter->name }}</em> -->
                 </h5>
                 <div class="action @if(config('settings.orientation') === 'rtl') pull-left @endif">
                     <?php if (isset($mangaOptions->allow_download_chapter) && $mangaOptions->allow_download_chapter == '1') { ?>
@@ -296,6 +307,7 @@ score: score
             @endif
         </ul>
     </div>
+</div>
 </div>
 
 <!-- ads -->
@@ -413,4 +425,6 @@ score: score
         });
     });
 </script>
+</div>
 @stop
+@include('front.themes.'.$theme.'.blocs.show_sidebar')

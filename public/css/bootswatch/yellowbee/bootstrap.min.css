@@ -277,8 +277,8 @@ td,th {
 
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url('../../../fonts/glyphicons-halflings-regular.eot');
-    src: url('../../../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('../../../fonts/glyphicons-halflings-regular.woff2') format('woff2'),url('../../../fonts/glyphicons-halflings-regular.woff') format('woff'),url('../../../fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('../../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),url('../../../fonts/glyphicons-halflings-regular.woff') format('woff'),url('../../../fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('../../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
 }
 
 .glyphicon {
@@ -5873,7 +5873,7 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 }
 
 .panel-heading {
-    padding:20px 10px 15px;
+    padding:20px 10px 15px 0;
     border-bottom: 1px solid transparent;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px
@@ -7244,7 +7244,7 @@ button.close {
      text-decoration: none;
 }*/
 .layout-boxed .container,.layout-boxed .wrapper {
-     max-width: 1170px !important; 
+     max-width: 1170px !important;
 }
 
 /*.layout-boxed .wrapper{
@@ -7260,15 +7260,15 @@ hr{
     margin: 0
 }
 
-.hotmanga-header{
+.hotmanga-header,.listmanga-header,.widget-title{
     position: relative;
         color: #50514f;
     font-size: 16px;
     text-transform: uppercase;
     padding: 0 0 15px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
-.hotmanga-header:before ,.hotmanga-header:after{
+.hotmanga-header:before ,.hotmanga-header:after, .listmanga-header:before ,.listmanga-header:after,.widget-title:before,.widget-title:after{
     position: absolute;
     height: 1px;
     background: #f4f4f4;
@@ -7278,7 +7278,7 @@ hr{
     left: 0;
     z-index: 1;
 }
-.hotmanga-header:after{
+.hotmanga-header:after,.listmanga-header:after,.widget-title:after{
     background: #f5bb00;
         width: 100px;
     z-index: 2;
@@ -7289,12 +7289,12 @@ hr{
  }
 
  .panel-success>.panel-heading{
-    
+
  }
 /*首页右侧 box css*/
 .panel{
-    -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0.05); 
-     box-shadow: 0 0px 0px rgba(0,0,0,0.05); 
+    -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0.05);
+     box-shadow: 0 0px 0px rgba(0,0,0,0.05);
 }
 .panel-title{
     display: inline;
@@ -7305,17 +7305,17 @@ hr{
  .panel-success>.panel-heading{
         color: #50514f;
     background-color: transparent;
-    border:0 
+    border:0
     /*border-left-color: transparent;
     border-right-color: transparent;
     border-top-color: transparent;
     border-bottom-color: transparent;*/
  }
 .panel-success{
-         border-color: transparent; 
+         border-color: transparent;
 }
 .list-group-item{
-     border: 0; 
+     border: 0;
 }
 
 span.alphabetic.disabled{
@@ -7325,157 +7325,15 @@ span.alphabetic:hover{
     background-color: #ffffff !important;
     color: #f5bb00 !important
 }
-/*bootstrap轮播 幻灯片 css 修改*/
-.header-section-new{
-    margin-top: 20px;display: block; justify-content: space-between; align-items: center;
+/*透明化 白色背景列*/
+.layout-boxed .wrapper{
+    background: transparent !important;
 }
-.banner-new {
-    /*width: 100%;*/
-   /* height: 54vw;*/
-    display: block;
+.header-section-new,.updates-slider,.hotmanga-page>div,.default-sidebar,.inner-page{
+    background: #ffffff
 }
-@media (min-width: 768px) {
-    .header-section-new{
-        display: flex;
-    }
-    .banner-new {
-    /*width: 38%;*/
-    /*height: 21vw;*/
-    display: flex;
-    align-items: center;
-}
-}
-
-.carousel-inner,.carousel-control.right,.carousel-control.left{
-        border-radius: 12px;
-}
-
-  div.item img{
-    width:100%;
-   }
-  div#carousel-generic{
-   
-  }
-.section-new{
-    height: 0;
-    padding-top: 28%;
-    display: none;
-}
-@media (min-width: 768px) {
-    .section-new{
-        display: block;
-    }
-}
-.cate-new {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-        padding: 0 15px;
-}
-.cate-item-new {
-    width: 45%;
- /*   height: 9.3vw;*/
-    /*width: 48%;
-    margin: 5px;*/
-    background-color: #F5BB00;
-    padding: 4px;
-    border-radius: 2px;
-    overflow: hidden;
-}
-.cate-img-new{
-        width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-/*动画*/
-@keyframes myAnimIn
-{
-    from {transform: scale(1);}
-    to {transform: scale(1.2);}
-}
- 
-@-webkit-keyframes myAnimIn /* Safari 与 Chrome */
-{
-   from {transform: scale(1);}
-    to {transform: scale(1.2);}
-}
-@keyframes myAnimOut
-{
-    from {transform: scale(1.2);}
-    to {transform: scale(1);}
-}
- 
-@-webkit-keyframes myAnimOut 
-{
-   from {transform: scale(1.2);}
-    to {transform: scale(1);}
-}
-
-.book-cover-anim-in-new{
-     animation: myAnimIn 0.6s;
-    -webkit-animation: myAnimIn 0.6s;
-    animation-fill-mode: forwards;
-    z-index: 2000;
-}
-.book-cover-anim-out-new{
-     animation: myAnimOut 0.6s;
-    -webkit-animation: myAnimOut 0.6s;
-    animation-fill-mode: forwards;
-    z-index: 2000;
-}
- .no-padding{
-    padding:0;
- }
- /*轮播幻灯*/
-
-.owl-carousel .item img {
-   /* height: 193px!important;
-    width: 145px!important;*/
-    border-top: 1px solid #F4F4F4
-}
-
-.owl-carousel .owl-item {
-    padding: 5px
-}
-
-#manga-hot-updates {
-    opacity: 1;
-    display: block;
-    background-color: #FFF;
-    padding: 0
-}
-
-#manga-hot-updates a.caption {
-    display: inline-block;
-    background-color: #4E4F4E;
-    color: #fff;
-    padding: 5px;
-    height: 30px;
-    width: 100%;
-    text-align: center;
-    font-size: 11px;
-    line-height: 16px;
-    overflow: hidden!important;
-    text-overflow: ellipsis!important;
-    white-space: nowrap!important
-}
-.updates-slider {
-    border-bottom: 5px solid #F5BB00;
-    padding: 15px 15px 0!important;
-}
-.owl-theme .owl-item .item a.caption{
-    background: #f5bb00;
-    color: #ffffff;
-    text-align: center;
-    width: 100%;
-    display: block;
-}
-.owl-theme .owl-nav.disabled + .owl-dots{
-    margin-top: 0 !important
+.panel{
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius:0;
 }

@@ -25,13 +25,33 @@ $(function(){
     $('a.thumbnail>img').mouseleave(function(){
         $(this).removeClass('book-cover-anim-in-new').addClass('book-cover-anim-out-new');
     });
+    /*首页幻灯片轮播*/
+    $("#carousel-generic").owlCarousel({
+    loop:true,
+    autoPlay: true,
+    responsiveClass:true,
+    itemElement:'div',
+    items:1,
+    responsive:{
+        768:{
+            items:1,
+            nav:false
+        },
+        800:{
+            items:1,
+            nav:false
+        }
+    }
+});
 
     /*首页幻灯片轮播*/
     $("#manga-hot-updates").owlCarousel({
-    loop:true,
-    autoPlay: true,
-    margin:10,
+    loop:true,//循环
+    autoPlay: true,//自动播放
+    margin:10,//边距
     responsiveClass:true,
+    animateOut:true,
+    animateOut:true,
     responsive:{
         0:{
             items:1,
@@ -55,24 +75,7 @@ $(function(){
         }
     }
 });
-    /*首页幻灯片轮播*/
-    $("#carousel-generic").owlCarousel({
-    loop:true,
-    autoPlay: true,
-    margin:10,
-    responsiveClass:true,
-    items:1,
-    responsive:{
-        768:{
-            items:1,
-            nav:false
-        },
-        800:{
-            items:1,
-            nav:false
-        }
-    }
-});
+
 
 })
 

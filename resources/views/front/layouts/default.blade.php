@@ -11,7 +11,7 @@
         <meta name="keywords" content="@yield('keywords')"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        @if(!is_null($settings['seo.google.webmaster']) || "" !== $settings['seo.google.webmaster'])        
+        @if(!is_null($settings['seo.google.webmaster']) || "" !== $settings['seo.google.webmaster'])
         <meta name="google-site-verification" content="{{$settings['seo.google.webmaster']}}" />
         @endif
 
@@ -72,42 +72,31 @@
             </div>
         </header>
 
-        <div class="wrapper">            
+        <div class="wrapper">
 
             <div class="@if(isset($themeOpts->boxed) && $themeOpts->boxed == 1) container @else container-fluid @endif">
+
+                 @yield('manga-slides-ads')
+                 @yield('mangaupdatesslides')
+
+
                 <!-- row -->
                 <div class="row">
-                    <div class="col-sm-12">
-                        @yield('allpage')
+                    <div class="col-md-8">
+                            @yield('allpage')
+                    </div>
+                    <div class="col-md-4">
+                        @yield('show-sidebar')
                     </div>
                 </div>
-                <!--/ row -->
-                <!-- 轮播图1 -->
-                 <!-- row -->
-                <div class="row header-section-new">
-                    <div class="col-xs-12 col-sm-6 banner-new">
-                        @yield('mangaslides')
-                    </div>
-                     <div class="col-xs-12 col-sm-6 section-new">
-                         @yield('mangasads')
-                    </div>
-                </div>
-                <!--/ row -->
-
-                <!-- row -->
-                <div class="row updates-slider">
-                     @yield('mangaupdatesslides')
-                </div>
-                <!--/ row -->
-
-
-
-                <!-- row -->
-                <div class="row"> 
+               <!--/ row -->
+                <div class="row">
                     <div class="col-sm-4 col-sm-push-8">
-                        @yield('sidebar')
+                            <div class="default-sidebar">
+                           @yield('sidebar')
+                           </div>
                     </div>
-                    <div class="col-sm-8 col-sm-pull-4">
+                    <div class="col-sm-8 col-sm-pull-4 hotmanga-page">
                         @yield('hotmanga')
 
                         <div class="col-sm-12">
@@ -120,9 +109,9 @@
         </div>
         <footer>
             <div class="container-fluid">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-sm-12 manga-footer">
-                        <div class="container"> 
+                        <div class="container">
                         <div class="row">
                             <div class="">
                                 <!-- menu -->
@@ -151,7 +140,7 @@
                     $(document).ready(function () {
                         var url = window.location.href;
                         var element = $('ul.nav a').filter(function () {
-                            if (url.charAt(url.length - 1) == '/') {                                
+                            if (url.charAt(url.length - 1) == '/') {
                                 url = url.substring(0, url.length - 1);
                             }
 
@@ -162,7 +151,7 @@
                         }
                         /*返回顶部js功能*/
                         if ($(".back-top").length) {
-                        var N = 50, 
+                        var N = 50,
                         _ = function() {
                             var t = $(window).scrollTop();
                             t > N ? $(".back-top").addClass("show") : $(".back-top").removeClass("show")

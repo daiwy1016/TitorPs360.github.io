@@ -40,9 +40,9 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => $adminPrefix, '
     Route::post('clear-cache', ['as' => 'admin.settings.cache.clear', 'uses' => 'SettingsController@clearCache']);
     Route::post('clear-downloads', ['as' => 'admin.settings.downloads.clear', 'uses' => 'SettingsController@clearDownloads']);
     Route::post('clear-views', ['as' => 'admin.settings.cache.clear-views', 'uses' => 'SettingsController@clearViews']);
-    //Route::post('clear-cache-config', ['as' => 'admin.settings.cache.clear-cache-config', 'uses' => 'SettingsController@clearCacheConfig']);
+    Route::post('clear-cache-config', ['as' => 'admin.settings.cache.clear-cache-config', 'uses' => 'SettingsController@clearCacheConfig']);
     Route::post('clear-loader-class', ['as' => 'admin.settings.cache.clear-loader-class', 'uses' => 'SettingsController@clearClassLoader']);
-    //Route::post('cache-config', ['as' => 'admin.settings.cache.cache-config', 'uses' => 'SettingsController@cacheConfig']);
+    Route::post('cache-config', ['as' => 'admin.settings.cache.cache-config', 'uses' => 'SettingsController@cacheConfig']);
     Route::post('cache-loader', ['as' => 'admin.settings.cache.cache-loader', 'uses' => 'SettingsController@cacheLoader']);
 });
 

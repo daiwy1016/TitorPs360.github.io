@@ -18,7 +18,7 @@ use Modules\User\Entities\User;
 
 /**
  * Frontpage Controller Class
- * 
+ *
  * PHP version 5.4
  *
  * @category PHP
@@ -32,7 +32,7 @@ class FrontController extends Controller
 
     /**
      * Load Homepage
-     * 
+     *
      * @return view
      */
     public function index()
@@ -41,7 +41,7 @@ class FrontController extends Controller
         $theme = Cache::get('theme');
         $variation = Cache::get('variation');
         $limit = json_decode($settings['site.pagination']);
-        
+
         $latestMangaUpdates = array();
         $latestMangaUpdatesResutlSet = array();
         $hotMangaList = array();
@@ -69,22 +69,22 @@ class FrontController extends Controller
                 }
 
                 if(array_key_exists($manga->manga_id, $latestMangaUpdates[$key])) {
-                    array_push($latestMangaUpdates[$key][$manga->manga_id]['chapters'],  
+                    array_push($latestMangaUpdates[$key][$manga->manga_id]['chapters'],
                         [
-                            'chapter_number' => $manga->chapter_number, 
+                            'chapter_number' => $manga->chapter_number,
                             'chapter_name' => $manga->chapter_name,
                             'chapter_slug' => $manga->chapter_slug
-                        ]); 
+                        ]);
                 } else {
                     $latestMangaUpdates[$key][$manga->manga_id] = [
-                        'manga_id' => $manga->manga_id, 
-                        'manga_name' => $manga->manga_name, 
+                        'manga_id' => $manga->manga_id,
+                        'manga_name' => $manga->manga_name,
                         'manga_slug' => $manga->manga_slug,
                                             'manga_status' => $manga->manga_status,
                         'hot' => $manga->hot,
                         'chapters' => [
                             [
-                                'chapter_number' => $manga->chapter_number, 
+                                'chapter_number' => $manga->chapter_number,
                                 'chapter_name' => $manga->chapter_name,
                                 'chapter_slug' => $manga->chapter_slug
                             ]
@@ -98,7 +98,7 @@ class FrontController extends Controller
                 array_push($hotMangaList, $manga);
             }
         }
-        
+
         // news
         if (is_module_enabled('Blog')) {
             $mangaNews = Post::where('posts.status', '1')
@@ -108,7 +108,7 @@ class FrontController extends Controller
                 ->with('manga')
                 ->get();
         }
-        
+
         // ads
         if (is_module_enabled('Ads')) {
             $homepage = Placement::where('page', '=', 'HOMEPAGE')->first();
@@ -117,10 +117,10 @@ class FrontController extends Controller
                 $ads[$ad->pivot->placement] = $ad->code;
             }
         }
-        
+
         // widgets
         $widgets = json_decode($settings['site.widgets']);
-        
+
         foreach ($widgets as $widget) {
             if($theme=="colorful"){
                 if ($widget->type == 'top_rates' && count($topManga) == 0) {
@@ -130,7 +130,7 @@ class FrontController extends Controller
                     }
                 }
             }
-            if ($widget->type == 'top_views' && count($topViewsManga) == 0) { 
+            if ($widget->type == 'top_views' && count($topViewsManga) == 0) {
                 if (is_module_enabled('Manga')) {
                     $topViewsManga = Manga::topViewsManga(strlen($widget->number)>0?$widget->number:10);
                 }
@@ -143,7 +143,7 @@ class FrontController extends Controller
         }
 
         return view(
-            'front.themes.' . $theme . '.index', 
+            'front.themes.' . $theme . '.index',
             [
                 "theme" => $theme,
                 "variation" => $variation,
@@ -163,22 +163,22 @@ class FrontController extends Controller
 
     /**
      * Generate sitemap.xml
-     * 
+     *
      * @return type
      */
     public function sitemap($type = "") {
         $page_limit = 500;
         $manga_page_pattern = "manga_page_";
-            
+
         if ($type == "") {
             // create root sitemap
             $sitemap = \App::make("sitemap");
             $sitemap->addSitemap(route('front.sitemap.adv', 'other_urls'), date(DATE_W3C));
-            
+
             $count = Manga::count();
             $res = floor($count / $page_limit);
             $pages = (int) $res + 1;
-            
+
             if ($pages > 1) {
                 for ($i=1; $i <= $pages; $i++) {
                     $sitemap->addSitemap(
@@ -196,7 +196,7 @@ class FrontController extends Controller
         } else if ($type == "other_urls") {
             // create others sitemap
             $sitemap = \App::make("sitemap");
-            
+
             $settings = Cache::get('options');
             $themeOpts = json_decode($settings['site.theme.options']);
 
@@ -226,7 +226,7 @@ class FrontController extends Controller
                 $sitemap->addSitemap(
                         route('front.sitemap.adv', $manga->slug), $manga->created_at);
             }
-            
+
             $data = $sitemap->generate('sitemapindex');
             return Response::make($data['content'], 200, $data['headers']);
         } else {
@@ -252,7 +252,7 @@ class FrontController extends Controller
 
     /**
      * Generate feed
-     * 
+     *
      * @return type
      */
     public function feed()
@@ -262,10 +262,10 @@ class FrontController extends Controller
 
         $settings = Cache::get('options');
         $limit = json_decode($settings['site.pagination'])->homepage;
-        
+
         // creating rss feed with our most recent chapters
         $chapters = Chapter::orderBy('created_at', 'desc')->take($limit)->get();
-        
+
         // set your feed's title, description, link, pubdate and language
         $feed->title = $settings['site.name'];
         $feed->description = $settings['site.description'];
@@ -294,7 +294,7 @@ class FrontController extends Controller
         $captcha = json_decode($settings['site.captcha']);
 
         return view(
-            'front.themes.' . $theme . '.contact', 
+            'front.themes.' . $theme . '.contact',
             [
                 "theme" => $theme,
                 "variation" => $variation,
@@ -303,7 +303,7 @@ class FrontController extends Controller
             ]
         );
     }
-    
+
     public function sendMessage()
     {
         $settings = Cache::get('options');

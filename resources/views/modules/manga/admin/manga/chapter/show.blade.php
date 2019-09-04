@@ -72,7 +72,7 @@
                     {{Form::label('slug', Lang::get('messages.admin.chapter.create.slug'))}}
                     {{Form::text('slug', $chapter->slug, array('class' => 'form-control', 'placeholder' => Lang::get('messages.admin.chapter.create.slug-placeholder')))}}
                     {!! $errors->first('slug', '<label class="error" for="slug">:message</label>') !!}
-                </div>              
+                </div>
 
                 <div class="form-group">
                     {{Form::label('volume', Lang::get('messages.admin.chapter.create.volume'))}}
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <!-- /.box-body -->
-            @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+            @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
             || Sentinel::hasAccess('manga.chapter.edit'))
             <div class="box-footer">
                 {{Form::submit(Lang::get('messages.admin.chapter.edit.update-chapter'), array('class' => 'btn btn-primary btn-xs pull-right'))}}
@@ -95,7 +95,7 @@
             <div class="box-header with-border">
                 <i class="fa fa-book fa-fw"></i> {{ Lang::get('messages.admin.chapter.edit.chapter-info', array('number' => $chapter->number, 'name' => $chapter->name)) }}
                 <div class="box-tools">
-                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                     || Sentinel::hasAccess('manga.chapter.edit'))
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -123,7 +123,7 @@
                         </ul>
                     </div>
                     @endif
-                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                     || Sentinel::hasAccess('manga.chapter.destroy'))
                     <div style="display: inline-block">
                         {{ Form::open(array('route' => array('admin.manga.chapter.destroy', $manga->id, $chapter->id), 'method' => 'delete')) }}
@@ -132,7 +132,7 @@
                     </div>
                     @endif
 
-                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                     || Sentinel::hasAccess('manga.chapter.edit'))
                     <div style="display: inline-block;">
                         {{ Form::open(array('route' => array('admin.manga.chapter.page.destroyPages', $manga->id, $chapter->id), 'method' => 'delete')) }}
@@ -142,7 +142,7 @@
                     </div>
                     @endif
 
-                    {{ link_to_route('admin.manga.show', Lang::get('messages.admin.chapter.back'), $manga->id, array('class' => 'btn btn-default btn-xs')) }}                
+                    {{ link_to_route('admin.manga.show', Lang::get('messages.admin.chapter.back'), $manga->id, array('class' => 'btn btn-default btn-xs')) }}
                 </div>
             </div>
             <!-- /.panel-heading -->
@@ -171,7 +171,7 @@
                     {{ Form::open(array('route' => 'admin.manga.chapter.uploadZIPFile', 'files' => 'true')) }}
                     <div class="form-group">
                         {{Form::label('zipfile', Lang::get('messages.admin.chapter.edit.zip-error'))}}
-                        @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                        @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                         || Sentinel::hasAccess('manga.chapter.edit'))
                         <button class="btn btn-success btn-xs pull-right" type="submit">
                             <i class="glyphicon glyphicon-upload"></i>
@@ -197,7 +197,7 @@
                         <textarea id="imagesUrl" class="form-control" rows="7"></textarea>
                     </div>
 
-                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                     || Sentinel::hasAccess('manga.chapter.edit'))
                     <button id="startCreatingBtn" type="button" class="btn btn-default" onclick="startCreatingPages()">
                         {{ Lang::get('messages.admin.chapter.edit.create-pages') }}
@@ -229,7 +229,7 @@
                             <tr>
                                 <td><input type="checkbox" value="{{ $page->id }}"/></td>
                                 <td>
-                                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                                     || Sentinel::hasAccess('manga.chapter.edit'))
                                     <span class="btn btn-primary btn-xs move-page" data-position="up"><i class="fa fa-arrow-up"></i></span>
                                     <span class="index">{{ $key+1 }}</span>
@@ -249,7 +249,7 @@
                                     {{ $page->slug }}
                                 </td>
                                 <td>
-                                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters')) 
+                                    @if(((Sentinel::check()->id==$chapter->user->id||Sentinel::check()->id==$manga->user->id) && Sentinel::hasAccess('manage_my_chapters'))
                                     || Sentinel::hasAccess('manga.chapter.edit'))
                                     {{ Form::open(array('route' => array('admin.manga.chapter.page.destroy', $manga->id, $chapter->id, $page->id), 'method' => 'delete')) }}
                                     {{ Form::submit(Lang::get('messages.admin.chapter.edit.delete-page'), array('class' => 'btn btn-danger btn-xs', 'onclick' => 'if (!confirm("'. Lang::get('messages.admin.chapter.edit.confirm-delete-page'). '")) {return false;}')) }}
@@ -267,7 +267,7 @@
                         </tr>
                         @endif
                     </table>
-                </div>                       
+                </div>
             </div>
             <!-- /.box-body -->
         </div>
@@ -327,14 +327,15 @@
             return;
         }
         //判断图片类型
-        urls = $.trim($('#imagesUrl').val()).split('\n');
+        //TODO:
+        /*urls = $.trim($('#imagesUrl').val()).split('\n');
         var patt = new RegExp(/\.(jpeg|jpg|gif|png|bmp)$/);
         for (i = 0; i < urls.length; i++) {
             if (!patt.test(urls[i])) {
                 alert('Some of your URLs are invalid! Only image files are allowed.');
                 return;
             }
-        }
+        }*/
 
         if ($('span#errors').length > 0) {
             $('span#errors').remove();

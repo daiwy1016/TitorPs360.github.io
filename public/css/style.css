@@ -78,7 +78,7 @@ ul {
 .span3 {
     display: block;
     float: left;
-    margin-left: 15px;
+    margin-right: 15px;
     width: 30%;
 }
 
@@ -921,3 +921,231 @@ a.thumbnail:hover{
 .back-to-top.show {
     opacity: 1
 }
+
+/*bootstrap轮播 幻灯片 css 修改*/
+.header-section-new,.updates-slider{
+    margin: 20px 0 20px 0;
+
+    padding-bottom: 20px;
+}
+.header-section-new{
+ padding-top: 20px;
+}
+
+.banner-new ,.section-new{
+    position: relative;
+
+}
+
+#carousel-generic-wrap{
+    width: 100%;
+    position: relative;
+    padding-bottom: 53.62%;
+    height: 0;
+}
+
+.carousel-inner,.carousel-control.right,.carousel-control.left{
+        border-radius: 12px;
+}
+
+  div.item img{
+    width:100%;
+   }
+  div#carousel-generic .owl-dots{
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+  }
+  div#carousel-generic  .owl-dots .owl-dot.active span, div#carousel-generic .owl-dots .owl-dot:hover span{
+    background:#f5bb00;
+  }
+
+.cate-new {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cate-item-new {
+    width: 45%;
+    background-color: #F5BB00;
+    padding: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.cate-img-new{
+        width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*动画*/
+@keyframes myAnimIn
+{
+    from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
+
+@-webkit-keyframes myAnimIn /* Safari 与 Chrome */
+{
+   from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
+@keyframes myAnimOut
+{
+    from {transform: scale(1.2);}
+    to {transform: scale(1);}
+}
+
+@-webkit-keyframes myAnimOut
+{
+   from {transform: scale(1.2);}
+    to {transform: scale(1);}
+}
+
+.book-cover-anim-in-new{
+     animation: myAnimIn 0.6s;
+    -webkit-animation: myAnimIn 0.6s;
+    animation-fill-mode: forwards;
+    z-index: 2000;
+}
+.book-cover-anim-out-new{
+     animation: myAnimOut 0.6s;
+    -webkit-animation: myAnimOut 0.6s;
+    animation-fill-mode: forwards;
+    z-index: 2000;
+}
+ .no-padding{
+    padding:0;
+ }
+ /*轮播幻灯*/
+.owl-carousel .item img {
+   /* height: 193px!important;
+    width: 145px!important;*/
+    border-top: 1px solid #F4F4F4
+}
+
+.owl-carousel .owl-item {
+    /*padding: 5px*/
+}
+
+#manga-hot-updates {
+    opacity: 1;
+    display: block;
+    background-color: #FFF;
+    padding: 0
+}
+
+#manga-hot-updates a.caption {
+    display: inline-block;
+    background-color: #4E4F4E;
+    color: #fff;
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important
+}
+.updates-slider {
+    border-bottom: 5px solid #F5BB00;
+    /*padding: 15px 15px 0!important;*/
+}
+.owl-theme .owl-item .item a.caption{
+    background: #f5bb00;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.dl-horizontal dt,.dl-horizontal dd{
+  color: #ffffff;
+}
+.dl-horizontal dd a{
+  color: #f5bb00;
+}
+/*漫画列表 修改*/
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        width: 110px;
+        text-align: left;
+    }
+    .dl-horizontal dd {
+        margin-left: 115px
+    }
+}
+.content-inner,.inner-page{
+    padding: 25px;
+ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.detail-book-info-new{
+
+    position: relative;
+
+    z-index: 1;
+}
+.content-inner{
+    background: #ececec;
+}
+
+
+.detail-book-info-bg{
+  -webkit-filter: blur(9px);
+    filter: blur(40px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    top: 0px;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.well{
+background-color:transparent;
+border:none;
+color: #ffffff;
+box-shadow:none;
+}
+.hotmanga-page>div{
+  min-height: 0;
+}
+.chapter-tip {
+    font-size: 13px;
+    border: 1px solid #ffe7af;
+    line-height: 2;
+    margin-bottom: 10px;
+    color: #000;
+    font-family: Tahoma;
+    text-align: center;
+}
+ul.chapters li{
+    width: 100%;
+    border-bottom: 0.5px solid #eee;
+    float: left;
+}
+
+@media (min-width: 768px) {
+ul.chapters li{
+    width: 45%;
+
+}
+ul.chapters {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+}
+

@@ -105,7 +105,29 @@ class FrontController extends Controller
         }
 
         array_multisort(array_keys($sortedChapters), SORT_DESC, SORT_NATURAL, $sortedChapters);
+        // widgets
+        $widgets = json_decode($settings['site.widgets']);
 
+        foreach ($widgets as $widget) {
+            if($theme=="colorful"){
+                if ($widget->type == 'top_rates' && count($topManga) == 0) {
+                    $topMangaResutlSet = Manga::topManga(strlen($widget->number)>0?$widget->number:10);
+                    foreach ($topMangaResutlSet as $manga) {
+                        array_push($topManga, $manga);
+                    }
+                }
+            }
+            if ($widget->type == 'top_views' && count($topViewsManga) == 0) {
+                if (is_module_enabled('Manga')) {
+                    $topViewsManga = Manga::topViewsManga(strlen($widget->number)>0?$widget->number:10);
+                }
+            }
+            if ($widget->type == 'tags') {
+                if (is_module_enabled('Manga')) {
+                    $tags = Tag::join('manga_tag','id','=','tag_id')->groupBy('tag_id')->pluck('name', 'slug')->all();
+                }
+            }
+        }
         return View::make(
             'front.themes.' . $theme . '.blocs.manga.show',
             [
@@ -117,7 +139,8 @@ class FrontController extends Controller
                 'chapters' => $sortedChapters,
                 'mangaOptions' => $mangaOptions,
                 'ads' => $ads,
-                'seo' => $advancedSEO
+                'seo' => $advancedSEO,
+                "widgets" => $widgets
             ]
         );
     }

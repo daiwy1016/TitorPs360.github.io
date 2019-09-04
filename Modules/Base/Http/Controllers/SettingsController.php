@@ -14,7 +14,7 @@ use Modules\Base\Entities\Menu;
 
 /**
  * Settings Controller Class
- * 
+ *
  * PHP version 5.4
  *
  * @category PHP
@@ -28,7 +28,7 @@ class SettingsController extends Controller
 
     /**
      * Constructor
-     * 
+     *
      */
     public function __construct()
     {
@@ -39,7 +39,7 @@ class SettingsController extends Controller
 
     /**
      * General page
-     * 
+     *
      * @return type
      */
     public function general()
@@ -52,31 +52,31 @@ class SettingsController extends Controller
         $languages = array();
         foreach ($languagesDirectories as $directory) {
             $language = substr(
-                $directory, 
+                $directory,
                 strrpos($directory, DIRECTORY_SEPARATOR) + 1
             );
-            
+
             $languages[$language] = $language;
         }
-	
+
         $pagination = json_decode($options['site.pagination']);
         $comment = json_decode($options['site.comment']);
         $captcha = json_decode($options['site.captcha']);
-        
+
         return view('base::admin.settings.general',
             [
-                "options" => $options, 
+                "options" => $options,
                 "languages" => $languages,
                 "pagination" => $pagination,
                 "comment" => $comment,
                 "captcha" => $captcha
             ]
-        );        
+        );
     }
 
     /**
      * Save General settings
-     * 
+     *
      * @return type
      */
     public function saveGeneral()
@@ -89,14 +89,14 @@ class SettingsController extends Controller
             if($option == "site.pagination" || $option == "site.comment") {
                 $value = json_encode($value);
             }
-            
+
             if($option == "site.captcha") {
                 if(!is_null($value['secret_key'])){setEnvironmentValue('NOCAPTCHA_SECRET', $value['secret_key']);}
                 if(!is_null($value['site_key'])){setEnvironmentValue('NOCAPTCHA_SITEKEY', $value['site_key']);}
-                
+
                 $value = json_encode($value);
             }
-            
+
             Option::findByKey($option)
                 ->update(
                     [
@@ -106,25 +106,25 @@ class SettingsController extends Controller
         }
 
         Session::put("sitename", $input['site_name']);
-        
+
         // clean cache
         Cache::forget('options');
-        
+
         return redirect()->back()
             ->withSuccess(Lang::get('messages.admin.settings.update.success'));
     }
 
     /**
      * SEO page
-     * 
+     *
      * @return type
      */
     public function seo()
     {
         $options = Option::pluck('value', 'key');
         $advanced = json_decode($options['seo.advanced']);
-        
-        return view('base::admin.settings.seo', 
+
+        return view('base::admin.settings.seo',
                 [
                     "options" => $options,
                     "advanced" => $advanced,
@@ -134,7 +134,7 @@ class SettingsController extends Controller
 
     /**
      * Save SEO settings
-     * 
+     *
      * @return type
      */
     public function saveSeo()
@@ -158,14 +158,14 @@ class SettingsController extends Controller
 
         // clean cache
         Cache::forget('options');
-        
+
         return redirect()->back()
             ->withSuccess(Lang::get('messages.admin.settings.update.success'));
     }
 
     /**
      * Theme page
-     * 
+     *
      * @return type
      */
     public function theme()
@@ -180,7 +180,7 @@ class SettingsController extends Controller
         $themes = array();
         foreach ($themesDirectories as $directory) {
             $themeName = substr(
-                $directory, 
+                $directory,
                 strrpos($directory, DIRECTORY_SEPARATOR) + 1
             );
 
@@ -211,7 +211,7 @@ class SettingsController extends Controller
 
         $themes['default - color variation'] = $bootswatch;
         $menus = Menu::where('status',1)->orderBy('id')->get()->pluck('title', 'id');
-        
+
         $readerThemes = [
             'cerulean' => 'Cerulean',
             'cosmo' => 'Cosmo',
@@ -231,8 +231,8 @@ class SettingsController extends Controller
             'yeti' => 'Yeti',
             'yellowbee' => 'YellowBee'
         ];
-        
-        return view('base::admin.settings.theme', 
+
+        return view('base::admin.settings.theme',
             [
                 "options" => $options,
                 "themes" => $themes,
@@ -245,7 +245,7 @@ class SettingsController extends Controller
 
     /**
      * Save Theme settings
-     * 
+     *
      * @return type
      */
     public function saveTheme()
@@ -258,7 +258,7 @@ class SettingsController extends Controller
             if($option == "site.theme.options") {
                 $value = json_encode($value);
             }
-            
+
             Option::findByKey($option)
                 ->update(
                     [
@@ -271,17 +271,17 @@ class SettingsController extends Controller
         Cache::forget('options');
         Cache::forget('theme');
         Cache::forget('variation');
-        
+
         return redirect()->back()
             ->withSuccess(Lang::get('messages.admin.settings.update.success'));
     }
-    
+
     public function widgets()
     {
         $options = Option::pluck('value', 'key');
         $widgets = json_decode($options['site.widgets']);
-        
-        return view('base::admin.settings.widgets', 
+
+        return view('base::admin.settings.widgets',
                 [
                     "widgets" => $widgets,
                 ]
@@ -309,17 +309,17 @@ class SettingsController extends Controller
 
         // clean cache
         Cache::forget('options');
-        
+
         return redirect()->back()
             ->withSuccess(Lang::get('messages.admin.settings.update.success'));
     }
-    
+
     public function cache()
     {
         $options = Option::pluck('value', 'key');
         $cache = json_decode($options['site.cache']);
-        
-        return view('base::admin.settings.cache', 
+
+        return view('base::admin.settings.cache',
                 [
                     "cache" => $cache,
                 ]
@@ -347,19 +347,19 @@ class SettingsController extends Controller
 
         // clean cache
         Cache::forget('options');
-        
+
         return redirect()->back()
             ->withSuccess(Lang::get('messages.admin.settings.update.success'));
     }
-    
+
     public function clearCache()
     {
         \Artisan::call('cache:clear');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess(Lang::get('messages.admin.settings.cache.cleared'));
     }
-    
+
     public function clearDownloads()
     {
         if (FileUploadController::deleteDownloadsDir()) {
@@ -369,43 +369,43 @@ class SettingsController extends Controller
             return redirect()->back();
         }
     }
-    
+
     public function clearViews()
     {
         \Artisan::call('view:clear');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess(Lang::get('messages.admin.settings.cache.cleared'));
     }
-    
+
     public function clearCacheConfig()
     {
         \Artisan::call('config:clear');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess(Lang::get('messages.admin.settings.cache.cleared'));
     }
-    
+
     public function clearClassLoader()
     {
         \Artisan::call('clear-compiled');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess(Lang::get('messages.admin.settings.cache.cleared'));
     }
-    
+
     public function cacheConfig()
     {
         \Artisan::call('config:cache');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess('Config Cached');
     }
-    
+
     public function cacheLoader()
     {
         \Artisan::call('optimize');
-        
+
         return redirect()->route('admin.index')
             ->withSuccess('Class Loader Optimized');
     }

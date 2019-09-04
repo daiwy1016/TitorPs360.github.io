@@ -24,6 +24,22 @@
                         {{ Form::close() }}
                     </li>
                     <li>
+                        {{ Form::open(array('route' => 'admin.settings.cache.clear-cache-config', 'role' => 'form')) }}
+                        <div class="form-group">
+                            <span class="cache-label">{{Lang::get('messages.admin.settings.cache.clear_cache_config_label')}}</span>
+                            <span class="pull-right">{{ Form::submit(Lang::get('messages.admin.settings.cache.clear_cache_config'), ['class' => 'btn btn-danger submit']) }}</span>
+                        </div>
+                        {{ Form::close() }}
+                    </li>
+                     <li>
+                        {{ Form::open(array('route' => 'admin.settings.cache.cache-config', 'role' => 'form')) }}
+                        <div class="form-group">
+                            <span class="cache-label">{{Lang::get('messages.admin.settings.cache.cache_config_label')}}</span>
+                            <span class="pull-right">{{ Form::submit(Lang::get('messages.admin.settings.cache.cache_config'), ['class' => 'btn btn-danger submit']) }}</span>
+                        </div>
+                        {{ Form::close() }}
+                    </li>
+                    <li>
                         {{ Form::open(array('route' => 'admin.settings.cache.clear-views', 'role' => 'form')) }}
                         <div class="form-group">
                             <span class="cache-label">{{Lang::get('messages.admin.settings.cache.clear_views_label')}}</span>
