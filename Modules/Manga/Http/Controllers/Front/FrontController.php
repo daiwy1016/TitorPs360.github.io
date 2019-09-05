@@ -130,6 +130,7 @@ class FrontController extends Controller
                 }
             }
         }
+
         return View::make(
             'front.themes.' . $theme . '.blocs.manga.show',
             [
@@ -375,10 +376,17 @@ class FrontController extends Controller
      * download zip file
      */
     public function downloadChapter($mangaSlug, $chapterId) {
-        $chapter = Chapter::find($chapterId);
-        $chapterSlug = $chapter->slug;
+        //判断全局设置是否可以下载漫画
+        $settings = Cache::get('options');
+        $mangaOptions = json_decode($settings['manga.options']);
+        if (isset($mangaOptions->allow_download_chapter) && $mangaOptions->allow_download_chapter == '1'){
+            $chapter = Chapter::find($chapterId);
+            $chapterSlug = $chapter->slug;
+            return FileUploadController::downloadChapter($mangaSlug, $chapterSlug);
+        }
+        return '无权下载！！';
 
-        return FileUploadController::downloadChapter($mangaSlug, $chapterSlug);
+
     }
 
     /**

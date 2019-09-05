@@ -42,6 +42,19 @@ score: score
 )) !!}
 
 @stop
+@section('manga-moblie-menu')
+<!-- 手机端 菜单 -->
+<div class="detail-back-new visible-xs">
+    <a href="javascript:window.history.back()" class=" detail-new-a">
+       <span class="glyphicon glyphicon-chevron-left global-back-icon" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="detail-home-new visible-xs">
+    <a href="/" class="detail-new-a">
+        <span class="glyphicon glyphicon-home global-back-icon" aria-hidden="true"></span>
+    </a>
+</div>
+@stop
 
 @section('allpage')
  <div class="content">
@@ -83,7 +96,7 @@ score: score
 <hr/>
 <div class="detail-book-info-new">
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-xs-5 col-sm-4">
         <div class="boxed">
             @if ($manga->cover)
             <img class="img-responsive" src='{{HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg")}}' alt='{{ $manga->name }}'/>
@@ -92,7 +105,7 @@ score: score
             @endif
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-xs-7 col-sm-8">
         <dl class="dl-horizontal">
             @if (!is_null($manga->type))
             <dt>{{ Lang::get('messages.front.manga.type') }}</dt>
@@ -113,13 +126,13 @@ score: score
             @endif
 
             @if(!is_null($manga->otherNames) && $manga->otherNames != "")
-            <dt>{{ Lang::get('messages.front.manga.other-names') }}</dt>
-            <dd>{{ $manga->otherNames }}</dd>
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.other-names') }}</dt>
+            <dd class="hidden-xs">{{ $manga->otherNames }}</dd>
             @endif
 
             @if (count($manga->authors)>0)
-            <dt>{{ Lang::get('messages.front.manga.author') }}</dt>
-            <dd>
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.author') }}</dt>
+            <dd class="hidden-xs">
                 @foreach($manga->authors as $index=>$author)
                 {{ link_to_route('front.manga.list.archive', trim($author->name), ['author', trim($author->name)]) }}
                 @if($index!=count($manga->authors)-1)
@@ -130,8 +143,8 @@ score: score
             @endif
 
             @if (count($manga->artists)>0)
-            <dt>{{ Lang::get('messages.front.manga.artist') }}</dt>
-            <dd>
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.artist') }}</dt>
+            <dd class="hidden-xs">
                 @foreach($manga->artists as $index=>$artist)
                 {{ link_to_route('front.manga.list.archive', trim($artist->name), ['artist', trim($artist->name)]) }}
                 @if($index!=count($manga->artists)-1)
@@ -142,8 +155,8 @@ score: score
             @endif
 
             @if(!is_null($manga->releaseDate) && $manga->releaseDate != "")
-            <dt>{{ Lang::get('messages.front.manga.released') }}</dt>
-            <dd>{{ $manga->releaseDate }}</dd>
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.released') }}</dt>
+            <dd class="hidden-xs">{{ $manga->releaseDate }}</dd>
             @endif
 
             @if (count($manga->categories)>0)
@@ -159,21 +172,21 @@ score: score
             @endif
 
             @if (count($manga->tags)>0)
-            <dt>{{ Lang::get('messages.front.manga.tags') }}</dt>
-            <dd class="tag-links">
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.tags') }}</dt>
+            <dd class="tag-links hidden-xs">
                 @foreach($manga->tags as $index=>$tag)
                 {{ link_to_route('front.manga.list.archive', $tag->name, ['tag', $tag->slug]) }}
                 @endforeach
             </dd>
             @endif
 
-            <br/>
+
 
             <dt>{{ Lang::get('messages.front.directory.views') }}</dt>
-            <dd>{{ $manga->views }}</dd>
-
-            <dt>{{ Lang::get('messages.front.manga.rating') }}</dt>
-            <dd>
+            <dd style="color: #9664D5">{{ $manga->views }}ºC</dd>
+<br/>
+            <dt class="hidden-xs">{{ Lang::get('messages.front.manga.rating') }}</dt>
+            <dd class="hidden-xs">
                 <div class="rating clearfix">
                     <?php echo (new \Escapeboy\Jraty\Jraty)->html($manga->id, $manga->name, HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg"), $seo = true); ?>
                     <?php $rating = (new \Escapeboy\Jraty\Jraty)->get($manga->id) ?>
@@ -250,7 +263,9 @@ score: score
 <div class="inner-page">
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => $manga->name)) }}</h2>
+
+        <h2 class="widget-title">{{ Lang::get('messages.front.manga.chapters', array('manganame' => '')) }}<p class="detail-chapters-header-font">状态:<span style="color: #9664D5">{{ $manga->releaseDate }}</span></p><a href="javascript:void(0);" class="detail-chapters-header-font detail-sort-new">正序</a></h2>
+
         <div class="chapter-tip cf">{{ Lang::get('messages.front.manga.chapters-tip', array('manganame' => $manga->name)) }}</div>
         <hr/>
 
@@ -414,14 +429,15 @@ score: score
 <script>
     $(document).ready(function () {
         $(".volume").click(function () {
-            volume = $(this).data('volume');
+           /* volume = $(this).data('volume');
             $('li.' + volume).toggle();
             $(this).find('i').toggleClass('fa-minus-square-o')
-                    .toggleClass('fa-plus-square-o');
+                    .toggleClass('fa-plus-square-o');*/
         });
 
         $(".download").click(function () {
-            //$(this).attr('disabled', 'disabled');
+            /*alert(1);
+            $(this).attr('disabled', 'disabled');*/
         });
     });
 </script>

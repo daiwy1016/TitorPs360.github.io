@@ -219,7 +219,6 @@ class Manga extends Model
                 AND c2.number = c1.number
                 AND c2.manga_id = m.id
             ORDER BY c1.created_at DESC";
-
         return DB::select($sql);
     }
 

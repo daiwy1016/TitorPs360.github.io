@@ -242,7 +242,7 @@
             </div>
         </header>
 
-        
+
 
         <div class="container-fluid">
             <div class="row">
@@ -755,16 +755,16 @@
             </div>
             @endif
         </div>
-                
+
         </div>
     </div>
 
     <!-- 底部 -->
     <footer>
             <div class="container-fluid">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-sm-12 manga-footer">
-                        <div class="container"> 
+                        <div class="container">
                         <div class="row">
                              <!-- menu -->
                             <div class="">
@@ -786,10 +786,6 @@
                                 </ul>
                                 </div>
                             </div>
-                               
-                               
-                                
-                            
                         </div>
                         </div>
                         <!-- 底部中间返回顶部 -->
@@ -802,10 +798,10 @@
                 @yield('js')
 
                 <script>
-                    $(document).ready(function () {                       
+                    $(document).ready(function () {
                         /*返回顶部js功能*/
                         if ($(".back-top").length) {
-                        var N = 50, 
+                        var N = 50,
                         _ = function() {
                             var t = $(window).scrollTop();
                             t > N ? $(".back-top").addClass("show") : $(".back-top").removeClass("show")
@@ -823,7 +819,7 @@
                         }
                     });
                 </script>
-            </div>            
+            </div>
         </footer>
         <!-- 返回顶部 -->
         <div class="back-to-top back-top show" title="Back to top"><i class="fa fa-chevron-up"></i></div>

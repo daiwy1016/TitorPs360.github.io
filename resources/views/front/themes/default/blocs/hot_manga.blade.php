@@ -1,6 +1,6 @@
 @section('hotmanga')
 @if (count($hotMangaList)>0)
-<div class="col-sm-12">
+<div class="col-xs-12">
     <h2 class="hotmanga-header"><i class="fa fa-star"></i>{{ Lang::get('messages.front.home.hot-updates') }}</h2>
     <hr/>
 
@@ -18,16 +18,21 @@
                     <img src='{{asset("images/no-image.png")}}' alt='{{ $manga->manga_name }}' />
                     @endif
                 </a>
+                <a href='{{ route("front.manga.reader", [$manga->manga_slug, $manga->chapter_slug]) }}' style="text-decoration: none">
                 <div class="well books-list-item-info-new grad-new">
-                    <p>
+                    <h2 class="books-list-item-info-update">{{ $manga->manga_name }}</h2>
+                    <div class="books-list-item-info-name ">            <span class="books-list-item-info-type">{{ $manga->chapter_name }}</span>            <span class="books-list-item-info-cps">第{{ $manga->chapter_number }}话</span>
+                    </div>
+                    </a>
+                   <!--  <p>
                         <i class="fa fa-book"></i>
                         {{ "#".$manga->chapter_number."  ".$manga->chapter_name }}
-                    </p>
+                    </p> -->
                 </div>
             </div></li>
         @endforeach
     </ul>
 </div>
-<div style="clear:both"></div>
+<div class="clear-both"></div>
 @endif
 @stop

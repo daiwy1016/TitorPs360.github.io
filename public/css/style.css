@@ -4,11 +4,12 @@
 .layout-boxed .container {
     max-width: 970px;
 }
+
 .layout-boxed .wrapper {
     background-color: #FFF;
     max-width: 970px;
     margin: 0 auto;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    /*box-shadow: 0 0 8px rgba(0,0,0,0.5);*/
     position: relative;
 }
 .navbar-default {
@@ -78,9 +79,16 @@ ul {
 .span3 {
     display: block;
     float: left;
-    margin-right: 15px;
-    width: 30%;
+    padding-right: 10px;
+    width: 50%;
+    margin-bottom: 15px
 }
+@media (min-width:992px) {
+.span3{
+  width: 30%;
+}
+}
+
 
 .hot-thumbnails .manga-name {
     left: 15px;
@@ -98,17 +106,18 @@ ul {
     padding: 0;
     width: 100%;
     line-height: 25px;*/
+   /* width: calc(100% - 8px);*/
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     height: 60px;
     position: absolute;
     left: 0px;
     bottom: 0px;
-    padding-left: 8px;
-    width: 100%;
-    padding-bottom: 8px;
-    padding-right: 8px;
-    padding-top: 70px;
+    padding:8px 8px 8px 8px;
+    margin-bottom:0;
+    z-index: 11;
+
 }
 
 .hot-thumbnails .well p {
@@ -901,7 +910,8 @@ section.comments .actions::after {
 
 /*修改首页排行榜 图片列表hover*/
 a.thumbnail:hover{
-  box-shadow: #dd4814 0px 0px 8px;
+  box-shadow: #f5bb00 0px 0px 8px;
+  border-radius: 4px
 }
 
 
@@ -933,17 +943,28 @@ a.thumbnail:hover{
 /*bootstrap轮播 幻灯片 css 修改*/
 .header-section-new,.updates-slider{
     margin: 20px 0 20px 0;
-
     padding-bottom: 20px;
 }
 .header-section-new{
  padding-top: 20px;
 }
-
 .banner-new ,.section-new{
     position: relative;
+}
+@media (max-width: 768px){
+  .header-section-new{
+ padding-top: 0px;
+}
+.header-section-new,.updates-slider{
+    margin: 0px 0 20px 0;
+}
+.banner-new ,.section-new{
+    padding: 0
 
 }
+}
+
+
 
 #carousel-generic-wrap{
     width: 100%;
@@ -992,6 +1013,12 @@ a.thumbnail:hover{
         width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0px;
+}
+@media (max-width: 768px){
+  .cate-img-new{
+    border-radius: 84px;
+  }
 }
 /*动画*/
 @keyframes myAnimIn
@@ -1084,24 +1111,42 @@ a.thumbnail:hover{
 .dl-horizontal dd a{
   color: #f5bb00;
 }
+.dl-horizontal dt{
+  width: 60px;
+   float:left;
+        clear: left;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+}
+ .dl-horizontal dd {
+        margin-left: 65px
+    }
 /*漫画列表 修改*/
 @media (min-width: 768px) {
     .dl-horizontal dt {
         width: 110px;
-        text-align: left;
+
     }
     .dl-horizontal dd {
         margin-left: 115px
     }
 }
+.content-inner-latest{
+    display: inline-block;
+}
 .content-inner,.inner-page,.content-inner-latest{
-    padding: 25px;
- box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 0px 25px 25px;
+ /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);*/
+}
+@media (max-width: 768px) {
+  .content-inner{
+    padding:40px 25px 25px;
+  }
 }
 .detail-book-info-new{
-
     position: relative;
-
     z-index: 1;
 }
 .content-inner{
@@ -1146,17 +1191,19 @@ ul.chapters li{
     border-bottom: 0.5px solid #eee;
     float: left;
 }
+ul.chapters {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 @media (min-width: 768px) {
 ul.chapters li{
     width: 45%;
 
 }
-ul.chapters {
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 }
 
 .books-list-item-cover {
@@ -1165,18 +1212,207 @@ ul.chapters {
     overflow: hidden;
 }
 .books-list-item-info-new {
-    position: absolute;
+    /*position: absolute;
     left: 0px;
     bottom: 0px;
     padding-left: 8px;
     width: 100%;
     padding-bottom: 8px;
     padding-right: 8px;
-    padding-top: 70px;
+    padding-top: 70px;*/
 }
 .grad-new {
     background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
     background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
     background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
     background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+}
+.books-list-item-info-update{
+  padding-top: 4px;
+    padding-bottom: 4px;
+    color: white;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(121, 121, 121, 0.5);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0
+}
+
+.books-list-item-info-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+}
+.photo{
+  cursor: pointer;
+}
+.books-list-item-info-type {
+    color: #08ff08;
+    width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.books-list-item-info-cps {
+    color: #08ff08;
+    padding: 2px;
+    width: 45%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+}
+
+@media (min-width:768px) {
+  .clear-both{
+clear:both
+}
+}
+.detail-chapters-header-font {
+    font-size: 14px;
+    color: #555;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    display: inline-block;
+    /* border-right: 0.5px solid #eee; */
+}
+@media (min-width: 768px){
+  .detail-chapters-header-font {
+    font-size: 16px;
+  }
+}
+.detail-sort-new{
+  float: right;
+
+}
+.detail-sort-new:hover{
+  text-decoration: none;
+}
+@media (max-width: 768px){
+.hotmanga-page{
+  margin-top: 20px
+}
+}
+/*底部修改*/
+.manga-footer {
+    background-color: #000;
+    margin-top: 100px;
+    padding: 30px 30px 30px 0
+}
+@media only screen and (max-width: 1024px) {
+  .manga-footer {
+    padding: 30px 15px 0 15px
+}
+}
+
+.manga-footer li{
+    float: left;
+}
+
+.manga-footer li::after {
+    content: "|";
+    padding: 0 10px;
+}
+
+.manga-footer li:last-child:after {
+  content: '';
+  padding: 0;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+     .footer-copyright,.footer-menu {
+     /*background: #000;*/
+ }
+    .footer-copy {
+        padding-bottom: 0
+    }
+
+    .footer-copyright,.footer-menu {
+        text-align: center;
+
+        position: relative;
+        z-index: 2;
+        display: block;
+     width: 100%;
+    }
+
+    .footer-copyright {
+        padding: 30px 30px 0;
+        margin: 50px 0px 0;
+        border-top: 1px solid rgba(255,255,255,.3)
+    }
+
+    .footer-menu {
+        padding: 20px 0 30px
+    }
+}
+/*底部 向上*/
+.footer-back-top {
+    position: absolute;
+    z-index: 1;
+    width: 80px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-right: 1px solid rgba(255,255,255,.3);
+    border-left: 1px solid rgba(255,255,255,.3)
+}
+
+.footer-back-top .fa {
+    display: block;
+    margin-bottom: 10px
+}
+
+/*手机端 章节目录 手机端菜单*/
+.detail-back-new {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 999999;
+}
+.detail-home-new {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 999999;
+}
+.detail-new-a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+    color: #fff
+}
+.global-back-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+       color: #333333;
+    }
 }

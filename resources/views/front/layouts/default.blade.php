@@ -73,6 +73,7 @@
         </header>
 
         <div class="wrapper">
+         @yield('manga-moblie-menu')
 
             <div class="@if(isset($themeOpts->boxed) && $themeOpts->boxed == 1) container @else container-fluid @endif">
 
@@ -99,7 +100,7 @@
                     <div class="col-sm-8 col-sm-pull-4 hotmanga-page">
                         @yield('hotmanga')
 
-                        <div class="col-sm-12">
+                        <div class="col-xs-12">
                             @yield('content')
                         </div>
                     </div>
@@ -113,22 +114,30 @@
                     <div class="col-sm-12 manga-footer">
                         <div class="container">
                         <div class="row">
+                            <!-- menu -->
                             <div class="">
-                                <!-- menu -->
-                                <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif">
+                                <div class="col-lg-6">
+                                    <div class="footer-copyright">
+                                        &copy;&nbsp;<?php echo date("Y") ?>&nbsp;
+                                        <a href="{{route('front.index')}}">{{$settings['site.name']}}</a>
+                                        &nbsp;
+                                        <a href="{{route('front.manga.contactUs')}}" title="{{Lang::get('messages.front.home.contact-us')}}"><i class="fa fa-envelope-square"></i></a>
+                                        &nbsp;
+                                        <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                     <ul class="@if(config('settings.orientation') === 'rtl') pull-left @else pull-right @endif footer-menu">
                                     @if(!is_null($themeOpts) && !is_null($themeOpts->footer_menu))
                                     {!! HelperController::renderMenu($themeOpts->footer_menu) !!}
                                     @endif
                                 </ul>
-                                &copy;&nbsp;<?php echo date("Y") ?>&nbsp;
-                                <a href="{{route('front.index')}}">{{$settings['site.name']}}</a>
-                                &nbsp;
-                                <a href="{{route('front.manga.contactUs')}}" title="{{Lang::get('messages.front.home.contact-us')}}"><i class="fa fa-envelope-square"></i></a>
-                                &nbsp;
-                                <a href="{{route('front.feed')}}" title="{{Lang::get('messages.front.home.rss-feed')}}" style="color: #FF9900"><i class="fa fa-rss-square"></i></a>
+                                </div>
                             </div>
                         </div>
                         </div>
+                        <!-- 底部中间返回顶部 -->
+                        <div class="footer-back-top back-top show"><i class="fa fa-chevron-up"></i>top</div>
                     </div>
                 </div>
 

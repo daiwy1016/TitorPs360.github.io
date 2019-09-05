@@ -4929,7 +4929,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-        color:#ffffff
+        color: #333333;
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
@@ -5416,7 +5416,7 @@ a.badge:hover,a.badge:focus {
 }
 
 a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active {
-    border-color: #dd4814
+    border-color: #f5bb00;
 }
 
 .thumbnail .caption {
@@ -6208,9 +6208,9 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 }
 
 .well {
-    min-height: 20px;
+    min-height: auto;
     padding: 19px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
     border-radius: 4px;
@@ -7254,6 +7254,18 @@ button.close {
     /*background: url(../images/boxed-bg.jpg) repeat fixed;*/
     background: url(./../../../images/background.jpg) top center fixed #3c3939 !important;
 }
+@media (max-width: 768px){
+  .layout-boxed .container {
+    padding: 0;
+  }
+  .layout-boxed {
+    /*background: url(../images/boxed-bg.jpg) repeat fixed;*/
+    background: #ffffff !important;
+}
+header{
+    padding: 0 15px;
+}
+}
 
 hr{
     border-top:none;
@@ -7268,6 +7280,19 @@ hr{
     padding: 0 0 15px;
     margin-bottom: 20px;
 }
+
+.widget-title p{
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px){
+.widget-title{
+    font-size: 14px;
+    padding: 0 0 15px;
+}
+
+}
+
  .panel-heading{
 position: relative;
  }
@@ -7343,4 +7368,10 @@ span.alphabetic:hover{
     padding-left: 15px;
     padding-right: 15px;
     border-radius:0;
+}
+.thumbnail{
+    padding: 0;
+}
+.hot-thumbnails .manga-name{
+display: none;
 }

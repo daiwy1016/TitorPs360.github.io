@@ -16,14 +16,15 @@ function alphabetFilter() {
 }
 
 
+var sortFlag=true;
 
 $(function(){
     /*鼠标悬浮上面时动画*/
-    $('a.books-list-item-cover img').mouseenter(function(){
-        $(this).removeClass('book-cover-anim-out-new').addClass('book-cover-anim-in-new');
+    $('.photo').mouseenter(function(){
+       $($(this).find('img')[0]).removeClass('book-cover-anim-out-new').addClass('book-cover-anim-in-new');
     });
-    $('a.books-list-item-cover img').mouseleave(function(){
-        $(this).removeClass('book-cover-anim-in-new').addClass('book-cover-anim-out-new');
+    $('.photo').mouseleave(function(){
+        $($(this).find('img')[0]).removeClass('book-cover-anim-in-new').addClass('book-cover-anim-out-new');
     });
     /*首页幻灯片轮播*/
     $("#carousel-generic").owlCarousel({
@@ -43,7 +44,6 @@ $(function(){
         }
     }
 });
-
     /*首页幻灯片轮播*/
     $("#manga-hot-updates").owlCarousel({
     loop:true,//循环
@@ -75,7 +75,26 @@ $(function(){
         }
     }
 });
+/*章节排序*/
+$('.detail-sort-new').click(function() {
+        if (sortFlag) {
+            //flex-flow: wrap-reverse;flex-direction: row-reverse;
+            $('.chapters').css({
+                'flex-flow': 'wrap-reverse',
+                'flex-direction':'row-reverse',
+            })
+            $('.detail-sort-new').text('反序');
+            sortFlag=false;
+        }else{
+            $('.chapters').css({
+                'flex-flow': 'wrap',
+                'flex-direction':'row',
+            })
+            $('.detail-sort-new').text('正序');
+            sortFlag=true;
+        }
 
+    })
 
 })
 

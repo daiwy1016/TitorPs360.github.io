@@ -555,9 +555,9 @@ ul {
 
 
 /*底部修改*/
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
      .footer-copyright,.footer-menu {
-     background: #000;
+     /*background: #000;*/
  }
     .footer-copy {
         padding-bottom: 0
@@ -565,14 +565,16 @@ ul {
 
     .footer-copyright,.footer-menu {
         text-align: center;
-       
+
         position: relative;
-        z-index: 2
+        z-index: 2;
+        display: block;
+     width: 100%;
     }
 
     .footer-copyright {
         padding: 30px 30px 0;
-        margin: 50px -30px 0;
+        margin: 50px 0px 0;
         border-top: 1px solid rgba(255,255,255,.3)
     }
 
