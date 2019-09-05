@@ -245,12 +245,67 @@
 
 
         <div class="container-fluid">
+            <!-- 手机端菜单 -->
+            <!-- 头部 -->
+            <div class="page-bar-new page-topbar-new">
+            <div class="page-bar-wrap page-topbar-wrap page-topbar-wrap-padd">
+                <div class="page-topbar-wrap-letf">
+                    <a href="javascript:window.history.back()" class="global-back page-topbar-wrap-letf-back">
+                        <span class="fa fa-angle-left global-back-icon fa-2x"></span>
+                    </a>
+                </div>
+                <div class="page-topbar-wrap-mid">
+                    <h1>1.結怨</h1>
+                </div>
+                <div class="page-topbar-wrap-right">
+                     
+                        <!-- <span class="fa fa-arrows-h global-back-icon fa-2x"></span> -->
+                    <!-- <span class="fa fa fa-arrows-v global-back-icon fa-2x"></span> -->
+                    
+                    <!-- <?php if ($settings['reader.type'] != 'ppp') { ?> <a href="#" id="readertype" data-v="ppp" class="reader-type-txt page-topbar-wrap-letf-back">下拉模式 </a><?php } ?>
+                    <?php if ($settings['reader.type'] != 'all') { ?> <a href="#" id="readertype" data-v="all" class="reader-type-txt page-topbar-wrap-letf-back">分页模式</a> <?php } ?> -->
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+            <!-- /头部 -->
+            <!-- 底部 -->
+            <div class="page-bar-new page-bottombar-new">
+            <div class="page-bar-wrap">
+                <a href="/" class="page-bar-wrap-bottom-item">
+                     <span class="fa fa-home global-back-icon fa-2x"></span>
+                </a>
+                
+                <a href="{{route('front.manga.show', array($current->manga_slug))}}" class="page-bar-wrap-bottom-item">
+                    <span class="fa fa-list-ul global-back-icon fa-2x"></span>
+                    
+                </a>
+                 
+                    <a   @if(isset($prevChapter))onclick="return prevChap();"@else onclick="alert('这是第一章');"@endif class="page-bar-wrap-bottom-item">
+                         <span class="fa fa-angle-left global-back-icon fa-2x"></span>
+                    </a>
+                
+                
+                 
+                    <a  @if(isset($nextChapter))onclick="return nextChap();"@else onclick="alert('这是最后一章');"@endif class="page-bar-wrap-bottom-item">
+                         <span class="fa fa-angle-right global-back-icon fa-2x"></span>
+                        
+                    </a>                
+                 
+            </div>
+        </div>
+            <!-- /底部 -->
+            <!-- /手机端菜单 -->
             <div class="row">
-                <div class="container" style="background: #fff;padding-top:25px ">
+                <div class="container reader-wrap" style="background: #fff;">
+
+                    <div class="row">
+                        <div class="col-xs-12">
             @if (!is_null($page))
             <div class="pager-cnt">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 no-padding">
                         @if(isset($prevChapter))
                         <ul class="pager pull-left" style="margin: 6px 0;">
                             <li class="previous">
@@ -329,7 +384,7 @@
                             {!!isset($ads['LEFT_WIDE_2'])?$ads['LEFT_WIDE_2']:''!!}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-8">
+                    <div class="col-xs-12 col-sm-8 no-padding">
                         <div id="all" style="<?php if ($settings['reader.type'] != 'all') { ?> display: none; <?php } ?>">
                             @foreach ($allPages as $onePage)
                             <img class="img-responsive" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src='@if($onePage->external == 0) {{HelperController::pageImageUrl($current->manga_slug,$current->chapter_slug,$onePage->page_image)}} @else {{$onePage->page_image}} @endif' alt='{{ $current->manga_name }}: Chapter {{$current->chapter_slug}} - Page {{$onePage->page_slug}}'/>
@@ -382,7 +437,7 @@
 
             <div class="pager-cnt">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 no-padding">
                         @if(isset($prevChapter))
                         <ul class="pager pull-left" style="margin: 6px 0;">
                             <li class="previous">
@@ -523,6 +578,41 @@
                     @else
                         preload(current_page);
                     @endif
+
+                    /*读取用户设置*/
+                    var readermode=window.localStorage.getItem('readertype');
+                    if(readermode && readermode=='ppp'){
+                        $('.pager-cnt .page-nav').show();
+                        $('div#ppp').show();
+                        $('div#all').hide();
+                        $('div#tips-footer').show();
+                        $(document).on('keyup', function (e) {
+                            KeyCheck(e);
+                        });
+                    }
+                    if(readermode && readermode=='all'){
+                        $('.pager-cnt .page-nav').hide();
+                        $('div#ppp').hide();
+                        $('div#all').show();
+                        $('div#tips-footer').hide();
+                        $(document).off('keyup');
+                        $("div#all img").unveil(300);
+                    }
+                    /*手机端，下拉模式 呼出菜单*/
+                    //导航栏动画
+                    $('#all').click(function() {
+                        $('.page-bar-new').fadeToggle("slow");
+                        
+                    });
+                    // 滚动时 菜单隐藏
+                    setTimeout(function() {
+                    $(window).scroll(function () {
+                        if ($('.page-bar-new').css("display")!='none') {
+                            $('.page-bar-new').fadeOut('slow');
+                        }
+                        
+                    })
+                }, 1500);
                 });
 
                 // refresh test
@@ -540,6 +630,10 @@
                     } else if (id > pages.length) {
                         if (next_chapter == "") {
                             alert('{{Lang::get("messages.front.reader.last-page-message")}}');
+                            if($(window).width()<=768){
+                                $('.page-bar-new').fadeIn("slow");
+                            }
+                            
                         } else {
                             location.href = next_chapter;
                         }
@@ -556,6 +650,9 @@
                     } else if (id <= 0) {
                         if (prev_chapter == "") {
                             alert('{{Lang::get("messages.front.reader.first-page-message")}}');
+                            if($(window).width()<=768){
+                                $('.page-bar-new').fadeIn("slow");
+                            }
                         } else {
                             location.href = prev_chapter;
                         }
@@ -684,6 +781,7 @@
                     $(document).on('keyup', function (e) {
                         KeyCheck(e);
                     });
+                    window.localStorage.setItem("readertype","ppp");
                 });
 
                 $('a#modeALL').click(function (e) {
@@ -694,6 +792,7 @@
                     $('div#tips-footer').hide();
                     $(document).off('keyup');
                     $("div#all img").unveil(300);
+                    window.localStorage.setItem("readertype","all");
                 });
 
                 $('select#page-list').on('change', function () {
@@ -754,6 +853,8 @@
                 </div>
             </div>
             @endif
+            </div>
+            </div>
         </div>
 
         </div>

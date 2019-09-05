@@ -57,6 +57,7 @@ score: score
 @stop
 
 @section('allpage')
+<div class="row">
  <div class="content">
  <div class="content-inner">
 
@@ -441,6 +442,7 @@ score: score
         });
     });
 </script>
+</div>
 </div>
 @stop
 @include('front.themes.'.$theme.'.blocs.show_sidebar')

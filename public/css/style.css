@@ -1140,7 +1140,14 @@ a.thumbnail:hover{
     padding: 0px 25px 25px;
  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);*/
 }
+
 @media (max-width: 768px) {
+  .content-inner,.inner-page,.content-inner-latest{
+    padding: 0;
+}
+  .content .row{
+    margin: 0
+  }
   .content-inner{
     padding:40px 25px 25px;
   }

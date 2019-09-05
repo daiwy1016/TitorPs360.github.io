@@ -7256,14 +7256,14 @@ button.close {
 }
 @media (max-width: 768px){
   .layout-boxed .container {
-    padding: 0;
+    /*padding: 0;*/
   }
   .layout-boxed {
     /*background: url(../images/boxed-bg.jpg) repeat fixed;*/
     background: #ffffff !important;
 }
 header{
-    padding: 0 15px;
+    /*padding: 0 15px;*/
 }
 }
 
@@ -7364,11 +7364,25 @@ span.alphabetic:hover{
 .header-section-new,.updates-slider,.hotmanga-page>div,.default-sidebar,.inner-page{
     background: #ffffff
 }
+
 .panel{
     padding-left: 15px;
     padding-right: 15px;
     border-radius:0;
 }
+@media (max-width: 768px){
+    .default-sidebar{
+    display: none
+}
+
+.panel{
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius:0;
+}
+}
+
+
 .thumbnail{
     padding: 0;
 }
