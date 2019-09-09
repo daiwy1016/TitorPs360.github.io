@@ -255,17 +255,12 @@
                     </a>
                 </div>
                 <div class="page-topbar-wrap-mid">
-                    <h1>1.結怨</h1>
+                    <h1>{{$chapter->chapter_number.'. '. $chapter->chapter_name}}</h1>
                 </div>
                 <div class="page-topbar-wrap-right">
-                     
-                        <!-- <span class="fa fa-arrows-h global-back-icon fa-2x"></span> -->
-                    <!-- <span class="fa fa fa-arrows-v global-back-icon fa-2x"></span> -->
-                    
-                    <!-- <?php if ($settings['reader.type'] != 'ppp') { ?> <a href="#" id="readertype" data-v="ppp" class="reader-type-txt page-topbar-wrap-letf-back">下拉模式 </a><?php } ?>
-                    <?php if ($settings['reader.type'] != 'all') { ?> <a href="#" id="readertype" data-v="all" class="reader-type-txt page-topbar-wrap-letf-back">分页模式</a> <?php } ?> -->
+                    <a id="readertype" class="global-back page-topbar-wrap-letf-back">
+                        <span class="fa  @if($settings['reader.type'] == 'ppp') fa-text-height @else fa-text-width @endif global-back-icon fa-2x"></span>
                     </a>
-                    
                 </div>
             </div>
         </div>
@@ -276,23 +271,23 @@
                 <a href="/" class="page-bar-wrap-bottom-item">
                      <span class="fa fa-home global-back-icon fa-2x"></span>
                 </a>
-                
+
                 <a href="{{route('front.manga.show', array($current->manga_slug))}}" class="page-bar-wrap-bottom-item">
                     <span class="fa fa-list-ul global-back-icon fa-2x"></span>
-                    
+
                 </a>
-                 
+
                     <a   @if(isset($prevChapter))onclick="return prevChap();"@else onclick="alert('这是第一章');"@endif class="page-bar-wrap-bottom-item">
                          <span class="fa fa-angle-left global-back-icon fa-2x"></span>
                     </a>
-                
-                
-                 
+
+
+
                     <a  @if(isset($nextChapter))onclick="return nextChap();"@else onclick="alert('这是最后一章');"@endif class="page-bar-wrap-bottom-item">
                          <span class="fa fa-angle-right global-back-icon fa-2x"></span>
-                        
-                    </a>                
-                 
+
+                    </a>
+
             </div>
         </div>
             <!-- /底部 -->
@@ -558,7 +553,7 @@
                         } else {
                             url = parseInt(State.url.substr(State.url.lastIndexOf('/') + 1));
                         }
-                        changePage(url, false, true);
+                        changePage(url, true, true);
                         document.title = title;
                     });
 
@@ -572,7 +567,7 @@
 
                     current_page = url;
                     History.pushState(null, null, base_url + '/' + current_page);
-                    changePage(current_page, false, true);
+                    changePage(current_page, true, true);
                     document.title = title;
                     update_numberPanel();
                     @else
@@ -580,29 +575,34 @@
                     @endif
 
                     /*读取用户设置*/
+
+                    var serverReaderType='<?php echo $settings['reader.type']; ?>';
                     var readermode=window.localStorage.getItem('readertype');
-                    if(readermode && readermode=='ppp'){
+                    if(!readermode){
+                         window.localStorage.setItem("readertype",serverReaderType);
+                    }
+                    if(readermode == 'all' && serverReaderType != 'all'){
+                        $('.pager-cnt .page-nav').hide();
+                        $($('a#readertype').find('span')[0]).removeClass('fa-text-height').addClass('fa-text-width');
+                    }
+                     if(readermode == 'ppp' && serverReaderType != 'ppp'){
                         $('.pager-cnt .page-nav').show();
-                        $('div#ppp').show();
-                        $('div#all').hide();
-                        $('div#tips-footer').show();
-                        $(document).on('keyup', function (e) {
-                            KeyCheck(e);
-                        });
+                        $($('a#readertype').find('span')[0]).removeClass('fa-text-height').addClass('fa-text-width');
+                    }
+                    if(readermode && readermode=='ppp'){
+                       readerppp();
                     }
                     if(readermode && readermode=='all'){
-                        $('.pager-cnt .page-nav').hide();
-                        $('div#ppp').hide();
-                        $('div#all').show();
-                        $('div#tips-footer').hide();
-                        $(document).off('keyup');
-                        $("div#all img").unveil(300);
+                        readerall();
                     }
                     /*手机端，下拉模式 呼出菜单*/
                     //导航栏动画
                     $('#all').click(function() {
-                        $('.page-bar-new').fadeToggle("slow");
-                        
+                         if(window.localStorage.getItem('readertype')=="all"){
+                             if($(window).width()<=768){
+                                $('.page-bar-new').fadeToggle("slow");
+                            }
+                        }
                     });
                     // 滚动时 菜单隐藏
                     setTimeout(function() {
@@ -610,11 +610,60 @@
                         if ($('.page-bar-new').css("display")!='none') {
                             $('.page-bar-new').fadeOut('slow');
                         }
-                        
+
                     })
                 }, 1500);
                 });
-
+                /*分页模式*/
+                function readerppp(){
+                        $('.pager-cnt').show();
+                        $('.pager-cnt .page-nav').show();
+                        $('.page-bar-new').fadeOut("slow");
+                        $('header').show();
+                        $('div#ppp').show();
+                        $('div#all').hide();
+                        $('div#tips-footer').show();
+                        $(document).off('keyup');
+                        $(document).on('keyup', function (e) {
+                            KeyCheck(e);
+                        });
+                        $($(this).find('span')[0]).removeClass('fa-text-height').addClass('fa-text-width');
+                }
+                /*下拉模式*/
+                function readerall(){
+                    if($(window).width()<=768){
+                                $('.pager-cnt').hide();
+                                $('.page-bar-new').fadeIn("slow");
+                                $('header').hide();
+                        }
+                        if($(window).width()>768){
+                                $('.pager-cnt').show();
+                                $('.page-bar-new').fadeOut("slow");
+                                $('header').show();
+                        }
+                        $('.pager-cnt .page-nav').hide();
+                        $('div#ppp').hide();
+                        $('div#all').show();
+                        $('div#tips-footer').hide();
+                        $(document).off('keyup');
+                        $("div#all img").unveil(300);
+                        $($(this).find('span')[0]).removeClass('fa-text-width').addClass('fa-text-width');
+                }
+                //窗口发生变化
+                    window.onresize =function(){
+                        if(window.localStorage.getItem('readertype')=="all"){
+                        if($(window).width()<=768){
+                                $('.pager-cnt').hide();
+                                $('.page-bar-new').fadeIn("slow");
+                                $('header').hide();
+                        }
+                        if($(window).width()>768){
+                                $('.pager-cnt').show();
+                                $('.page-bar-new').fadeOut("slow");
+                                $('header').show();
+                        }
+                        }
+                    }
                 // refresh test
                 @if($settings['reader.mode'] == 'noreload')
                 function changePage(id, noscroll, nohash)
@@ -630,10 +679,12 @@
                     } else if (id > pages.length) {
                         if (next_chapter == "") {
                             alert('{{Lang::get("messages.front.reader.last-page-message")}}');
-                            if($(window).width()<=768){
-                                $('.page-bar-new').fadeIn("slow");
-                            }
-                            
+                            if(window.localStorage.getItem('readertype')=="all"){
+                                if($(window).width()<=768){
+                                    $('.page-bar-new').fadeIn("slow");
+                                }
+                           }
+
                         } else {
                             location.href = next_chapter;
                         }
@@ -650,9 +701,12 @@
                     } else if (id <= 0) {
                         if (prev_chapter == "") {
                             alert('{{Lang::get("messages.front.reader.first-page-message")}}');
+                              if(window.localStorage.getItem('readertype')=="all"){
                             if($(window).width()<=768){
                                 $('.page-bar-new').fadeIn("slow");
+
                             }
+                             }
                         } else {
                             location.href = prev_chapter;
                         }
@@ -690,6 +744,21 @@
                     location.href = tab.join("");
                 }
                 @endif
+                /*章节阅读模式*/
+                $('a#readertype').click(function() {
+                    if (window.localStorage.getItem('readertype')=='all') {
+                        window.localStorage.setItem("readertype","ppp");
+                        readerppp();
+                        return;
+                    };
+                    if (window.localStorage.getItem('readertype')=='ppp') {
+
+                        window.localStorage.setItem("readertype","all");
+                        readerall();
+                         return;
+                    }
+
+                });
 
                 function nextPage() {
                     // refresh test
@@ -774,24 +843,13 @@
 
                 $('a#modePPP').click(function (e) {
                     e.preventDefault();
-                    $('.pager-cnt .page-nav').show();
-                    $('div#ppp').show();
-                    $('div#all').hide();
-                    $('div#tips-footer').show();
-                    $(document).on('keyup', function (e) {
-                        KeyCheck(e);
-                    });
+                    readerppp();
                     window.localStorage.setItem("readertype","ppp");
                 });
 
                 $('a#modeALL').click(function (e) {
                     e.preventDefault();
-                    $('.pager-cnt .page-nav').hide();
-                    $('div#ppp').hide();
-                    $('div#all').show();
-                    $('div#tips-footer').hide();
-                    $(document).off('keyup');
-                    $("div#all img").unveil(300);
+                    readerall();
                     window.localStorage.setItem("readertype","all");
                 });
 

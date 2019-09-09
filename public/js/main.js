@@ -94,7 +94,7 @@ $('.detail-sort-new').click(function() {
             sortFlag=true;
         }
 
-    })
+});
 
 })
 

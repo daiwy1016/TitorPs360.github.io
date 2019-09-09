@@ -2,8 +2,8 @@
 @foreach ($filter as $manga)
 <div class="col-sm-6">
     <div class="media" style="margin-bottom: 20px;">
-        <div class="media-left">
-            <a href="{{route('front.manga.show',$manga->slug)}}" class="thumbnail">
+        <div class="media-left photo">
+            <a href="{{route('front.manga.show',$manga->slug)}}" class="thumbnail" style="overflow: hidden;">
                 <img width="100" src='{{HelperController::coverUrl("$manga->slug/cover/cover_250x350.jpg")}}' alt='{{ $manga->name }}'>
             </a>
         </div>

@@ -632,14 +632,14 @@ ul {
   padding:0;
 }
 .reader-wrap{
-  padding-top:0px 
+  padding-top:0px
 }
-header,.pager-cnt,.reader-wrap .ads{
+.reader-wrap .ads{
   display: none
 }
 @media (min-width: 768px){
   .reader-wrap{
-  padding-top:25px 
+  padding-top:25px
 }
 header,.pager-cnt,.reader-wrap .ads{
   display: block;
@@ -693,13 +693,13 @@ header,.pager-cnt,.reader-wrap .ads{
     display: block;
     padding: 10px 10px;
 }
-@media screen and (max-width: 768px){
-  .page-bar-wrap-bottom-item {
+
+.page-bar-wrap-bottom-item {
     padding: 12px 12px;
 }
 .page-bar-new {
     height: 50px;
-    display: block;
+    display: none;
 }
 .page-bar-new {
     height: 60px;
@@ -736,4 +736,4 @@ header,.pager-cnt,.reader-wrap .ads{
 .reader-type-txt{
   color: #ffffff
 }
-}
+

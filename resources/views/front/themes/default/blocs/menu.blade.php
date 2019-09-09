@@ -7,7 +7,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button> 
+            </button>
             <h1 class="@if(!is_null($themeOpts) && !is_null($themeOpts->logo))navbar-brand-logo @endif" style="margin:0;">
                 <a class="navbar-brand" href="{{route('front.index')}}">
                     @if(!is_null($themeOpts) && !is_null($themeOpts->logo))
@@ -92,7 +92,7 @@
                             <a href="{{ route('logout') }}">
                                 <i class="fa fa-sign-out"></i> {{Lang::get('messages.front.home.logout')}}
                             </a>
-                        </li>  
+                        </li>
                         @endif
                     </ul>
                 </li>
@@ -121,7 +121,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <!-- menu -->
-            <ul class="nav navbar-nav @if(config('settings.orientation') === 'rtl') navbar-left @else navbar-right @endif">
+            <ul class="nav navbar-nav @if(config('settings.orientation') === 'rtl') navbar-right @else navbar-left @endif">
                 @if(!is_null($themeOpts) && !is_null($themeOpts->main_menu))
                 {!! HelperController::renderMenu($themeOpts->main_menu) !!}
                 @endif
