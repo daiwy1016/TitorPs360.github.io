@@ -58,7 +58,6 @@ class ReaderController extends Controller
                     return Chapter::currentChapter($mangaSlug, $chapterSlug);
                 }
             );
-        
         $sortedChapters = $this->cache
             ->remember("reader.$mangaSlug.chapters", (int)$cacheTime,
                 function () use ($mangaSlug) {

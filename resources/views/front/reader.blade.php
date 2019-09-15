@@ -250,7 +250,7 @@
             <div class="page-bar-new page-topbar-new">
             <div class="page-bar-wrap page-topbar-wrap page-topbar-wrap-padd">
                 <div class="page-topbar-wrap-letf">
-                    <a href="javascript:window.history.back()" class="global-back page-topbar-wrap-letf-back">
+                    <a href="{{route('front.manga.show', array($current->manga_slug))}}" class="global-back page-topbar-wrap-letf-back">
                         <span class="fa fa-angle-left global-back-icon fa-2x"></span>
                     </a>
                 </div>
@@ -259,7 +259,11 @@
                 </div>
                 <div class="page-topbar-wrap-right">
                     <a id="readertype" class="global-back page-topbar-wrap-letf-back">
-                        <span class="fa  @if($settings['reader.type'] == 'ppp') fa-text-height @else fa-text-width @endif global-back-icon fa-2x"></span>
+                        <span class=" fa-1x5 fa  @if($settings['reader.type'] == 'ppp') fa-text-height @else fa-text-width @endif global-back-icon"></span>
+                    </a>
+                    
+                    <a id="bookmark" class="global-back page-topbar-wrap-letf-back">
+                        <span class="fa-1x5 fa  fa-heart global-back-icon "></span>
                     </a>
                 </div>
             </div>
@@ -272,10 +276,7 @@
                      <span class="fa fa-home global-back-icon fa-2x"></span>
                 </a>
 
-                <a href="{{route('front.manga.show', array($current->manga_slug))}}" class="page-bar-wrap-bottom-item">
-                    <span class="fa fa-list-ul global-back-icon fa-2x"></span>
-
-                </a>
+                
 
                     <a   @if(isset($prevChapter))onclick="return prevChap();"@else onclick="alert('这是第一章');"@endif class="page-bar-wrap-bottom-item">
                          <span class="fa fa-angle-left global-back-icon fa-2x"></span>
@@ -288,9 +289,31 @@
 
                     </a>
 
+                    <a onclick="toggle_episode_list(); return false;" class="page-bar-wrap-bottom-item">
+                    <span class="fa fa-list-ul global-back-icon fa-2x"></span>
+
+                </a>
+
             </div>
         </div>
             <!-- /底部 -->
+            <!-- 作品目录 -->
+            <div class="episode_list_overlay" style="display: none;"></div>
+            <div class="episode_list_cont">
+      <ul class="episode_list" style="background:#333;">
+        <li></li>
+
+            @foreach ($chapters as $chapter)
+                <li class="episode_tr @if ($chapter->chapter_number == $current->chapter_number) on @endif"> 
+            <a href="{{route('front.manga.reader', array($current->manga_slug, $chapter->chapter_slug))}}"><img src="{{HelperController::coverUrl("$current->manga_slug/cover/cover_250x350.jpg")}}" onerror="this.src='{{asset("images/no-image.png")}}'" alt='{{ $current->manga_name }}'> <span>{{Lang::get('messages.front.reader.chaptre').' '.$chapter->chapter_number.': '. $chapter->chapter_name}}</span> 
+            </a></li>
+             @endforeach
+                
+
+                <li style="border:none;"></li>
+      </ul>
+    </div>
+            <!-- /作品目录 -->
             <!-- /手机端菜单 -->
             <div class="row">
                 <div class="container reader-wrap" style="background: #fff;">
@@ -584,10 +607,12 @@
                     if(readermode == 'all' && serverReaderType != 'all'){
                         $('.pager-cnt .page-nav').hide();
                         $($('a#readertype').find('span')[0]).removeClass('fa-text-height').addClass('fa-text-width');
+
                     }
                      if(readermode == 'ppp' && serverReaderType != 'ppp'){
                         $('.pager-cnt .page-nav').show();
                         $($('a#readertype').find('span')[0]).removeClass('fa-text-height').addClass('fa-text-width');
+
                     }
                     if(readermode && readermode=='ppp'){
                        readerppp();
@@ -610,12 +635,18 @@
                         if ($('.page-bar-new').css("display")!='none') {
                             $('.page-bar-new').fadeOut('slow');
                         }
+                        if(parseInt($('.episode_list_cont').css('right')) < 0){
+                            //show_episode_list();
+                        }else{
+                            hide_episode_list();
+                        }
 
                     })
                 }, 1500);
                 });
                 /*分页模式*/
                 function readerppp(){
+                        hide_episode_list();
                         $('.pager-cnt').show();
                         $('.pager-cnt .page-nav').show();
                         $('.page-bar-new').fadeOut("slow");
@@ -664,6 +695,38 @@
                         }
                         }
                     }
+                //作品目录开关
+                function toggle_episode_list(){
+                    if(parseInt($('.episode_list_cont').css('right')) < 0){
+                        show_episode_list();
+                    }else{
+                        hide_episode_list();
+                    }
+                }
+                $('.episode_list_overlay').on('click',function(){
+                   
+                    hide_episode_list();
+                });
+
+                //显示作品目录list
+                function show_episode_list(){
+                    $('.page-bar-new').fadeOut("slow");
+                    $(".back-top").removeClass("show")
+                    $('.episode_list_overlay').fadeIn(300);
+                    $('.episode_list_cont').animate({
+                    right: 0,
+                    }, 300, function() {
+                        $('.episode_list_cont').animate({scrollTop:($('.episode_list li.on').index())*$('.episode_list li.on').height()-64}, 100);
+                });
+                }
+                //隐藏作品目录list
+                function hide_episode_list(){
+                    $('.episode_list_overlay').fadeOut(300);
+                    $('.episode_list_cont').animate({
+                    right: -$('.episode_list_cont').width(),
+                    }, 300, function() {
+                });
+                }
                 // refresh test
                 @if($settings['reader.mode'] == 'noreload')
                 function changePage(id, noscroll, nohash)
@@ -844,6 +907,7 @@
                 $('a#modePPP').click(function (e) {
                     e.preventDefault();
                     readerppp();
+
                     window.localStorage.setItem("readertype","ppp");
                 });
 
@@ -899,6 +963,30 @@
                             },
                             error: function (response) {
                                 alert("{{Lang::get('messages.front.bookmarks.error')}}");
+                            }
+                        });
+                    });
+                    $('#bookmark').click(function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            url: "{{route('bookmark.store')}}",
+                            method: 'POST',
+                            data: {
+                                'manga_id': '{{$current->manga_id}}',
+                                'chapter_id': '{{$current->chapter_id}}',
+                                'page_slug': '{{$page->page_slug}}',
+                                '_token': '{{csrf_token()}}'
+                            },
+                            success: function (response) {
+                                if (response.status == 'ok') {
+                                     $('#bookmark span').css('color','#ff1100');
+                                    alert("{{Lang::get('messages.front.bookmarks.bookmarked')}}");
+                                    
+                                }
+                            },
+                            error: function (response) {
+                                alert("{{Lang::get('messages.front.bookmarks.error')}}");
+                                 
                             }
                         });
                     });

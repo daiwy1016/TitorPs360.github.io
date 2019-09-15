@@ -728,7 +728,7 @@ header,.pager-cnt,.reader-wrap .ads{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 20%;
+    width: 30%;
 }
 .global-back {
     padding: 12px;
@@ -737,3 +737,18 @@ header,.pager-cnt,.reader-wrap .ads{
   color: #ffffff
 }
 
+.fa-1x5{
+      font-size: 1.5em !important;
+}
+/*手机端 作品目录*/
+.episode_list_overlay{position:fixed;-webkit-backface-visibility: hidden;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:2;display:none;}
+.episode_list_cont{top:0;overflow:hidden; overflow-y:auto; position:fixed; -webkit-backface-visibility:hidden; right:-128px; height:100%; width:128px; z-index:3; background:#333; -webkit-overflow-scrolling:touch; -webkit-transform:translateZ(0px); -webkit-transform:translate3d(0,0,0); box-shadow:0 0 4px 0 rgba(0,0,0,.5);}
+.episode_list_cont ul.episode_list>li{width:100%;height:64px;position:relative}
+.episode_list_cont ul.episode_list>li:first-child,.episode_list_cont ul.episode_list>li:last-child{height:50px}
+.episode_list_cont ul.episode_list>li img{margin:4px 8px;height:56px}
+.episode_list_cont ul.episode_list>li span{position:absolute;top:0;left:8px;width:112px;height:16px;font-size:10px;background-color:rgba(0,0,0,.33);overflow:hidden;color:#fff;text-shadow:1px 1px 0 rgba(0,0,0,.66); text-indent:5px;}
+.episode_list_cont ul.episode_list>li.on span{background-color:rgba(256,60,60,.66)}
+
+.episode_list_cont ul.episode_list>li>a{
+  display: block;
+}
